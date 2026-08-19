@@ -2,12 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>Four Cognitive Dynamics</title>
+  <title>
+    Cognitive Dynamics — Four Interactive Simulations
+  </title>
+
+  <meta
+    name="description"
+    content="Cognitive Dynamics is an interactive laboratory exploring four visual simulations: Dialectical–Algorithmic, Causal–Deterministic, Holographical–Panoramic, and Vortical–Synergetic cognition."
+  >
+
+  <meta
+    name="keywords"
+    content="cognitive dynamics, cognitive simulation, interactive simulations, dialectical cognition, algorithmic cognition, causal deterministic cognition, holographical panoramic cognition, vortical synergetic cognition"
+  >
+
+  <meta
+    name="author"
+    content="Cognitive Dynamics"
+  >
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <meta
+    name="theme-color"
+    content="#05070b"
+  >
+
+  <meta
+    name="color-scheme"
+    content="dark"
+  >
+
+  <meta
+    name="application-name"
+    content="Cognitive Dynamics"
+  >
+
+  <!-- Open Graph -->
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="Cognitive Dynamics — Four Interactive Simulations"
+  >
+
+  <meta
+    property="og:description"
+    content="An interactive cognition laboratory exploring four distinct visual models of cognitive dynamics."
+  >
+
+  <meta
+    property="og:site_name"
+    content="Cognitive Dynamics"
+  >
+
+  <meta
+    property="og:locale"
+    content="en_US"
+  >
+
+  <!-- Twitter / X -->
+
+  <meta
+    name="twitter:card"
+    content="summary"
+  >
+
+  <meta
+    name="twitter:title"
+    content="Cognitive Dynamics — Four Interactive Simulations"
+  >
+
+  <meta
+    name="twitter:description"
+    content="Explore four interactive simulations of cognitive dynamics in a browser-based laboratory."
+  >
+
+  <!-- Canonical URL -->
+
+  <link
+    rel="canonical"
+    href="https://cognitive-dynamics.netlify.app/"
+  >
+
+  <!-- Fonts / libraries -->
 
   <script src="https://cdn.tailwindcss.com"></script>
 
@@ -16,40 +107,114 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
   >
 
+  <!-- Structured data -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Cognitive Dynamics",
+    "url": "https://cognitive-dynamics.netlify.app/",
+    "description": "An interactive laboratory exploring four visual simulations of cognitive dynamics.",
+    "inLanguage": "en",
+    "keywords": [
+      "cognitive dynamics",
+      "cognitive simulation",
+      "dialectical algorithmic cognition",
+      "causal deterministic cognition",
+      "holographical panoramic cognition",
+      "vortical synergetic cognition"
+    ]
+  }
+  </script>
+
   <style>
+
+    /* =========================================================
+       GLOBAL
+       ========================================================= */
+
     :root {
-      --bg: #05070b;
-      --panel: #0c1118;
-      --panel-2: #0f151e;
-      --border: #27313d;
-      --border-light: #344150;
-      --text: #e7ebf1;
-      --muted: #8792a3;
-      --dim: #4b5665;
-      --bright: #f4f6f9;
-      --accent: #cbd4df;
+
+      --background:
+        #05070b;
+
+      --background-soft:
+        #080c12;
+
+      --panel:
+        #0c1118;
+
+      --panel-light:
+        #101722;
+
+      --border:
+        #27313d;
+
+      --border-light:
+        #354252;
+
+      --text:
+        #e7ebf1;
+
+      --text-bright:
+        #f5f7fa;
+
+      --text-muted:
+        #8792a3;
+
+      --text-dim:
+        #566171;
+
+      --accent:
+        #dce4ed;
+
     }
+
 
     * {
-      box-sizing: border-box;
+      box-sizing:
+        border-box;
     }
+
 
     html {
-      min-height: 100%;
-      background: var(--bg);
+
+      min-height:
+        100%;
+
+      background:
+        var(--background);
+
+      scroll-behavior:
+        smooth;
     }
 
+
     body {
-      margin: 0;
-      min-height: 100vh;
+
+      margin:
+        0;
+
+      min-height:
+        100vh;
+
       background:
         radial-gradient(
-          circle at 50% -10%,
-          rgba(105, 125, 150, 0.09),
-          transparent 35%
+          circle at 50% -15%,
+          rgba(
+            110,
+            130,
+            155,
+            0.10
+          ),
+          transparent 38%
         ),
-        var(--bg);
-      color: var(--text);
+        var(--background);
+
+      color:
+        var(--text);
+
       font-family:
         Inter,
         ui-sans-serif,
@@ -60,17 +225,37 @@
         sans-serif;
     }
 
+
     button,
     input,
     select {
-      font: inherit;
+
+      font:
+        inherit;
     }
+
 
     button {
-      cursor: pointer;
+
+      cursor:
+        pointer;
     }
 
+
+    button:focus-visible,
+    input:focus-visible {
+
+      outline:
+        2px solid
+        #aab8c8;
+
+      outline-offset:
+        2px;
+    }
+
+
     .mono {
+
       font-family:
         ui-monospace,
         SFMono-Regular,
@@ -81,145 +266,403 @@
         monospace;
     }
 
+
     .glass {
-      background: rgba(8, 12, 18, 0.9);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+
+      background:
+        rgba(
+          8,
+          12,
+          18,
+          0.90
+        );
+
+      backdrop-filter:
+        blur(16px);
+
+      -webkit-backdrop-filter:
+        blur(16px);
     }
 
+
+    /* =========================================================
+       NAVIGATION
+       ========================================================= */
+
     .simulation-tab {
+
       transition:
         background-color 0.18s ease,
         color 0.18s ease,
-        border-color 0.18s ease;
+        border-color 0.18s ease,
+        transform 0.12s ease;
     }
+
 
     .simulation-tab:hover {
-      background: #151c25;
+
+      background:
+        #151c25;
     }
+
+
+    .simulation-tab:active {
+
+      transform:
+        translateY(1px);
+    }
+
 
     .simulation-tab.active {
-      color: #070a0e;
-      background: #e8edf3;
-      border-color: #e8edf3;
+
+      color:
+        #070a0e;
+
+      background:
+        #e8edf3;
+
+      border-color:
+        #e8edf3;
     }
 
+
+    /* =========================================================
+       CONTROLS
+       ========================================================= */
+
     .control-button {
-      color: #dbe3ed;
-      background: #0c1118;
-      border: 1px solid #293441;
+
+      color:
+        #dbe3ed;
+
+      background:
+        #0c1118;
+
+      border:
+        1px solid
+        #293441;
+
       transition:
         background-color 0.18s ease,
         border-color 0.18s ease,
         transform 0.12s ease;
     }
 
+
     .control-button:hover {
-      background: #151d27;
-      border-color: #455263;
+
+      background:
+        #151d27;
+
+      border-color:
+        #455263;
     }
+
 
     .control-button:active {
-      transform: translateY(1px);
+
+      transform:
+        translateY(1px);
     }
+
 
     .control-input {
-      color: #dbe3ed;
-      background: #0b1017;
-      border: 1px solid #293441;
-      outline: none;
+
+      color:
+        #dbe3ed;
+
+      background:
+        #0b1017;
+
+      border:
+        1px solid
+        #293441;
+
+      outline:
+        none;
     }
+
+
+    .control-input::placeholder {
+
+      color:
+        #586575;
+    }
+
 
     .control-input:focus {
-      border-color: #68788b;
-      box-shadow: 0 0 0 2px rgba(130, 150, 175, 0.1);
+
+      border-color:
+        #68788b;
+
+      box-shadow:
+        0 0 0 2px
+        rgba(
+          130,
+          150,
+          175,
+          0.10
+        );
     }
+
+
+    /* =========================================================
+       CANVAS
+       ========================================================= */
 
     #canvas {
-      display: block;
-      width: 100%;
-      height: 100%;
+
+      display:
+        block;
+
+      width:
+        100%;
+
+      height:
+        100%;
     }
+
+
+    /* =========================================================
+       METRICS
+       ========================================================= */
 
     .metric-cell:last-child {
-      border-right: none;
+
+      border-right:
+        none;
     }
+
+
+    /* =========================================================
+       SCROLLBAR
+       ========================================================= */
 
     .scrollbar::-webkit-scrollbar {
-      width: 7px;
-      height: 7px;
+
+      width:
+        7px;
+
+      height:
+        7px;
     }
+
 
     .scrollbar::-webkit-scrollbar-track {
-      background: #080c11;
+
+      background:
+        #080c11;
     }
+
 
     .scrollbar::-webkit-scrollbar-thumb {
-      background: #27313d;
-      border-radius: 10px;
+
+      background:
+        #27313d;
+
+      border-radius:
+        10px;
     }
+
 
     .scrollbar::-webkit-scrollbar-thumb:hover {
-      background: #3b4857;
+
+      background:
+        #3b4857;
     }
+
+
+    /* =========================================================
+       SCREEN-READER TEXT
+       ========================================================= */
+
+    .sr-only {
+
+      position:
+        absolute;
+
+      width:
+        1px;
+
+      height:
+        1px;
+
+      padding:
+        0;
+
+      margin:
+        -1px;
+
+      overflow:
+        hidden;
+
+      clip:
+        rect(
+          0,
+          0,
+          0,
+          0
+        );
+
+      white-space:
+        nowrap;
+
+      border:
+        0;
+    }
+
+
+    /* =========================================================
+       ANIMATION
+       ========================================================= */
 
     .fade-in {
-      animation: fadeIn 0.3s ease both;
+
+      animation:
+        fadeIn
+        0.3s
+        ease
+        both;
     }
+
 
     @keyframes fadeIn {
+
       from {
-        opacity: 0;
-        transform: translateY(3px);
+
+        opacity:
+          0;
+
+        transform:
+          translateY(3px);
       }
+
       to {
-        opacity: 1;
-        transform: translateY(0);
+
+        opacity:
+          1;
+
+        transform:
+          translateY(0);
       }
     }
 
-    @media (max-width: 640px) {
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (
+      max-width: 640px
+    ) {
+
       .simulation-tab {
-        font-size: 10px;
+
+        font-size:
+          10px;
       }
+
     }
+
   </style>
+
 </head>
+
 
 <body>
 
   <!-- =========================================================
-       APPLICATION SHELL
+       APPLICATION
        ========================================================= -->
 
-  <div class="min-h-screen flex flex-col">
+  <div
+    id="application"
+    class="min-h-screen flex flex-col"
+  >
 
-    <!-- HEADER -->
-    <header class="glass sticky top-0 z-50 border-b border-slate-800/80">
+    <!-- =======================================================
+         HEADER
+         ======================================================= -->
+
+    <header
+      class="
+        glass
+        sticky
+        top-0
+        z-50
+        border-b
+        border-slate-800/80
+      "
+    >
 
       <div
-        class="max-w-[1600px] mx-auto w-full px-4 sm:px-6 py-4"
+        class="
+          max-w-[1600px]
+          mx-auto
+          w-full
+          px-4
+          sm:px-6
+          py-4
+        "
       >
 
         <div
-          class="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-4"
+          class="
+            flex
+            flex-col
+            xl:flex-row
+            xl:items-center
+            xl:justify-between
+            gap-4
+          "
         >
 
+          <!-- BRAND -->
+
           <div>
+
             <div
-              class="mono text-[10px] sm:text-[11px] tracking-[0.28em] uppercase text-slate-500"
+              class="
+                mono
+                text-[10px]
+                sm:text-[11px]
+                tracking-[0.28em]
+                uppercase
+                text-slate-500
+              "
             >
               Interactive Cognition Laboratory
             </div>
 
+
             <h1
-              class="mt-1 text-xl sm:text-2xl font-semibold tracking-tight text-slate-100"
+              class="
+                mt-1
+                text-xl
+                sm:text-2xl
+                font-semibold
+                tracking-tight
+                text-slate-100
+              "
             >
-              Four Cognitive Dynamics
+              Cognitive Dynamics
             </h1>
+
+
+            <p class="sr-only">
+              Cognitive Dynamics is an interactive laboratory
+              containing four simulations:
+              Dialectical–Algorithmic,
+              Causal–Deterministic,
+              Holographical–Panoramic,
+              and Vortical–Synergetic cognition.
+            </p>
+
           </div>
 
-          <!-- TABS -->
+
+          <!-- NAVIGATION -->
+
           <nav
             id="simulationTabs"
             class="
@@ -237,6 +680,7 @@
           >
 
             <button
+              type="button"
               class="
                 simulation-tab
                 active
@@ -250,11 +694,15 @@
                 sm:text-sm
               "
               data-simulation="da"
+              aria-label="Open Dialectical Algorithmic simulation"
+              aria-pressed="true"
             >
               Dialectical–Algorithmic
             </button>
 
+
             <button
+              type="button"
               class="
                 simulation-tab
                 whitespace-nowrap
@@ -268,11 +716,15 @@
                 text-slate-400
               "
               data-simulation="cd"
+              aria-label="Open Causal Deterministic simulation"
+              aria-pressed="false"
             >
               Causal–Deterministic
             </button>
 
+
             <button
+              type="button"
               class="
                 simulation-tab
                 whitespace-nowrap
@@ -286,11 +738,15 @@
                 text-slate-400
               "
               data-simulation="hp"
+              aria-label="Open Holographical Panoramic simulation"
+              aria-pressed="false"
             >
               Holographical–Panoramic
             </button>
 
+
             <button
+              type="button"
               class="
                 simulation-tab
                 whitespace-nowrap
@@ -304,6 +760,8 @@
                 text-slate-400
               "
               data-simulation="vs"
+              aria-label="Open Vortical Synergetic simulation"
+              aria-pressed="false"
             >
               Vortical–Synergetic
             </button>
@@ -317,8 +775,13 @@
     </header>
 
 
-    <!-- MAIN -->
+    <!-- =======================================================
+         MAIN CONTENT
+         ======================================================= -->
+
     <main
+      id="main-content"
+      aria-label="Cognitive Dynamics simulations"
       class="
         flex-1
         w-full
@@ -341,9 +804,13 @@
           shadow-2xl
           shadow-black/30
         "
+        aria-labelledby="simulationTitle"
       >
 
-        <!-- SIMULATION HEADER -->
+        <!-- ===================================================
+             SIMULATION HEADER
+             =================================================== -->
+
         <div
           class="
             px-4
@@ -364,37 +831,71 @@
 
             <div
               id="simulationKicker"
-              class="mono text-[9px] tracking-[0.25em] uppercase text-slate-600"
+              class="
+                mono
+                text-[9px]
+                tracking-[0.25em]
+                uppercase
+                text-slate-600
+              "
             >
-              CONCEPTUAL VISUALIZATION
+              ORDERED CONTRADICTION-DRIVEN PROCESS
             </div>
+
 
             <h2
               id="simulationTitle"
-              class="mt-1 text-base sm:text-lg font-semibold text-slate-100"
+              class="
+                mt-1
+                text-base
+                sm:text-lg
+                font-semibold
+                text-slate-100
+              "
             >
               Dialectical–Algorithmic Cognition
             </h2>
 
+
             <p
               id="simulationDescription"
-              class="mt-1 text-xs leading-5 text-slate-500 max-w-4xl"
+              class="
+                mt-1
+                text-xs
+                leading-5
+                text-slate-500
+                max-w-4xl
+              "
             >
-              Ordered contradiction-driven process.
+              State definition → thesis and antithesis →
+              explicit contrast → contradiction →
+              synthesis → rule → ordered algorithm →
+              execution → feedback.
             </p>
 
           </div>
 
+
           <!-- CONTROLS -->
+
           <div
             id="simulationControls"
-            class="flex flex-wrap items-center gap-2"
+            class="
+              flex
+              flex-wrap
+              items-center
+              gap-2
+            "
+            aria-label="Simulation controls"
           ></div>
 
         </div>
 
 
-        <!-- CANVAS -->
+        <!-- ===================================================
+             CANVAS
+             =================================================== -->
+
         <div
           id="canvasContainer"
           class="
@@ -409,13 +910,16 @@
 
           <canvas
             id="canvas"
-            aria-label="Interactive cognitive simulation"
+            aria-label="Interactive cognitive simulation visualization"
           ></canvas>
 
         </div>
 
 
-        <!-- METRICS -->
+        <!-- ===================================================
+             METRICS
+             =================================================== -->
+
         <div
           id="metrics"
           class="
@@ -425,13 +929,18 @@
             border-t
             border-slate-800
           "
+          aria-label="Simulation metrics"
         ></div>
 
       </section>
 
 
-      <!-- FOOTER / HINT -->
+      <!-- =====================================================
+           INFORMATION / KEYBOARD HINT
+           ===================================================== -->
+
       <div
+        id="simulationHint"
         class="
           mt-3
           px-1
@@ -440,8 +949,49 @@
           leading-5
           text-slate-600
         "
-        id="simulationHint"
       ></div>
+
+
+      <!-- =====================================================
+           ACCESSIBILITY INFORMATION
+           ===================================================== -->
+
+      <div class="sr-only">
+
+        <h2>
+          About the four Cognitive Dynamics simulations
+        </h2>
+
+        <p>
+          The Dialectical–Algorithmic simulation represents
+          cognition as an ordered contradiction-driven process
+          moving from state definition through thesis,
+          antithesis, contradiction, synthesis, rule,
+          algorithm, execution and feedback.
+        </p>
+
+        <p>
+          The Causal–Deterministic simulation represents
+          analytic and deductive cognition through observation,
+          analysis, premises, causal chains, mechanisms,
+          deductions, consequences and a singular result.
+        </p>
+
+        <p>
+          The Holographical–Panoramic simulation keeps one
+          central object fixed while changing the perspective,
+          projection, criterion and relation through which
+          the object is examined.
+        </p>
+
+        <p>
+          The Vortical–Synergetic simulation represents
+          fluctuation, circulation, alternative generation,
+          screening, feedback and emergent concentration
+          around an attractor.
+        </p>
+
+      </div>
 
     </main>
 
@@ -449,7 +999,7 @@
 
 
   <!-- =========================================================
-       APPLICATION JAVASCRIPT
+       JAVASCRIPT
        ========================================================= -->
 
   <script>
@@ -458,60 +1008,82 @@
 
 
     /* =========================================================
-       DOM
+       DOM REFERENCES
        ========================================================= */
 
     const canvas =
-      document.getElementById("canvas");
+      document.getElementById(
+        "canvas"
+      );
 
     const ctx =
-      canvas.getContext("2d");
-
-    const canvasContainer =
-      document.getElementById("canvasContainer");
+      canvas.getContext(
+        "2d"
+      );
 
     const tabs =
       Array.from(
-        document.querySelectorAll(".simulation-tab")
+        document.querySelectorAll(
+          ".simulation-tab"
+        )
       );
 
     const titleElement =
-      document.getElementById("simulationTitle");
+      document.getElementById(
+        "simulationTitle"
+      );
 
     const descriptionElement =
-      document.getElementById("simulationDescription");
+      document.getElementById(
+        "simulationDescription"
+      );
 
     const kickerElement =
-      document.getElementById("simulationKicker");
+      document.getElementById(
+        "simulationKicker"
+      );
 
     const controlsElement =
-      document.getElementById("simulationControls");
+      document.getElementById(
+        "simulationControls"
+      );
 
     const metricsElement =
-      document.getElementById("metrics");
+      document.getElementById(
+        "metrics"
+      );
 
     const hintElement =
-      document.getElementById("simulationHint");
+      document.getElementById(
+        "simulationHint"
+      );
 
 
     /* =========================================================
-       GLOBAL CANVAS STATE
+       CANVAS STATE
        ========================================================= */
 
-    let canvasWidth = 1200;
-    let canvasHeight = 700;
-    let deviceScale = 1;
+    let canvasWidth =
+      1200;
 
-    let activeSimulation = "da";
+    let canvasHeight =
+      700;
+
+    let deviceScale =
+      1;
+
+    let activeSimulation =
+      "da";
 
     let previousTime =
       performance.now();
 
-    let uiRefreshClock = 0;
+    let uiRefreshClock =
+      0;
 
 
     /* =========================================================
-       UTILITY FUNCTIONS
+       BASIC UTILITIES
        ========================================================= */
 
     function clamp(
@@ -519,19 +1091,14 @@
       minimum = 0,
       maximum = 1
     ) {
+
       return Math.max(
         minimum,
-        Math.min(maximum, value)
+        Math.min(
+          maximum,
+          value
+        )
       );
-    }
-
-
-    function lerp(
-      a,
-      b,
-      amount
-    ) {
-      return a + (b - a) * amount;
     }
 
 
@@ -539,26 +1106,21 @@
       minimum,
       maximum
     ) {
+
       return (
         minimum +
         Math.random() *
-        (maximum - minimum)
+        (
+          maximum -
+          minimum
+        )
       );
     }
 
 
-    function distance(
-      x1,
-      y1,
-      x2,
-      y2
-    ) {
-      return Math.hypot(
-        x2 - x1,
-        y2 - y1
-      );
-    }
-
+    /* =========================================================
+       CANVAS RESIZING
+       ========================================================= */
 
     function resizeCanvas() {
 
@@ -566,25 +1128,34 @@
         canvas.getBoundingClientRect();
 
       canvasWidth =
-        Math.max(1, rect.width);
+        Math.max(
+          1,
+          rect.width
+        );
 
       canvasHeight =
-        Math.max(1, rect.height);
+        Math.max(
+          1,
+          rect.height
+        );
 
       deviceScale =
         Math.min(
-          window.devicePixelRatio || 1,
+          window.devicePixelRatio ||
+          1,
           2
         );
 
       canvas.width =
         Math.round(
-          canvasWidth * deviceScale
+          canvasWidth *
+          deviceScale
         );
 
       canvas.height =
         Math.round(
-          canvasHeight * deviceScale
+          canvasHeight *
+          deviceScale
         );
 
       ctx.setTransform(
@@ -608,7 +1179,7 @@
 
 
     /* =========================================================
-       DRAWING PRIMITIVES
+       DRAWING HELPERS
        ========================================================= */
 
     function clearScene() {
@@ -623,14 +1194,20 @@
         canvasHeight
       );
 
+
       /*
-       * Subtle technical grid.
+       * Technical grid.
        */
-      ctx.lineWidth = 1;
+
+      ctx.lineWidth =
+        1;
+
       ctx.strokeStyle =
         "rgba(150,165,185,0.035)";
 
-      const spacing = 40;
+      const spacing =
+        40;
+
 
       for (
         let x = 0;
@@ -639,10 +1216,20 @@
       ) {
 
         ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, canvasHeight);
+
+        ctx.moveTo(
+          x,
+          0
+        );
+
+        ctx.lineTo(
+          x,
+          canvasHeight
+        );
+
         ctx.stroke();
       }
+
 
       for (
         let y = 0;
@@ -651,10 +1238,20 @@
       ) {
 
         ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(canvasWidth, y);
+
+        ctx.moveTo(
+          0,
+          y
+        );
+
+        ctx.lineTo(
+          canvasWidth,
+          y
+        );
+
         ctx.stroke();
       }
+
     }
 
 
@@ -663,17 +1260,28 @@
       y1,
       x2,
       y2,
-      color = "rgba(180,195,215,0.2)",
+      color =
+        "rgba(180,195,215,0.2)",
       width = 1
     ) {
 
       ctx.beginPath();
 
-      ctx.strokeStyle = color;
-      ctx.lineWidth = width;
+      ctx.strokeStyle =
+        color;
 
-      ctx.moveTo(x1, y1);
-      ctx.lineTo(x2, y2);
+      ctx.lineWidth =
+        width;
+
+      ctx.moveTo(
+        x1,
+        y1
+      );
+
+      ctx.lineTo(
+        x2,
+        y2
+      );
 
       ctx.stroke();
     }
@@ -684,7 +1292,8 @@
       y1,
       x2,
       y2,
-      color = "rgba(200,210,225,0.35)",
+      color =
+        "rgba(200,210,225,0.35)",
       width = 1
     ) {
 
@@ -697,15 +1306,19 @@
         width
       );
 
+
       const angle =
         Math.atan2(
           y2 - y1,
           x2 - x1
         );
 
-      const size = 7;
+      const size =
+        7;
 
-      ctx.fillStyle = color;
+
+      ctx.fillStyle =
+        color;
 
       ctx.beginPath();
 
@@ -716,20 +1329,32 @@
 
       ctx.lineTo(
         x2 -
-          size *
-            Math.cos(angle - 0.45),
+        size *
+        Math.cos(
+          angle -
+          0.45
+        ),
         y2 -
-          size *
-            Math.sin(angle - 0.45)
+        size *
+        Math.sin(
+          angle -
+          0.45
+        )
       );
 
       ctx.lineTo(
         x2 -
-          size *
-            Math.cos(angle + 0.45),
+        size *
+        Math.cos(
+          angle +
+          0.45
+        ),
         y2 -
-          size *
-            Math.sin(angle + 0.45)
+        size *
+        Math.sin(
+          angle +
+          0.45
+        )
       );
 
       ctx.closePath();
@@ -757,13 +1382,19 @@
         Math.PI * 2
       );
 
-      ctx.fillStyle = fill;
+      ctx.fillStyle =
+        fill;
+
       ctx.fill();
+
 
       if (stroke) {
 
-        ctx.strokeStyle = stroke;
-        ctx.lineWidth = strokeWidth;
+        ctx.strokeStyle =
+          stroke;
+
+        ctx.lineWidth =
+          strokeWidth;
 
         ctx.stroke();
       }
@@ -780,13 +1411,17 @@
       weight = "400"
     ) {
 
-      ctx.fillStyle = color;
+      ctx.fillStyle =
+        color;
 
       ctx.font =
         `${weight} ${size}px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace`;
 
-      ctx.textAlign = align;
-      ctx.textBaseline = "middle";
+      ctx.textAlign =
+        align;
+
+      ctx.textBaseline =
+        "middle";
 
       ctx.fillText(
         value,
@@ -806,34 +1441,46 @@
       ctx.font =
         "600 10px ui-monospace, monospace";
 
+
       const width =
-        ctx.measureText(value).width +
+        ctx.measureText(
+          value
+        ).width +
         18;
+
 
       ctx.fillStyle =
         active
           ? "#e8edf3"
           : "#0d131b";
 
+
       ctx.strokeStyle =
         active
           ? "#e8edf3"
           : "#2b3542";
 
-      ctx.lineWidth = 1;
+
+      ctx.lineWidth =
+        1;
+
 
       ctx.beginPath();
 
       ctx.roundRect(
-        x - width / 2,
-        y - 13,
+        x -
+        width / 2,
+        y -
+        13,
         width,
         26,
         13
       );
 
       ctx.fill();
+
       ctx.stroke();
+
 
       drawText(
         value,
@@ -853,9 +1500,22 @@
       x,
       y,
       radius,
-      color,
+      rgbaColor,
       alpha = 0.2
     ) {
+
+      const color =
+        rgbaColor.replace(
+          "ALPHA",
+          String(alpha)
+        );
+
+      const transparentColor =
+        rgbaColor.replace(
+          "ALPHA",
+          "0"
+        );
+
 
       const gradient =
         ctx.createRadialGradient(
@@ -867,24 +1527,21 @@
           radius
         );
 
+
       gradient.addColorStop(
         0,
-        color.replace(
-          "ALPHA",
-          String(alpha)
-        )
+        color
       );
 
       gradient.addColorStop(
         1,
-        color.replace(
-          "ALPHA",
-          "0"
-        )
+        transparentColor
       );
+
 
       ctx.fillStyle =
         gradient;
+
 
       ctx.beginPath();
 
@@ -901,7 +1558,7 @@
 
 
     /* =========================================================
-       DA — DIALECTICAL ALGORITHMIC
+       DIALECTICAL–ALGORITHMIC
        ========================================================= */
 
     const dialectical = {
@@ -983,28 +1640,6 @@
         ]
 
       ],
-
-
-      algorithm: [
-
-        "Define the current operating state",
-
-        "Identify the conditions supporting it",
-
-        "Run the established procedure",
-
-        "Compare expected and observed output",
-
-        "Detect the deviation",
-
-        "Revise the procedure when conditions changed",
-
-        "Execute the revised procedure",
-
-        "Verify the new result"
-
-      ],
-
 
       profiles: {
 
@@ -1130,17 +1765,26 @@
         const lower =
           this.subject.toLowerCase();
 
+
         for (
-          const key of Object.keys(this.profiles)
+          const key of
+          Object.keys(
+            this.profiles
+          )
         ) {
 
           if (
-            lower.includes(key)
+            lower.includes(
+              key
+            )
           ) {
 
-            return this.profiles[key];
+            return this.profiles[
+              key
+            ];
           }
         }
+
 
         return this.profiles.idea;
       },
@@ -1148,8 +1792,11 @@
 
       reset() {
 
-        this.time = 0;
-        this.stage = 0;
+        this.time =
+          0;
+
+        this.stage =
+          0;
       },
 
 
@@ -1157,32 +1804,42 @@
 
         this.stage =
           (
-            this.stage + 1
+            this.stage +
+            1
           ) %
           this.stages.length;
 
-        this.time = 0;
+        this.time =
+          0;
       },
 
 
       update(dt) {
 
-        if (!this.running) {
+        if (
+          !this.running
+        ) {
+
           return;
         }
 
-        this.time += dt;
+
+        this.time +=
+          dt;
+
 
         if (
           this.time >=
           this.stageDuration
         ) {
 
-          this.time = 0;
+          this.time =
+            0;
 
           this.stage =
             (
-              this.stage + 1
+              this.stage +
+              1
             ) %
             this.stages.length;
         }
@@ -1193,14 +1850,19 @@
 
         clearScene();
 
+
         const cx =
-          canvasWidth / 2;
+          canvasWidth /
+          2;
 
         const cy =
-          canvasHeight * 0.48;
+          canvasHeight *
+          0.48;
+
 
         const profile =
           this.profile();
+
 
         const positions = [
 
@@ -1258,12 +1920,14 @@
 
 
         /*
-         * Main ordered process.
+         * Ordered chain.
          */
 
         for (
           let i = 0;
-          i < positions.length - 1;
+          i <
+          positions.length -
+          1;
           i++
         ) {
 
@@ -1272,6 +1936,7 @@
 
           const b =
             positions[i + 1];
+
 
           drawArrow(
             a[0],
@@ -1285,7 +1950,7 @@
 
 
         /*
-         * Opposition branches.
+         * Contradiction branches.
          */
 
         drawArrow(
@@ -1296,6 +1961,7 @@
           "rgba(205,215,230,0.18)",
           1
         );
+
 
         drawArrow(
           positions[2][0] - 32,
@@ -1313,7 +1979,8 @@
 
         for (
           let i = 0;
-          i < positions.length;
+          i <
+          positions.length;
           i++
         ) {
 
@@ -1323,10 +1990,13 @@
           const y =
             positions[i][1];
 
+
           const distanceFromStage =
             Math.abs(
-              i - this.stage
+              i -
+              this.stage
             );
+
 
           const activation =
             clamp(
@@ -1335,14 +2005,17 @@
               0.25
             );
 
+
           const radius =
             i === 4 ||
             i === 5
               ? 42
               : 32;
 
+
           if (
-            i === this.stage
+            i ===
+            this.stage
           ) {
 
             drawGlow(
@@ -1354,35 +2027,41 @@
             );
           }
 
+
           drawCircle(
             x,
             y,
             radius,
             `rgba(215,224,235,${0.025 + activation * 0.065})`,
             `rgba(215,224,235,${0.12 + activation * 0.56})`,
-            i === this.stage
+            i ===
+            this.stage
               ? 2
               : 1
           );
+
 
           drawText(
             this.stages[i][0],
             x,
             y,
             9,
-            i === this.stage
+            i ===
+            this.stage
               ? "#f4f6f9"
               : "#7f8a9a",
             "center",
             "700"
           );
 
+
           drawText(
             this.stages[i][1],
             x,
             y + radius + 12,
             7,
-            i === this.stage
+            i ===
+            this.stage
               ? "#929eae"
               : "#4e5968",
             "center",
@@ -1392,20 +2071,22 @@
 
 
         /*
-         * Central conceptual state.
+         * Central state.
          */
 
-        const centerPulse =
+        const pulse =
           112 +
           Math.sin(
-            this.time * 2
+            this.time *
+            2
           ) *
           12;
+
 
         drawCircle(
           cx,
           cy,
-          centerPulse,
+          pulse,
           "rgba(220,230,240,0.012)",
           "rgba(200,215,230,0.07)",
           1
@@ -1422,8 +2103,11 @@
           "700"
         );
 
+
         drawText(
-          this.stages[this.stage][0],
+          this.stages[
+            this.stage
+          ][0],
           cx,
           cy + 3,
           18,
@@ -1432,11 +2116,14 @@
           "700"
         );
 
+
         drawText(
           `${Math.round(
-            (this.time /
-              this.stageDuration) *
-              100
+            (
+              this.time /
+              this.stageDuration
+            ) *
+            100
           )}%`,
           cx,
           cy + 28,
@@ -1448,11 +2135,13 @@
 
 
         /*
-         * Stage-specific semantic panel.
+         * Semantic information.
          */
 
         const panelY =
-          canvasHeight - 80;
+          canvasHeight -
+          80;
+
 
         drawPill(
           profile.axis,
@@ -1462,25 +2151,40 @@
           this.stage <= 5
         );
 
+
         let semanticText =
           profile.thesis;
 
-        if (this.stage === 2) {
+
+        if (
+          this.stage ===
+          2
+        ) {
+
           semanticText =
             profile.antithesis;
         }
 
-        if (this.stage === 5) {
+
+        if (
+          this.stage ===
+          5
+        ) {
+
           semanticText =
             profile.synthesis;
         }
 
+
         if (
-          this.stage >= 6
+          this.stage >=
+          6
         ) {
+
           semanticText =
             profile.rule;
         }
+
 
         drawText(
           semanticText,
@@ -1491,13 +2195,14 @@
           "center",
           "400"
         );
+
       }
 
     };
 
 
     /* =========================================================
-       CD — CAUSAL DETERMINISTIC
+       CAUSAL–DETERMINISTIC
        ========================================================= */
 
     const causal = {
@@ -1529,26 +2234,39 @@
       stages: [
 
         "OBSERVATION",
+
         "ANALYSIS",
+
         "PREMISES",
+
         "CAUSAL CHAIN",
+
         "MECHANISM",
+
         "DEDUCTION",
+
         "CONSEQUENCE",
+
         "SINGULAR RESULT"
 
       ],
 
-
       nodes: [
 
         "axioms",
+
         "definitions",
+
         "premises",
+
         "lemma",
+
         "inference",
+
         "proof",
+
         "conclusion",
+
         "verification"
 
       ],
@@ -1556,29 +2274,40 @@
 
       reset() {
 
-        this.time = 0;
-        this.stage = 0;
+        this.time =
+          0;
+
+        this.stage =
+          0;
       },
 
 
       update(dt) {
 
-        if (!this.running) {
+        if (
+          !this.running
+        ) {
+
           return;
         }
 
-        this.time += dt;
+
+        this.time +=
+          dt;
+
 
         if (
           this.time >=
           this.stageDuration
         ) {
 
-          this.time = 0;
+          this.time =
+            0;
 
           this.stage =
             (
-              this.stage + 1
+              this.stage +
+              1
             ) %
             this.stages.length;
         }
@@ -1589,17 +2318,24 @@
 
         clearScene();
 
+
         const cx =
-          canvasWidth / 2;
+          canvasWidth /
+          2;
 
         const cy =
-          canvasHeight * 0.52;
+          canvasHeight *
+          0.52;
+
 
         const count =
           this.nodes.length;
 
+
         const availableWidth =
-          canvasWidth - 180;
+          canvasWidth -
+          180;
+
 
         const step =
           Math.min(
@@ -1609,31 +2345,42 @@
           );
 
 
-        /*
-         * Causal chain.
-         */
-
         const points = [];
+
+
+        /*
+         * Causal nodes.
+         */
 
         for (
           let i = 0;
-          i < count;
+          i <
+          count;
           i++
         ) {
 
           const x =
             cx -
-            ((count - 1) *
-              step) /
+            (
+              (
+                count -
+                1
+              ) *
+              step
+            ) /
             2 +
-            i * step;
+            i *
+            step;
+
 
           const y =
             cy +
             Math.sin(
-              i * 1.25
+              i *
+              1.25
             ) *
             65;
+
 
           points.push({
             x,
@@ -1642,9 +2389,15 @@
         }
 
 
+        /*
+         * Causal arrows.
+         */
+
         for (
           let i = 0;
-          i < points.length - 1;
+          i <
+          points.length -
+          1;
           i++
         ) {
 
@@ -1654,9 +2407,11 @@
           const b =
             points[i + 1];
 
+
           const active =
             i <
             this.stage;
+
 
           drawArrow(
             a.x + 27,
@@ -1679,24 +2434,29 @@
 
         for (
           let i = 0;
-          i < points.length;
+          i <
+          points.length;
           i++
         ) {
 
           const point =
             points[i];
 
+
           const activation =
             clamp(
               1 -
               Math.abs(
-                i - this.stage
+                i -
+                this.stage
               ) *
               0.21
             );
 
+
           if (
-            i === this.stage
+            i ===
+            this.stage
           ) {
 
             drawGlow(
@@ -1708,38 +2468,48 @@
             );
           }
 
+
           drawCircle(
             point.x,
             point.y,
             23,
             `rgba(215,225,235,${0.025 + activation * 0.055})`,
             `rgba(210,220,235,${0.15 + activation * 0.6})`,
-            i === this.stage
+            i ===
+            this.stage
               ? 2
               : 1
           );
 
+
           drawText(
-            String(i + 1).padStart(
+            String(
+              i + 1
+            ).padStart(
               2,
               "0"
             ),
             point.x,
             point.y,
             8,
-            i === this.stage
+            i ===
+            this.stage
               ? "#f4f6f9"
               : "#697587",
             "center",
             "700"
           );
 
+
           drawText(
-            this.nodes[i].toUpperCase(),
+            this.nodes[
+              i
+            ].toUpperCase(),
             point.x,
             point.y + 39,
             7,
-            i === this.stage
+            i ===
+            this.stage
               ? "#e6ebf2"
               : "#606c7d",
             "center",
@@ -1755,27 +2525,33 @@
         drawPill(
           "BECAUSE",
           cx - 190,
-          canvasHeight * 0.17
+          canvasHeight *
+          0.17
         );
+
 
         drawPill(
           "THEREFORE",
           cx,
-          canvasHeight * 0.17,
+          canvasHeight *
+          0.17,
           true
         );
+
 
         drawPill(
           "CONSEQUENTLY",
           cx + 190,
-          canvasHeight * 0.17
+          canvasHeight *
+          0.17
         );
 
 
         drawText(
           this.subject.toUpperCase(),
           cx,
-          canvasHeight * 0.30,
+          canvasHeight *
+          0.30,
           12,
           "#dce3ec",
           "center",
@@ -1784,9 +2560,12 @@
 
 
         drawText(
-          this.stages[this.stage],
+          this.stages[
+            this.stage
+          ],
           cx,
-          canvasHeight * 0.37,
+          canvasHeight *
+          0.37,
           18,
           "#eef2f6",
           "center",
@@ -1797,7 +2576,8 @@
         drawText(
           "Intermediate links remain explicit; the chain narrows the system toward one determined result.",
           cx,
-          canvasHeight * 0.43,
+          canvasHeight *
+          0.43,
           9,
           "#697587",
           "center",
@@ -1828,18 +2608,24 @@
 
         ];
 
+
         const cardY =
-          canvasHeight - 105;
+          canvasHeight -
+          105;
+
 
         const cardWidth =
           Math.min(
             290,
-            canvasWidth * 0.27
+            canvasWidth *
+            0.27
           );
+
 
         for (
           let i = 0;
-          i < rules.length;
+          i <
+          rules.length;
           i++
         ) {
 
@@ -1848,7 +2634,11 @@
             cardWidth -
             20 +
             i *
-            (cardWidth + 20);
+            (
+              cardWidth +
+              20
+            );
+
 
           ctx.fillStyle =
             "#0a0f16";
@@ -1856,7 +2646,9 @@
           ctx.strokeStyle =
             "#27313d";
 
-          ctx.lineWidth = 1;
+          ctx.lineWidth =
+            1;
+
 
           ctx.beginPath();
 
@@ -1869,7 +2661,9 @@
           );
 
           ctx.fill();
+
           ctx.stroke();
+
 
           drawText(
             rules[i][0],
@@ -1880,6 +2674,7 @@
             "left",
             "700"
           );
+
 
           drawText(
             rules[i][1],
@@ -1898,7 +2693,7 @@
 
 
     /* =========================================================
-       HP — HOLOGRAPHICAL PANORAMIC
+       HOLOGRAPHICAL–PANORAMIC
        ========================================================= */
 
     const panoramic = {
@@ -1979,13 +2774,16 @@
 
       ],
 
-
       invariants: [
 
         "identity",
+
         "persistent relation",
+
         "part ↔ whole",
+
         "structural role",
+
         "relational skeleton"
 
       ],
@@ -1993,29 +2791,40 @@
 
       reset() {
 
-        this.time = 0;
-        this.stage = 0;
+        this.time =
+          0;
+
+        this.stage =
+          0;
       },
 
 
       update(dt) {
 
-        if (!this.running) {
+        if (
+          !this.running
+        ) {
+
           return;
         }
 
-        this.time += dt;
+
+        this.time +=
+          dt;
+
 
         if (
           this.time >=
           this.stageDuration
         ) {
 
-          this.time = 0;
+          this.time =
+            0;
 
           this.stage =
             (
-              this.stage + 1
+              this.stage +
+              1
             ) %
             this.projections.length;
         }
@@ -2026,20 +2835,26 @@
 
         clearScene();
 
+
         const cx =
-          canvasWidth / 2;
+          canvasWidth /
+          2;
 
         const cy =
-          canvasHeight / 2 +
+          canvasHeight /
+          2 +
           8;
 
+
         const rotation =
-          this.time * 0.25 +
-          this.stage * 0.78;
+          this.time *
+          0.25 +
+          this.stage *
+          0.78;
 
 
         /*
-         * Central fixed object.
+         * Fixed object.
          */
 
         drawGlow(
@@ -2050,6 +2865,7 @@
           0.07
         );
 
+
         drawCircle(
           cx,
           cy,
@@ -2059,6 +2875,7 @@
           1
         );
 
+
         drawCircle(
           cx,
           cy,
@@ -2067,6 +2884,7 @@
           "rgba(195,205,218,0.7)",
           1
         );
+
 
         drawText(
           this.subject.toUpperCase(),
@@ -2080,30 +2898,37 @@
 
 
         /*
-         * Perspective projections.
+         * Projection orbit.
          */
 
         const orbitX =
           Math.min(
             350,
-            canvasWidth * 0.29
+            canvasWidth *
+            0.29
           );
+
 
         const orbitY =
           Math.min(
             230,
-            canvasHeight * 0.30
+            canvasHeight *
+            0.30
           );
 
 
         for (
           let i = 0;
-          i < this.projections.length;
+          i <
+          this.projections.length;
           i++
         ) {
 
           const projection =
-            this.projections[i];
+            this.projections[
+              i
+            ];
+
 
           const angle =
             rotation +
@@ -2112,18 +2937,27 @@
             2 /
             this.projections.length;
 
+
           const x =
             cx +
-            Math.cos(angle) *
+            Math.cos(
+              angle
+            ) *
             orbitX;
+
 
           const y =
             cy +
-            Math.sin(angle) *
+            Math.sin(
+              angle
+            ) *
             orbitY;
 
+
           const isActive =
-            i === this.stage;
+            i ===
+            this.stage;
+
 
           drawLine(
             cx,
@@ -2151,18 +2985,23 @@
           );
 
           ctx.rotate(
-            angle + Math.PI / 2
+            angle +
+            Math.PI /
+            2
           );
+
 
           ctx.strokeStyle =
             isActive
               ? "rgba(210,220,235,0.32)"
               : "rgba(150,170,195,0.08)";
 
+
           ctx.lineWidth =
             isActive
               ? 1.5
               : 1;
+
 
           ctx.strokeRect(
             -34,
@@ -2171,10 +3010,13 @@
             48
           );
 
+
           ctx.restore();
 
 
-          if (isActive) {
+          if (
+            isActive
+          ) {
 
             drawGlow(
               x,
@@ -2224,11 +3066,12 @@
             "center",
             "400"
           );
+
         }
 
 
         /*
-         * Detail field.
+         * Internal detail field.
          */
 
         for (
@@ -2243,9 +3086,12 @@
             rotation *
             0.82;
 
+
           const radius =
             90 +
-            (i % 6) *
+            (
+              i % 6
+            ) *
             26 +
             Math.sin(
               this.time +
@@ -2253,29 +3099,43 @@
             ) *
             5;
 
+
           const x =
             cx +
-            Math.cos(angle) *
+            Math.cos(
+              angle
+            ) *
             radius;
+
 
           const y =
             cy +
-            Math.sin(angle) *
+            Math.sin(
+              angle
+            ) *
             radius *
             0.68;
 
+
           const importance =
             0.16 +
-            (i % 5) *
+            (
+              i % 5
+            ) *
             0.08;
+
 
           drawCircle(
             x,
             y,
             1.4 +
-            (i % 3) * 0.5,
+            (
+              i % 3
+            ) *
+            0.5,
             `rgba(205,220,235,${importance})`
           );
+
         }
 
 
@@ -2284,26 +3144,31 @@
          */
 
         const invariantY =
-          canvasHeight - 55;
+          canvasHeight -
+          55;
+
 
         for (
           let i = 0;
-          i < this.invariants.length;
+          i <
+          this.invariants.length;
           i++
         ) {
 
           drawPill(
             this.invariants[i],
             cx +
-              (
-                i -
-                2
-              ) *
-              145,
+            (
+              i -
+              2
+            ) *
+            145,
             invariantY,
             i ===
+            (
               this.stage %
               this.invariants.length
+            )
           );
         }
 
@@ -2317,6 +3182,7 @@
           "center",
           "700"
         );
+
 
         drawText(
           "criterion rotation / perspective shift",
@@ -2334,7 +3200,7 @@
 
 
     /* =========================================================
-       VS — VORTICAL SYNERGETIC
+       VORTICAL–SYNERGETIC
        ========================================================= */
 
     const vortical = {
@@ -2367,28 +3233,54 @@
       vortices: [
 
         {
-          offsetX: -0.20,
-          offsetY: -0.02,
-          radius: 250,
-          strength: 0.45,
-          rotation: 1
+          offsetX:
+            -0.20,
+
+          offsetY:
+            -0.02,
+
+          radius:
+            250,
+
+          strength:
+            0.45,
+
+          rotation:
+            1
         },
 
         {
-          offsetX: 0.20,
-          offsetY: 0.02,
-          radius: 230,
-          strength: 0.40,
-          rotation: -1
+          offsetX:
+            0.20,
+
+          offsetY:
+            0.02,
+
+          radius:
+            230,
+
+          strength:
+            0.40,
+
+          rotation:
+            -1
         },
 
         {
-          offsetX: 0,
-          offsetY: 0.20,
-          radius: 185,
-          strength: 0.28,
-          rotation: 0.72
+          offsetX:
+            0,
 
+          offsetY:
+            0.20,
+
+          radius:
+            185,
+
+          strength:
+            0.28,
+
+          rotation:
+            0.72
         }
 
       ],
@@ -2396,12 +3288,17 @@
 
       reset() {
 
-        this.time = 0;
-        this.stage = 0;
+        this.time =
+          0;
 
-        this.variants = [];
+        this.stage =
+          0;
 
-        this.substrate = [];
+        this.variants =
+          [];
+
+        this.substrate =
+          [];
 
 
         /*
@@ -2417,8 +3314,10 @@
           const angle =
             randomBetween(
               0,
-              Math.PI * 2
+              Math.PI *
+              2
             );
+
 
           const radius =
             randomBetween(
@@ -2426,16 +3325,23 @@
               310
             );
 
+
           this.substrate.push({
 
             x:
-              canvasWidth / 2 +
-              Math.cos(angle) *
+              canvasWidth /
+              2 +
+              Math.cos(
+                angle
+              ) *
               radius,
 
             y:
-              canvasHeight / 2 +
-              Math.sin(angle) *
+              canvasHeight /
+              2 +
+              Math.sin(
+                angle
+              ) *
               radius *
               0.67,
 
@@ -2454,7 +3360,8 @@
             phase:
               randomBetween(
                 0,
-                Math.PI * 2
+                Math.PI *
+                2
               ),
 
             mass:
@@ -2464,6 +3371,7 @@
               )
 
           });
+
         }
 
 
@@ -2479,6 +3387,7 @@
 
           this.spawnVariant();
         }
+
       },
 
 
@@ -2487,13 +3396,17 @@
       ) {
 
         const cx =
-          canvasWidth / 2;
+          canvasWidth /
+          2;
 
         const cy =
-          canvasHeight / 2;
+          canvasHeight /
+          2;
 
 
-        if (parent) {
+        if (
+          parent
+        ) {
 
           this.variants.push({
 
@@ -2527,9 +3440,11 @@
             score:
               0,
 
-            trail: []
+            trail:
+              []
 
           });
+
 
           return;
         }
@@ -2538,8 +3453,10 @@
         const angle =
           randomBetween(
             0,
-            Math.PI * 2
+            Math.PI *
+            2
           );
+
 
         const radius =
           randomBetween(
@@ -2547,30 +3464,40 @@
             330
           );
 
+
         const x =
           cx +
-          Math.cos(angle) *
+          Math.cos(
+            angle
+          ) *
           radius;
+
 
         const y =
           cy +
-          Math.sin(angle) *
+          Math.sin(
+            angle
+          ) *
           radius *
           0.67;
 
+
         const direction =
           angle +
-          Math.PI / 2 +
+          Math.PI /
+          2 +
           randomBetween(
             -1.2,
             1.2
           );
+
 
         const speed =
           randomBetween(
             1,
             3.3
           );
+
 
         this.variants.push({
 
@@ -2579,11 +3506,15 @@
           y,
 
           vx:
-            Math.cos(direction) *
+            Math.cos(
+              direction
+            ) *
             speed,
 
           vy:
-            Math.sin(direction) *
+            Math.sin(
+              direction
+            ) *
             speed,
 
           energy:
@@ -2595,9 +3526,11 @@
           score:
             0,
 
-          trail: []
+          trail:
+            []
 
         });
+
       },
 
 
@@ -2606,8 +3539,12 @@
         y
       ) {
 
-        let fx = 0;
-        let fy = 0;
+        let fx =
+          0;
+
+        let fy =
+          0;
+
 
         for (
           let i = 0;
@@ -2616,59 +3553,90 @@
           i += 2
         ) {
 
-          const p =
+          const particle =
             this.substrate[i];
 
+
           const dx =
-            p.x - x;
+            particle.x -
+            x;
+
 
           const dy =
-            p.y - y;
+            particle.y -
+            y;
 
-          const r2 =
+
+          const distanceSquared =
             dx * dx +
             dy * dy;
 
+
           if (
-            r2 < 1 ||
-            r2 > 10000
+            distanceSquared <
+              1 ||
+            distanceSquared >
+              10000
           ) {
+
             continue;
           }
 
-          const r =
-            Math.sqrt(r2);
+
+          const radius =
+            Math.sqrt(
+              distanceSquared
+            );
+
 
           const influence =
-            p.mass /
-            (r2 + 30);
+            particle.mass /
+            (
+              distanceSquared +
+              30
+            );
+
 
           fx +=
-            (dx / r) *
+            (
+              dx /
+              radius
+            ) *
             influence *
             28;
 
+
           fy +=
-            (dy / r) *
+            (
+              dy /
+              radius
+            ) *
             influence *
             28;
+
         }
+
 
         return {
           x: fx,
           y: fy
         };
+
       },
 
 
       update(dt) {
 
-        if (!this.running) {
+        if (
+          !this.running
+        ) {
+
           return;
         }
 
 
-        this.time += dt;
+        this.time +=
+          dt;
 
 
         if (
@@ -2676,25 +3644,29 @@
           this.stageDuration
         ) {
 
-          this.time = 0;
+          this.time =
+            0;
 
           this.stage =
             (
-              this.stage + 1
+              this.stage +
+              1
             ) %
             5;
         }
 
 
         const cx =
-          canvasWidth / 2;
+          canvasWidth /
+          2;
 
         const cy =
-          canvasHeight / 2;
+          canvasHeight /
+          2;
 
 
         /*
-         * Update substrate.
+         * Substrate dynamics.
          */
 
         for (
@@ -2708,31 +3680,41 @@
               particle.y
             );
 
+
           const noise =
             0.22;
+
 
           particle.vx +=
             field.x *
             0.002 +
             Math.sin(
               particle.phase +
-              this.time * 1.7
+              this.time *
+              1.7
             ) *
             noise *
             0.002;
+
 
           particle.vy +=
             field.y *
             0.002 +
             Math.cos(
               particle.phase +
-              this.time * 1.3
+              this.time *
+              1.3
             ) *
             noise *
             0.002;
 
-          particle.vx *= 0.986;
-          particle.vy *= 0.986;
+
+          particle.vx *=
+            0.986;
+
+          particle.vy *=
+            0.986;
+
 
           particle.x +=
             particle.vx;
@@ -2740,15 +3722,14 @@
           particle.y +=
             particle.vy;
 
+
           particle.phase +=
             0.018;
 
 
-          /*
-           * Soft boundary behavior.
-           */
+          const margin =
+            20;
 
-          const margin = 20;
 
           if (
             particle.x <
@@ -2764,6 +3745,7 @@
               ) *
               0.7;
           }
+
 
           if (
             particle.x >
@@ -2782,6 +3764,7 @@
               0.7;
           }
 
+
           if (
             particle.y <
             margin
@@ -2796,6 +3779,7 @@
               ) *
               0.7;
           }
+
 
           if (
             particle.y >
@@ -2813,11 +3797,12 @@
               ) *
               0.7;
           }
+
         }
 
 
         /*
-         * Update alternatives.
+         * Alternative dynamics.
          */
 
         for (
@@ -2842,36 +3827,35 @@
 
 
           /*
-           * Vortical circulation.
+           * Vortices.
            */
 
           for (
-            let i = 0;
-            i <
-            this.vortices.length;
-            i++
+            const vortex of
+            this.vortices
           ) {
 
-            const vortex =
-              this.vortices[i];
-
-            const vx =
+            const vortexX =
               cx +
               canvasWidth *
               vortex.offsetX;
 
-            const vy =
+
+            const vortexY =
               cy +
               canvasHeight *
               vortex.offsetY;
 
+
             const dx =
               variant.x -
-              vx;
+              vortexX;
+
 
             const dy =
               variant.y -
-              vy;
+              vortexY;
+
 
             const radius =
               Math.max(
@@ -2882,6 +3866,7 @@
                 )
               );
 
+
             const influence =
               clamp(
                 1 -
@@ -2889,9 +3874,12 @@
                 vortex.radius
               );
 
+
             if (
-              influence <= 0
+              influence <=
+              0
             ) {
+
               continue;
             }
 
@@ -2901,16 +3889,21 @@
              */
 
             const tangentX =
-              -dy / radius;
+              -dy /
+              radius;
+
 
             const tangentY =
-              dx / radius;
+              dx /
+              radius;
+
 
             ax +=
               tangentX *
               vortex.rotation *
               vortex.strength *
               influence;
+
 
             ay +=
               tangentY *
@@ -2920,20 +3913,28 @@
 
 
             /*
-             * Inward spiral component.
+             * Inward spiral.
              */
 
             ax +=
-              (-dx / radius) *
+              (
+                -dx /
+                radius
+              ) *
               vortex.strength *
               influence *
               0.16;
 
+
             ay +=
-              (-dy / radius) *
+              (
+                -dy /
+                radius
+              ) *
               vortex.strength *
               influence *
               0.16;
+
           }
 
 
@@ -2947,15 +3948,18 @@
           const goalY =
             cy;
 
+
           const dx =
             goalX -
             variant.x;
+
 
           const dy =
             goalY -
             variant.y;
 
-          const r =
+
+          const radius =
             Math.max(
               0.001,
               Math.hypot(
@@ -2964,19 +3968,29 @@
               )
             );
 
+
           const attraction =
             0.20 +
             0.95 *
             clamp(
-              r / 430
+              radius /
+              430
             );
 
+
           ax +=
-            (dx / r) *
+            (
+              dx /
+              radius
+            ) *
             attraction;
 
+
           ay +=
-            (dy / r) *
+            (
+              dy /
+              radius
+            ) *
             attraction;
 
 
@@ -2987,6 +4001,7 @@
           const cascade =
             0.18;
 
+
           ax +=
             Math.sin(
               variant.y *
@@ -2995,6 +4010,7 @@
               1.8
             ) *
             cascade;
+
 
           ay +=
             Math.cos(
@@ -3007,7 +4023,7 @@
 
 
           /*
-           * Controlled fluctuation.
+           * Fluctuation.
            */
 
           ax +=
@@ -3015,6 +4031,7 @@
               -0.02,
               0.02
             );
+
 
           ay +=
             randomBetween(
@@ -3027,6 +4044,7 @@
             ax *
             0.060;
 
+
           variant.vy +=
             ay *
             0.060;
@@ -3038,10 +4056,12 @@
               variant.vy
             );
 
+
           const speedLimit =
             4 +
             variant.energy *
             1.8;
+
 
           if (
             speed >
@@ -3051,6 +4071,7 @@
             const scale =
               speedLimit /
               speed;
+
 
             variant.vx *=
               scale;
@@ -3079,10 +4100,13 @@
            */
 
           if (
-            variant.x < 15
+            variant.x <
+            15
           ) {
 
-            variant.x = 15;
+            variant.x =
+              15;
+
             variant.vx =
               Math.abs(
                 variant.vx
@@ -3090,13 +4114,16 @@
               0.6;
           }
 
+
           if (
             variant.x >
-            canvasWidth - 15
+            canvasWidth -
+            15
           ) {
 
             variant.x =
-              canvasWidth - 15;
+              canvasWidth -
+              15;
 
             variant.vx =
               -Math.abs(
@@ -3105,11 +4132,14 @@
               0.6;
           }
 
+
           if (
-            variant.y < 15
+            variant.y <
+            15
           ) {
 
-            variant.y = 15;
+            variant.y =
+              15;
 
             variant.vy =
               Math.abs(
@@ -3118,13 +4148,16 @@
               0.6;
           }
 
+
           if (
             variant.y >
-            canvasHeight - 15
+            canvasHeight -
+            15
           ) {
 
             variant.y =
-              canvasHeight - 15;
+              canvasHeight -
+              15;
 
             variant.vy =
               -Math.abs(
@@ -3135,14 +4168,17 @@
 
 
           /*
-           * Evaluate proximity to attractor.
+           * Attractor score.
            */
 
           const goalDistance =
             Math.hypot(
-              variant.x - cx,
-              variant.y - cy
+              variant.x -
+              cx,
+              variant.y -
+              cy
             );
+
 
           variant.score =
             clamp(
@@ -3161,6 +4197,7 @@
             variant.y
           ]);
 
+
           if (
             variant.trail.length >
             22
@@ -3171,8 +4208,9 @@
 
 
           /*
-           * Successful variants generate
-           * new alternatives.
+           * Positive feedback:
+           * successful variants generate
+           * additional alternatives.
            */
 
           if (
@@ -3214,11 +4252,14 @@
 
         clearScene();
 
+
         const cx =
-          canvasWidth / 2;
+          canvasWidth /
+          2;
 
         const cy =
-          canvasHeight / 2;
+          canvasHeight /
+          2;
 
 
         /*
@@ -3227,22 +4268,26 @@
 
         for (
           let i = 0;
-          i < this.vortices.length;
+          i <
+          this.vortices.length;
           i++
         ) {
 
           const vortex =
             this.vortices[i];
 
+
           const x =
             cx +
             canvasWidth *
             vortex.offsetX;
 
+
           const y =
             cy +
             canvasHeight *
             vortex.offsetY;
+
 
           for (
             let ring = 0;
@@ -3258,23 +4303,31 @@
                 0.20
               );
 
+
             ctx.beginPath();
+
 
             ctx.arc(
               x,
               y,
               radius,
               0,
-              Math.PI * 2
+              Math.PI *
+              2
             );
+
 
             ctx.strokeStyle =
               `rgba(130,155,185,${0.045 + ring * 0.018})`;
 
-            ctx.lineWidth = 1;
+
+            ctx.lineWidth =
+              1;
+
 
             ctx.stroke();
           }
+
         }
 
 
@@ -3308,6 +4361,7 @@
           0.13
         );
 
+
         drawCircle(
           cx,
           cy,
@@ -3317,18 +4371,21 @@
           1
         );
 
+
         drawCircle(
           cx,
           cy,
           24 +
           Math.sin(
-            this.time * 2
+            this.time *
+            2
           ) *
           3,
           "rgba(225,235,245,0.035)",
           "rgba(225,235,245,0.34)",
           1
         );
+
 
         drawText(
           "EMERGENT GOAL",
@@ -3342,7 +4399,7 @@
 
 
         /*
-         * Variants and trails.
+         * Variants.
          */
 
         for (
@@ -3357,10 +4414,12 @@
 
             ctx.beginPath();
 
+
             ctx.moveTo(
               variant.trail[0][0],
               variant.trail[0][1]
             );
+
 
             for (
               let i = 1;
@@ -3375,10 +4434,14 @@
               );
             }
 
+
             ctx.strokeStyle =
               `rgba(180,200,220,${0.025 + variant.score * 0.17})`;
 
-            ctx.lineWidth = 1;
+
+            ctx.lineWidth =
+              1;
+
 
             ctx.stroke();
           }
@@ -3389,6 +4452,7 @@
             variant.score *
             3;
 
+
           drawCircle(
             variant.x,
             variant.y,
@@ -3397,10 +4461,6 @@
           );
         }
 
-
-        /*
-         * State label.
-         */
 
         const stateLabels = [
 
@@ -3418,7 +4478,9 @@
 
 
         drawText(
-          stateLabels[this.stage],
+          stateLabels[
+            this.stage
+          ],
           cx,
           31,
           10,
@@ -3431,7 +4493,8 @@
         drawText(
           `${this.variants.length} variants  •  attractor active  •  circulation + fluctuation`,
           cx,
-          canvasHeight - 28,
+          canvasHeight -
+          28,
           9,
           "#5f6c7c",
           "center",
@@ -3465,7 +4528,7 @@
 
 
     /* =========================================================
-       CONTROL HELPERS
+       UI CONTROL HELPERS
        ========================================================= */
 
     function createButton(
@@ -3479,44 +4542,62 @@
           "button"
         );
 
+
       button.type =
         "button";
+
 
       button.className =
         "control-button rounded-lg px-3 py-2 text-xs flex items-center gap-2";
 
-      if (icon) {
+
+      if (
+        icon
+      ) {
 
         const iconElement =
           document.createElement(
             "i"
           );
 
+
         iconElement.className =
           icon;
+
+
+        iconElement.setAttribute(
+          "aria-hidden",
+          "true"
+        );
+
 
         button.appendChild(
           iconElement
         );
       }
 
+
       const textNode =
         document.createTextNode(
           label
         );
 
+
       button.appendChild(
         textNode
       );
+
 
       button.addEventListener(
         "click",
         handler
       );
 
+
       controlsElement.appendChild(
         button
       );
+
 
       return button;
     }
@@ -3531,19 +4612,30 @@
           "input"
         );
 
+
       input.type =
         "text";
+
 
       input.value =
         simulation.subject;
 
+
       input.className =
         "control-input rounded-lg px-3 py-2 text-xs w-44 sm:w-56";
+
 
       input.setAttribute(
         "aria-label",
         "Simulation subject"
       );
+
+
+      input.setAttribute(
+        "placeholder",
+        "Enter a subject"
+      );
+
 
       input.addEventListener(
         "change",
@@ -3552,41 +4644,64 @@
           simulation.subject =
             input.value.trim() ||
             simulation.subject;
+
+          simulation.reset();
+
+          updateInterface();
         }
       );
+
 
       controlsElement.appendChild(
         input
       );
+
     }
 
 
     /* =========================================================
-       UI
+       TAB UI
        ========================================================= */
 
     function updateTabs() {
 
       for (
-        const tab of tabs
+        const tab of
+        tabs
       ) {
 
         const active =
           tab.dataset.simulation ===
           activeSimulation;
 
+
         tab.classList.toggle(
           "active",
           active
         );
 
+
         tab.classList.toggle(
           "text-slate-400",
           !active
         );
+
+
+        tab.setAttribute(
+          "aria-pressed",
+          String(
+            active
+          )
+        );
+
       }
+
     }
 
+
+    /* =========================================================
+       HEADER UI
+       ========================================================= */
 
     function updateHeader(
       simulation
@@ -3595,13 +4710,20 @@
       kickerElement.textContent =
         simulation.kicker;
 
+
       titleElement.textContent =
         simulation.name;
 
+
       descriptionElement.textContent =
         simulation.description;
+
     }
 
+
+    /* =========================================================
+       CONTROL UI
+       ========================================================= */
 
     function updateControls(
       simulation
@@ -3615,6 +4737,7 @@
         simulation.running
           ? "Pause"
           : "Resume",
+
         () => {
 
           simulation.running =
@@ -3622,6 +4745,7 @@
 
           updateInterface();
         },
+
         simulation.running
           ? "fas fa-pause"
           : "fas fa-play"
@@ -3630,15 +4754,21 @@
 
       createButton(
         "Reset",
+
         () => {
 
           simulation.reset();
 
           updateInterface();
         },
+
         "fas fa-redo-alt"
       );
 
+
+      /*
+       * Dialectical controls.
+       */
 
       if (
         activeSimulation ===
@@ -3647,20 +4777,27 @@
 
         createButton(
           "Next Stage",
+
           () => {
 
             simulation.nextStage();
 
             updateInterface();
           },
+
           "fas fa-step-forward"
         );
+
 
         createSubjectInput(
           simulation
         );
       }
 
+
+      /*
+       * Causal controls.
+       */
 
       if (
         activeSimulation ===
@@ -3673,6 +4810,10 @@
       }
 
 
+      /*
+       * Panoramic controls.
+       */
+
       if (
         activeSimulation ===
         "hp"
@@ -3684,6 +4825,10 @@
       }
 
 
+      /*
+       * Vortical controls.
+       */
+
       if (
         activeSimulation ===
         "vs"
@@ -3691,6 +4836,7 @@
 
         createButton(
           "Burst",
+
           () => {
 
             for (
@@ -3704,12 +4850,17 @@
 
             updateInterface();
           },
+
           "fas fa-bolt"
         );
       }
 
     }
 
+
+    /* =========================================================
+       METRICS
+       ========================================================= */
 
     function metricCell(
       label,
@@ -3759,6 +4910,10 @@
 
     function updateMetrics() {
 
+      /*
+       * Dialectical.
+       */
+
       if (
         activeSimulation ===
         "da"
@@ -3766,6 +4921,7 @@
 
         const simulation =
           dialectical;
+
 
         const progress =
           Math.round(
@@ -3804,9 +4960,14 @@
             "ITERATIVE"
           );
 
+
         return;
       }
 
+
+      /*
+       * Causal.
+       */
 
       if (
         activeSimulation ===
@@ -3815,6 +4976,7 @@
 
         const simulation =
           causal;
+
 
         metricsElement.innerHTML =
 
@@ -3840,9 +5002,14 @@
             "84%"
           );
 
+
         return;
       }
 
+
+      /*
+       * Panoramic.
+       */
 
       if (
         activeSimulation ===
@@ -3851,6 +5018,7 @@
 
         const simulation =
           panoramic;
+
 
         metricsElement.innerHTML =
 
@@ -3876,9 +5044,14 @@
             "PANORAMIC"
           );
 
+
         return;
       }
 
+
+      /*
+       * Vortical.
+       */
 
       if (
         activeSimulation ===
@@ -3887,6 +5060,7 @@
 
         const simulation =
           vortical;
+
 
         const states = [
 
@@ -3926,26 +5100,31 @@
             "FEEDBACK",
             "POSITIVE"
           );
+
       }
 
     }
 
+
+    /* =========================================================
+       HINTS
+       ========================================================= */
 
     function updateHint() {
 
       const hints = {
 
         da:
-          "Dialectical–Algorithmic: the active stage moves through an ordered contradiction-driven cycle. Use Next Stage for manual progression.",
+          "Dialectical–Algorithmic: the active stage moves through an ordered contradiction-driven cycle. Space pauses/resumes, R resets, and Right Arrow advances the stage.",
 
         cd:
-          "Causal–Deterministic: explicit intermediate links are retained between premises, mechanisms, consequences and the singular result.",
+          "Causal–Deterministic: explicit intermediate links remain visible between premises, mechanisms, consequences and the singular result. Space pauses/resumes; R resets.",
 
         hp:
-          "Holographical–Panoramic: the central object remains fixed while the criterion and projection rotate around it.",
+          "Holographical–Panoramic: the central object remains fixed while the active projection and criterion rotate around it. Space pauses/resumes; R resets.",
 
         vs:
-          "Vortical–Synergetic: variants circulate through a fluctuating field, are screened by proximity to the emergent goal and can generate new alternatives."
+          "Vortical–Synergetic: alternatives circulate through a fluctuating field, are screened by their relation to the emergent goal, and can generate new alternatives. Press B for a burst."
 
       };
 
@@ -3957,12 +5136,17 @@
     }
 
 
+    /* =========================================================
+       FULL UI UPDATE
+       ========================================================= */
+
     function updateInterface() {
 
       const simulation =
         simulations[
           activeSimulation
         ];
+
 
       updateTabs();
 
@@ -3977,15 +5161,17 @@
       updateMetrics();
 
       updateHint();
+
     }
 
 
     /* =========================================================
-       TAB NAVIGATION
+       TAB EVENTS
        ========================================================= */
 
     for (
-      const tab of tabs
+      const tab of
+      tabs
     ) {
 
       tab.addEventListener(
@@ -3995,13 +5181,17 @@
           activeSimulation =
             tab.dataset.simulation;
 
+
           simulations[
             activeSimulation
           ].reset();
 
+
           updateInterface();
+
         }
       );
+
     }
 
 
@@ -4013,20 +5203,31 @@
       "keydown",
       event => {
 
+        const activeElement =
+          document.activeElement;
+
+
+        const tagName =
+          activeElement &&
+          activeElement.tagName
+            ? activeElement.tagName.toLowerCase()
+            : "";
+
+
         /*
-         * Don't intercept keyboard input
-         * while the subject field is focused.
+         * Don't intercept keys while
+         * typing in an input.
          */
 
-        const tag =
-          document.activeElement
-            ?.tagName
-            ?.toLowerCase();
-
         if (
-          tag === "input" ||
-          tag === "textarea"
+          tagName ===
+            "input" ||
+          tagName ===
+            "textarea" ||
+          tagName ===
+            "select"
         ) {
+
           return;
         }
 
@@ -4037,6 +5238,11 @@
           ];
 
 
+        /*
+         * Space:
+         * pause / resume.
+         */
+
         if (
           event.code ===
           "Space"
@@ -4044,12 +5250,21 @@
 
           event.preventDefault();
 
+
           simulation.running =
             !simulation.running;
 
+
           updateInterface();
+
+          return;
         }
 
+
+        /*
+         * R:
+         * reset.
+         */
 
         if (
           event.key.toLowerCase() ===
@@ -4059,26 +5274,41 @@
           simulation.reset();
 
           updateInterface();
+
+          return;
         }
 
 
+        /*
+         * Dialectical:
+         * Right Arrow advances stage.
+         */
+
         if (
           activeSimulation ===
-          "da" &&
-          event.key === "ArrowRight"
+            "da" &&
+          event.key ===
+            "ArrowRight"
         ) {
 
           dialectical.nextStage();
 
           updateInterface();
+
+          return;
         }
 
 
+        /*
+         * Vortical:
+         * B creates alternatives.
+         */
+
         if (
           activeSimulation ===
-          "vs" &&
+            "vs" &&
           event.key.toLowerCase() ===
-          "b"
+            "b"
         ) {
 
           for (
@@ -4090,7 +5320,9 @@
             vortical.spawnVariant();
           }
 
+
           updateInterface();
+
         }
 
       }
@@ -4115,6 +5347,7 @@
           1000
         );
 
+
       previousTime =
         timestamp;
 
@@ -4129,6 +5362,7 @@
         delta
       );
 
+
       simulation.draw();
 
 
@@ -4137,8 +5371,9 @@
 
 
       /*
-       * Don't rebuild DOM controls
-       * every animation frame.
+       * DOM updates happen only
+       * periodically rather than every
+       * animation frame.
        */
 
       if (
@@ -4146,15 +5381,18 @@
         0.35
       ) {
 
-        uiRefreshClock = 0;
+        uiRefreshClock =
+          0;
 
         updateMetrics();
+
       }
 
 
       requestAnimationFrame(
         animationLoop
       );
+
     }
 
 
@@ -4163,11 +5401,16 @@
        ========================================================= */
 
     dialectical.reset();
+
     causal.reset();
+
     panoramic.reset();
+
     vortical.reset();
 
+
     updateInterface();
+
 
     requestAnimationFrame(
       animationLoop
