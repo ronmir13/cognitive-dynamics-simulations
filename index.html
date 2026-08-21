@@ -1,1 +1,2453 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#03050a">
+<meta name="description" content="Cognitive Dynamics Studio — Four Interactive Models of Cognition. An educational interactive simulation laboratory.">
+<meta name="author" content="Cognitive Dynamics Studio">
+<meta property="og:title" content="Cognitive Dynamics Studio">
+<meta property="og:description" content="Four Interactive Models of Cognition">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cognitivedynamicsstudio.com/">
+<link rel="canonical" href="https://cognitivedynamicsstudio.com/">
+<title>Cognitive Dynamics Studio — Four Interactive Models of Cognition</title>
 
+<style>
+:root{
+  --bg:#03050a;
+  --panel:#080d15;
+  --panel2:#0b131d;
+  --line:#263746;
+  --text:#f5f8fb;
+  --muted:#a9b6c2;
+  --soft:#718292;
+  --blue:#25b8ff;
+  --green:#42ed72;
+  --purple:#c765ff;
+  --orange:#ff9e27;
+  --danger:#ff5c6c;
+  --shadow:0 24px 90px rgba(0,0,0,.48);
+}
+
+*{box-sizing:border-box}
+
+html{
+  background:var(--bg);
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 50% -12%,rgba(23,54,79,.42),transparent 38%),
+    radial-gradient(circle at 0 40%,rgba(37,184,255,.045),transparent 28%),
+    radial-gradient(circle at 100% 65%,rgba(199,101,255,.04),transparent 28%),
+    var(--bg);
+  color:var(--text);
+  font:18px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+button,input,select{
+  font:inherit;
+}
+
+button{
+  -webkit-tap-highlight-color:transparent;
+}
+
+a{
+  color:#c5eaff;
+}
+
+a:hover{
+  color:#fff;
+}
+
+.wrap{
+  width:min(1600px,100%);
+  margin:auto;
+  padding:0 20px;
+}
+
+.top{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(3,5,10,.9);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid #223241;
+}
+
+.topin{
+  width:min(1600px,100%);
+  margin:auto;
+  padding:13px 20px;
+}
+
+.row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+}
+
+.brand{
+  font-weight:900;
+  font-size:1.15rem;
+  letter-spacing:-.02em;
+}
+
+.eyebrow{
+  color:#8193a5;
+  font:800 10px/1.2 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+
+.nav{
+  display:flex;
+  gap:4px;
+  overflow:auto;
+  padding-top:8px;
+  scrollbar-width:none;
+}
+
+.nav::-webkit-scrollbar{
+  display:none;
+}
+
+.nav a{
+  color:#aebbc7;
+  text-decoration:none;
+  padding:8px 11px;
+  border-radius:8px;
+  white-space:nowrap;
+}
+
+.nav a:hover{
+  background:#101a25;
+  color:#fff;
+}
+
+.hero{
+  padding:62px 0 35px;
+}
+
+.hero h1{
+  max-width:1120px;
+  margin:10px 0 22px;
+  font-size:clamp(2.8rem,6.2vw,6.2rem);
+  line-height:.94;
+  letter-spacing:-.065em;
+}
+
+.hero p{
+  max-width:940px;
+  margin:0;
+  color:var(--muted);
+  font-size:1.13rem;
+}
+
+.cta{
+  display:inline-block;
+  margin-top:20px;
+  padding:14px 19px;
+  border-radius:10px;
+  background:#f3f7fa;
+  color:#05080d;
+  font-weight:900;
+  text-decoration:none;
+}
+
+.cta:hover{
+  color:#000;
+  background:#fff;
+  transform:translateY(-1px);
+}
+
+.section{
+  padding:31px 0;
+  scroll-margin-top:105px;
+}
+
+.section h2{
+  margin:5px 0 8px;
+  font-size:clamp(2rem,3vw,3rem);
+  line-height:1.05;
+  letter-spacing:-.035em;
+}
+
+.muted{
+  color:var(--muted);
+}
+
+.simgrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+  margin-top:22px;
+}
+
+.sim{
+  --accent:var(--blue);
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(145deg,#09111a,#05090f);
+  border:1px solid #2b3d4d;
+  border-radius:20px;
+  box-shadow:var(--shadow);
+  transition:border-color .2s,box-shadow .2s;
+}
+
+.sim.focused{
+  border-color:var(--accent);
+  box-shadow:
+    0 0 0 1px var(--accent),
+    0 24px 90px rgba(0,0,0,.55),
+    0 0 55px color-mix(in srgb,var(--accent) 12%,transparent);
+}
+
+.simhead{
+  min-height:106px;
+  padding:19px 20px 15px;
+  border-bottom:1px solid #253746;
+  display:flex;
+  align-items:flex-start;
+  gap:13px;
+}
+
+.number{
+  flex:0 0 42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border-radius:11px;
+  background:var(--accent);
+  color:#04101a;
+  font-weight:950;
+  box-shadow:0 0 28px color-mix(in srgb,var(--accent) 60%,transparent);
+}
+
+.simtitle{
+  font-size:1.45rem;
+  font-weight:900;
+  line-height:1.12;
+  letter-spacing:-.025em;
+}
+
+.simdesc{
+  margin-top:4px;
+  color:#aebbc6;
+  font-size:.9rem;
+}
+
+.live{
+  margin-left:auto;
+  white-space:nowrap;
+  padding:5px 8px;
+  border:1px solid #285a38;
+  border-radius:999px;
+  background:#06150a;
+  color:#68ff83;
+  font:800 9px ui-monospace,SFMono-Regular,monospace;
+}
+
+.live::before{
+  content:"";
+  display:inline-block;
+  width:7px;
+  height:7px;
+  margin-right:5px;
+  border-radius:50%;
+  background:#55ff73;
+  box-shadow:0 0 10px #55ff73;
+}
+
+.visual{
+  position:relative;
+  height:570px;
+  background:#010409;
+}
+
+.visual canvas{
+  display:block;
+  width:100%;
+  height:100%;
+}
+
+.hud{
+  position:absolute;
+  inset:13px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  pointer-events:none;
+}
+
+.badge{
+  padding:6px 8px;
+  border:1px solid #3b4f61;
+  border-radius:8px;
+  background:rgba(3,7,13,.86);
+  color:#c7d2db;
+  font:800 9px ui-monospace,SFMono-Regular,monospace;
+}
+
+.explain{
+  padding:15px 18px;
+  border-top:1px solid color-mix(in srgb,var(--accent) 30%,#263746);
+  background:linear-gradient(
+    90deg,
+    color-mix(in srgb,var(--accent) 9%,#07101a),
+    #070c13
+  );
+}
+
+.explain strong{
+  display:block;
+  color:var(--accent);
+  font:900 10px ui-monospace,SFMono-Regular,monospace;
+  letter-spacing:.12em;
+}
+
+.phase{
+  margin-top:2px;
+  font-size:1.08rem;
+  font-weight:900;
+}
+
+.explain p{
+  margin:3px 0 0;
+  color:#aebbc5;
+  font-size:.9rem;
+}
+
+.metrics{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:7px;
+  padding:11px;
+  background:#05090f;
+}
+
+.metric{
+  padding:8px;
+  border:1px solid #263746;
+  border-radius:8px;
+  background:#08111a;
+}
+
+.metric b{
+  display:block;
+  color:#728596;
+  font:800 9px ui-monospace,SFMono-Regular,monospace;
+}
+
+.metric span{
+  display:block;
+  margin-top:2px;
+  color:#e0e7ec;
+  font-size:.82rem;
+}
+
+.controls{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:7px;
+  padding:11px;
+  border-top:1px solid #263746;
+}
+
+.btn{
+  min-height:43px;
+  padding:9px 13px;
+  border:1px solid #3b5063;
+  border-radius:9px;
+  background:#09121c;
+  color:#eef4f8;
+  cursor:pointer;
+  font-weight:750;
+}
+
+.btn:hover{
+  background:#162534;
+  border-color:#8b9dac;
+}
+
+.btn.primary{
+  background:#f3f7fa;
+  color:#05080d;
+  border-color:#f3f7fa;
+}
+
+.btn.primary:hover{
+  background:#fff;
+}
+
+.speed{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  margin-left:auto;
+  color:#8091a0;
+  font:800 9px ui-monospace,SFMono-Regular,monospace;
+}
+
+.speed input{
+  width:115px;
+  accent-color:var(--accent);
+}
+
+.progress{
+  height:5px;
+  background:#17232d;
+}
+
+.progress div{
+  width:0;
+  height:100%;
+  background:var(--accent);
+  box-shadow:0 0 15px var(--accent);
+  transition:width .15s;
+}
+
+.overview{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  margin-top:18px;
+}
+
+.overview button{
+  padding:11px;
+  border:1px solid #293c4c;
+  border-radius:10px;
+  background:#07101a;
+  color:#d5dde4;
+  text-align:left;
+  cursor:pointer;
+}
+
+.overview button:hover,
+.overview button.active{
+  border-color:#aab8c4;
+  background:#101b26;
+}
+
+.overview strong{
+  display:block;
+  font-size:.9rem;
+}
+
+.overview small{
+  display:block;
+  margin-top:2px;
+  color:#81909e;
+}
+
+.info{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:18px;
+}
+
+.info article,
+.source{
+  padding:18px;
+  border:1px solid #293b4b;
+  border-radius:14px;
+  background:#080e15;
+}
+
+.info h3{
+  margin:6px 0;
+  font-size:1.05rem;
+}
+
+.info p,
+.source p{
+  color:#9facb8;
+  font-size:.9rem;
+}
+
+.source a{
+  color:#c4e9ff;
+}
+
+.grid3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:18px;
+}
+
+.input,
+.select{
+  width:100%;
+  padding:10px;
+  border:1px solid #3a4d5e;
+  border-radius:9px;
+  background:#050a10;
+  color:#edf2f5;
+}
+
+.field-label{
+  display:block;
+}
+
+.field-label .eyebrow{
+  display:block;
+  margin-bottom:6px;
+}
+
+.check-card{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.check-card input{
+  width:20px;
+  height:20px;
+  accent-color:#fff;
+}
+
+pre{
+  white-space:pre-wrap;
+  overflow:auto;
+}
+
+.hidden{
+  display:none!important;
+}
+
+.fullscreen{
+  position:fixed!important;
+  inset:0!important;
+  z-index:1000!important;
+  border-radius:0!important;
+  background:#010409!important;
+}
+
+.fullscreen .visual{
+  height:calc(100vh - 185px);
+}
+
+.fullscreen .simhead{
+  min-height:90px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible{
+  outline:3px solid #d9e6ef;
+  outline-offset:3px;
+}
+
+body.high-contrast{
+  --text:#fff;
+  --muted:#d5dde4;
+  --line:#617485;
+}
+
+body.high-contrast .sim,
+body.high-contrast .source,
+body.high-contrast .info article{
+  border-color:#718596;
+}
+
+body.high-contrast .metric{
+  border-color:#667a8b;
+}
+
+.sr-only{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
+
+footer{
+  padding:50px 0 70px;
+  text-align:center;
+}
+
+@media(max-width:1100px){
+  .simgrid{
+    grid-template-columns:1fr;
+  }
+
+  .info{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:800px){
+  .grid3{
+    grid-template-columns:1fr;
+  }
+
+  .overview{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:620px){
+  .wrap{
+    padding:0 12px;
+  }
+
+  .topin{
+    padding:12px;
+  }
+
+  .hero{
+    padding-top:36px;
+  }
+
+  .hero h1{
+    font-size:clamp(2.6rem,14vw,4.3rem);
+  }
+
+  .visual{
+    height:420px;
+  }
+
+  .metrics{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .overview,
+  .info{
+    grid-template-columns:1fr;
+  }
+
+  .speed{
+    width:100%;
+    margin-left:0;
+  }
+
+  .speed input{
+    flex:1;
+  }
+
+  .simtitle{
+    font-size:1.25rem;
+  }
+
+  .simhead{
+    padding:16px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{
+    scroll-behavior:auto;
+  }
+
+  *,
+  *::before,
+  *::after{
+    animation-duration:.001ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.001ms!important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="top">
+  <div class="topin">
+    <div class="row">
+      <div>
+        <div class="eyebrow">Cognitive Dynamics Studio · Final Edition</div>
+        <div class="brand">Four Interactive Models of Cognition</div>
+      </div>
+      <div class="eyebrow">LIVE · EDUCATIONAL</div>
+    </div>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#simulations">Simulations</a>
+      <a href="#how">How they work</a>
+      <a href="#experiment">Experiment</a>
+      <a href="#integrity">Integrity</a>
+      <a href="#sources">Sources</a>
+      <a href="#settings">Accessibility</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="hero">
+  <div class="eyebrow">Cognitive Dynamics Studio</div>
+
+  <h1>Four different ways of modeling cognition.</h1>
+
+  <p>
+    Explore four interactive computational interpretations through large,
+    visual simulations. Pause them, step through their states, change speed,
+    inspect live metrics, or open a model fullscreen.
+  </p>
+
+  <a class="cta" href="#simulations">Enter the simulation studio ↓</a>
+</section>
+
+<section id="simulations" class="section">
+  <div class="eyebrow">01 · Live simulation studio</div>
+
+  <h2>See all four simulations</h2>
+
+  <p class="muted">
+    Each model has a distinct visual language. The color identifies the model,
+    while the state panel explains what is happening.
+  </p>
+
+  <div id="overview" class="overview"></div>
+
+  <div id="simgrid" class="simgrid"></div>
+</section>
+
+<section id="how" class="section">
+  <div class="eyebrow">02 · How they work</div>
+
+  <h2>What each visualization actually models</h2>
+
+  <div class="info">
+
+    <article>
+      <div class="eyebrow" style="color:var(--blue)">CAUSAL–DETERMINIST</div>
+      <h3>Follow a chain</h3>
+      <p>
+        Seven explicit states form a directional chain. Step advances exactly
+        one state; playback uses the same transition.
+      </p>
+    </article>
+
+    <article>
+      <div class="eyebrow" style="color:var(--green)">DIALECTICAL–ALGORITHMIC</div>
+      <h3>Hold opposites together</h3>
+      <p>
+        Thesis and antithesis converge on contradiction, then move through
+        synthesis, rule formation and algorithmic iteration.
+      </p>
+    </article>
+
+    <article>
+      <div class="eyebrow" style="color:var(--purple)">HOLOGRAPHICAL–PANORAMIC</div>
+      <h3>Change the viewpoint</h3>
+      <p>
+        The central object remains stable while the active projection rotates
+        through six perspectives.
+      </p>
+    </article>
+
+    <article>
+      <div class="eyebrow" style="color:var(--orange)">VORTICAL–SYNERGETIC</div>
+      <h3>Watch a dynamic field</h3>
+      <p>
+        Alternatives fluctuate around an attractor; field density, attraction
+        and feedback are explicit state variables.
+      </p>
+    </article>
+
+  </div>
+</section>
+
+<section id="experiment" class="section">
+  <div class="source">
+
+    <div class="eyebrow">03 · Experiment studio</div>
+
+    <h2>Reproduce a computer-model run</h2>
+
+    <p>
+      A reproducible run means that the same model version, seed and transition
+      rules produce the same discrete state sequence. It does not establish
+      empirical validity of the underlying theory.
+    </p>
+
+    <div class="grid3">
+
+      <label class="field-label">
+        <span class="eyebrow">Seed</span>
+        <input id="seed" class="input" type="number" value="482913">
+      </label>
+
+      <label class="field-label">
+        <span class="eyebrow">Model</span>
+        <select id="model" class="select">
+          <option value="cd">Causal–Determinist</option>
+          <option value="da">Dialectical–Algorithmic</option>
+          <option value="hp">Holographical–Panoramic</option>
+          <option value="vs">Vortical–Synergetic</option>
+        </select>
+      </label>
+
+      <label class="field-label">
+        <span class="eyebrow">Discrete steps</span>
+        <input id="steps" class="input" type="number" min="1" max="1000" value="20">
+      </label>
+
+    </div>
+
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px">
+      <button class="btn" id="baseline">Capture baseline</button>
+      <button class="btn" id="intervention">Capture intervention</button>
+      <button class="btn primary" id="run">Run deterministic experiment</button>
+      <button class="btn" id="download">Export JSON</button>
+    </div>
+
+    <pre id="out"
+      class="hidden"
+      aria-live="polite"
+      style="margin-top:16px;background:#03070c;border:1px solid #263746;border-radius:12px;padding:15px;color:#cdd7df;font-size:12px"></pre>
+
+  </div>
+</section>
+
+<section id="integrity" class="section">
+  <div class="source">
+
+    <div class="eyebrow">04 · Scientific integrity</div>
+
+    <h2>Source, implementation and evidence are separated.</h2>
+
+    <div class="grid3">
+
+      <div>
+        <div class="eyebrow">Source-derived</div>
+        <p>
+          The four names, terminology and conceptual framing are presented as
+          source-derived material.
+        </p>
+      </div>
+
+      <div>
+        <div class="eyebrow">Original implementation</div>
+        <p>
+          Numerical state variables, transition rules, particles, trajectories,
+          metrics and visual metaphors are software choices in this website.
+        </p>
+      </div>
+
+      <div>
+        <div class="eyebrow">Evidence boundary</div>
+        <p>
+          These are educational simulations, not psychological tests,
+          diagnoses, neuroscience models or validated measures of individual
+          cognition.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="source" style="margin-top:18px">
+      <b>How to read the display</b>
+
+      <p>
+        A particle, score, trajectory or state label is an output of the
+        computational model. It should not be treated as empirical evidence
+        that the underlying framework predicts human cognition.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section id="sources" class="section">
+  <div class="source">
+
+    <div class="eyebrow">05 · Sources</div>
+
+    <h2>Primary publication and English translation</h2>
+
+    <p>
+      <b>Viktor V. Gulenko, “Forms of Thinking”</b><br>
+      <em>Socionics, Mentology and Personality Psychology</em>,
+      No. 4 (2002), pp. 9–25.
+    </p>
+
+    <p>
+      <a href="https://www.publishing.socionic.info/index.php/socionics/article/view/1228"
+         target="_blank"
+         rel="noopener noreferrer">
+        Publisher record ↗
+      </a>
+      ·
+      <a href="https://www.socionicsforum.com/vbulletin/content.php/51-Forms-of-Cognition-by-Victor-Gulenko"
+         target="_blank"
+         rel="noopener noreferrer">
+        English translation ↗
+      </a>
+    </p>
+
+    <p>
+      This project does not claim endorsement by the author, journal or linked
+      sites.
+    </p>
+
+  </div>
+</section>
+
+<section id="settings" class="section">
+  <div class="source">
+
+    <div class="eyebrow">06 · Accessibility</div>
+
+    <h2>Make the studio easier to see and control</h2>
+
+    <div class="grid3">
+
+      <label class="field-label">
+        <span class="eyebrow">Text size</span>
+        <select id="textsize" class="select">
+          <option value="normal">Normal</option>
+          <option value="large">Large</option>
+          <option value="xl">Extra large</option>
+        </select>
+      </label>
+
+      <label class="source check-card">
+        <span>High contrast</span>
+        <input id="contrast" type="checkbox">
+      </label>
+
+      <label class="source check-card">
+        <span>Reduced motion</span>
+        <input id="reduced" type="checkbox">
+      </label>
+
+    </div>
+
+    <p class="muted" style="font-size:.85rem">
+      Reduced motion stops automatic animation. You can still advance every
+      model manually with Step.
+    </p>
+
+  </div>
+</section>
+
+<footer>
+  <div class="eyebrow">Cognitive Dynamics Studio</div>
+
+  <p class="muted" style="font-size:.85rem">
+    Four Interactive Models of Cognition · educational computational software
+    · not a validated psychological measurement
+  </p>
+</footer>
+
+</main>
+
+<script>
+"use strict";
+
+const MODELS = {
+  cd:{
+    name:"Causal–Determinist",
+    color:"#25b8ff",
+    stages:[
+      "Observation",
+      "Premise",
+      "Mechanism",
+      "Causal Link",
+      "Process",
+      "Deduction",
+      "Result"
+    ]
+  },
+
+  da:{
+    name:"Dialectical–Algorithmic",
+    color:"#42ed72",
+    stages:[
+      "Thesis",
+      "Antithesis",
+      "Contradiction",
+      "Synthesis",
+      "Rule",
+      "Algorithm"
+    ]
+  },
+
+  hp:{
+    name:"Holographical–Panoramic",
+    color:"#c765ff",
+    stages:[
+      "Front",
+      "Right",
+      "Top",
+      "Detail",
+      "Context",
+      "Analogy"
+    ]
+  },
+
+  vs:{
+    name:"Vortical–Synergetic",
+    color:"#ff9e27",
+    stages:[
+      "Fluctuation",
+      "Alternatives",
+      "Trial",
+      "Screening",
+      "Attractor",
+      "Feedback",
+      "Branching",
+      "Dissipation"
+    ]
+  }
+};
+
+const state={
+  cd:{i:0},
+  da:{i:0},
+  hp:{i:0,angle:0},
+  vs:{
+    t:0,
+    field:.45,
+    attractor:.72,
+    feedback:.62
+  }
+};
+
+const paused={
+  cd:false,
+  da:false,
+  hp:false,
+  vs:false
+};
+
+const speeds={
+  cd:1,
+  da:1,
+  hp:1,
+  vs:1
+};
+
+let selected="cd";
+let reducedMotion=false;
+let random=makeRandom(482913);
+let baseline=null;
+let intervention=null;
+
+function makeRandom(seed){
+  let x=(Number(seed)||1)>>>0;
+
+  return function(){
+    x+=0x6D2B79F5;
+
+    let q=x;
+
+    q=Math.imul(q^q>>>15,q|1);
+    q^=q+Math.imul(q^q>>>7,q|61);
+
+    return((q^q>>>14)>>>0)/4294967296;
+  };
+}
+
+function buildSimulations(){
+
+  const overview=document.getElementById("overview");
+  const grid=document.getElementById("simgrid");
+
+  Object.entries(MODELS).forEach(([id,model],index)=>{
+
+    const overviewButton=document.createElement("button");
+
+    overviewButton.dataset.id=id;
+    overviewButton.setAttribute(
+      "aria-label",
+      `Focus ${model.name} simulation`
+    );
+
+    overviewButton.innerHTML=`
+      <strong>${index+1}. ${model.name}</strong>
+      <small>${model.stages.join(" → ")}</small>
+    `;
+
+    overviewButton.addEventListener("click",()=>focusSimulation(id));
+
+    overview.appendChild(overviewButton);
+
+    const article=document.createElement("article");
+
+    article.className="sim";
+    article.id=`sim-${id}`;
+    article.style.setProperty("--accent",model.color);
+
+    const description=
+      id==="cd"
+        ?"Cause → mechanism → consequence"
+      :id==="da"
+        ?"Opposition → synthesis → algorithm"
+      :id==="hp"
+        ?"One object → many perspectives"
+        :"Alternatives → attraction → feedback";
+
+    article.innerHTML=`
+
+      <div class="simhead">
+
+        <div class="number">${index+1}</div>
+
+        <div>
+          <div class="eyebrow">
+            ${id.toUpperCase()} · LIVE SIMULATION
+          </div>
+
+          <div class="simtitle">
+            ${model.name}
+          </div>
+
+          <div class="simdesc">
+            ${description}
+          </div>
+        </div>
+
+        <div class="live">LIVE</div>
+
+      </div>
+
+      <div class="visual">
+
+        <canvas
+          id="canvas-${id}"
+          role="img"
+          aria-label="${model.name} computational visualization">
+        </canvas>
+
+        <div class="hud">
+          <span class="badge">COMPUTATIONAL MODEL</span>
+          <span class="badge" id="stage-${id}">STAGE 01</span>
+        </div>
+
+      </div>
+
+      <div class="explain">
+
+        <strong>WHAT IS HAPPENING NOW</strong>
+
+        <div class="phase" id="phase-${id}"></div>
+
+        <p id="explain-${id}"></p>
+
+      </div>
+
+      <div class="metrics" id="metrics-${id}"></div>
+
+      <div class="controls">
+
+        <button
+          class="btn primary play"
+          data-id="${id}">
+          Ⅱ Pause
+        </button>
+
+        <button
+          class="btn step"
+          data-id="${id}">
+          ▶ Step
+        </button>
+
+        <button
+          class="btn reset"
+          data-id="${id}">
+          ↻ Reset
+        </button>
+
+        <button
+          class="btn fullscreen-button"
+          data-id="${id}">
+          ⛶ Fullscreen
+        </button>
+
+        <label class="speed">
+          SPEED
+          <input
+            aria-label="${model.name} simulation speed"
+            data-speed="${id}"
+            type="range"
+            min=".25"
+            max="2"
+            step=".25"
+            value="1">
+          <span data-speed-label="${id}">1×</span>
+        </label>
+
+      </div>
+
+      <div class="progress" aria-hidden="true">
+        <div id="progress-${id}"></div>
+      </div>
+    `;
+
+    grid.appendChild(article);
+  });
+
+  document.querySelectorAll(".play").forEach(button=>{
+    button.addEventListener("click",()=>{
+      const id=button.dataset.id;
+
+      paused[id]=!paused[id];
+
+      button.textContent=
+        paused[id]
+          ?"▶ Resume"
+          :"Ⅱ Pause";
+    });
+  });
+
+  document.querySelectorAll(".step").forEach(button=>{
+    button.addEventListener(
+      "click",
+      ()=>stepSimulation(button.dataset.id)
+    );
+  });
+
+  document.querySelectorAll(".reset").forEach(button=>{
+    button.addEventListener(
+      "click",
+      ()=>resetSimulation(button.dataset.id)
+    );
+  });
+
+  document.querySelectorAll(".fullscreen-button").forEach(button=>{
+    button.addEventListener(
+      "click",
+      ()=>toggleFullscreen(button.dataset.id)
+    );
+  });
+
+  document.querySelectorAll("[data-speed]").forEach(range=>{
+    range.addEventListener("input",()=>{
+      const id=range.dataset.speed;
+
+      speeds[id]=Number(range.value);
+
+      document.querySelector(
+        `[data-speed-label="${id}"]`
+      ).textContent=`${range.value}×`;
+    });
+  });
+}
+
+function fitCanvas(canvas,context){
+
+  const rect=canvas.getBoundingClientRect();
+
+  const density=Math.min(
+    window.devicePixelRatio||1,
+    2
+  );
+
+  const width=Math.max(1,Math.floor(rect.width));
+  const height=Math.max(1,Math.floor(rect.height));
+
+  canvas.width=Math.floor(width*density);
+  canvas.height=Math.floor(height*density);
+
+  context.setTransform(
+    density,
+    0,
+    0,
+    density,
+    0,
+    0
+  );
+
+  return [width,height];
+}
+
+function clearCanvas(canvas,context){
+
+  const [width,height]=fitCanvas(canvas,context);
+
+  context.fillStyle="#010409";
+  context.fillRect(0,0,width,height);
+
+  context.strokeStyle="rgba(255,255,255,.035)";
+  context.lineWidth=1;
+
+  for(let x=0;x<width;x+=42){
+    context.beginPath();
+    context.moveTo(x,0);
+    context.lineTo(x,height);
+    context.stroke();
+  }
+
+  for(let y=0;y<height;y+=42){
+    context.beginPath();
+    context.moveTo(0,y);
+    context.lineTo(width,y);
+    context.stroke();
+  }
+
+  return [width,height];
+}
+
+function text(context,string,x,y,size,color="#fff",weight=800){
+
+  context.fillStyle=color;
+
+  context.font=
+    `${weight} ${size}px ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace`;
+
+  context.textAlign="center";
+  context.textBaseline="middle";
+
+  context.fillText(string,x,y);
+}
+
+function circle(
+  context,
+  x,
+  y,
+  radius,
+  fill,
+  stroke,
+  lineWidth=2
+){
+
+  context.shadowColor=stroke;
+  context.shadowBlur=18;
+
+  context.beginPath();
+  context.arc(x,y,radius,0,Math.PI*2);
+
+  context.fillStyle=fill;
+  context.fill();
+
+  context.shadowBlur=0;
+
+  context.strokeStyle=stroke;
+  context.lineWidth=lineWidth;
+  context.stroke();
+}
+
+function line(
+  context,
+  x1,
+  y1,
+  x2,
+  y2,
+  color,
+  width=2
+){
+
+  context.strokeStyle=color;
+  context.lineWidth=width;
+
+  context.beginPath();
+  context.moveTo(x1,y1);
+  context.lineTo(x2,y2);
+  context.stroke();
+}
+
+function arrow(
+  context,
+  x1,
+  y1,
+  x2,
+  y2,
+  color
+){
+
+  line(
+    context,
+    x1,
+    y1,
+    x2,
+    y2,
+    color,
+    2.5
+  );
+
+  const length=10;
+  const angle=Math.atan2(
+    y2-y1,
+    x2-x1
+  );
+
+  context.fillStyle=color;
+
+  context.beginPath();
+
+  context.moveTo(x2,y2);
+
+  context.lineTo(
+    x2-length*Math.cos(angle-.5),
+    y2-length*Math.sin(angle-.5)
+  );
+
+  context.lineTo(
+    x2-length*Math.cos(angle+.5),
+    y2-length*Math.sin(angle+.5)
+  );
+
+  context.closePath();
+  context.fill();
+}
+
+function drawCausal(canvas,context){
+
+  const [width,height]=clearCanvas(
+    canvas,
+    context
+  );
+
+  const model=MODELS.cd;
+  const current=state.cd.i;
+
+  const gap=Math.min(
+    150,
+    (width-110)/(model.stages.length-1)
+  );
+
+  const start=
+    (width-gap*(model.stages.length-1))/2;
+
+  const y=height*.5;
+
+  for(let i=0;i<model.stages.length-1;i++){
+
+    arrow(
+      context,
+      start+i*gap+32,
+      y,
+      start+(i+1)*gap-32,
+      y,
+      i<current
+        ?"rgba(37,184,255,.95)"
+        :"#304354"
+    );
+  }
+
+  model.stages.forEach((stage,index)=>{
+
+    const active=index===current;
+
+    circle(
+      context,
+      start+index*gap,
+      y,
+      active?31:28,
+      active?"#0f3650":"#07111b",
+      active?"#7bd7ff":"#476072",
+      active?3:1
+    );
+
+    text(
+      context,
+      String(index+1).padStart(2,"0"),
+      start+index*gap,
+      y,
+      11,
+      active?"#fff":"#8da0af"
+    );
+
+    text(
+      context,
+      stage,
+      start+index*gap,
+      y+50,
+      8,
+      active?"#eaf9ff":"#738493"
+    );
+  });
+
+  text(
+    context,
+    "OBSERVE → EXPLAIN → DEDUCE → RESULT",
+    width/2,
+    34,
+    11,
+    "#52c5ff"
+  );
+}
+
+function drawDialectical(canvas,context){
+
+  const [width,height]=clearCanvas(
+    canvas,
+    context
+  );
+
+  const current=state.da.i;
+
+  const cx=width/2;
+  const cy=height/2;
+
+  const positions=[
+    [-.34,-.2],
+    [-.34,.2],
+    [-.10,0],
+    [.13,0],
+    [.35,0],
+    [.47,0]
+  ];
+
+  const labels=MODELS.da.stages;
+
+  line(
+    context,
+    cx-.34*width,
+    cy-.2*height,
+    cx-.10*width,
+    cy,
+    "#42ed72",
+    4
+  );
+
+  line(
+    context,
+    cx-.34*width,
+    cy+.2*height,
+    cx-.10*width,
+    cy,
+    "#c765ff",
+    4
+  );
+
+  for(let i=2;i<5;i++){
+
+    arrow(
+      context,
+      cx+positions[i][0]*width,
+      cy,
+      cx+positions[i+1][0]*width,
+      cy,
+      i<=current
+        ?"rgba(66,237,114,.95)"
+        :"#31493a"
+    );
+  }
+
+  positions.forEach((position,index)=>{
+
+    const colors=[
+      "#42ed72",
+      "#c765ff",
+      "#ff4e55",
+      "#25b8ff",
+      "#ffe04b",
+      "#ff9e27"
+    ];
+
+    const active=index===current;
+    const color=colors[index];
+
+    const x=cx+position[0]*width;
+    const y=cy+position[1]*height;
+
+    circle(
+      context,
+      x,
+      y,
+      active?31:28,
+      active?"#183c24":"#07111b",
+      color,
+      active?3:1
+    );
+
+    text(
+      context,
+      labels[index],
+      x,
+      y+46,
+      8,
+      active?"#fff":color
+    );
+  });
+
+  text(
+    context,
+    "OPPOSITION → CONTRADICTION → SYNTHESIS",
+    width/2,
+    34,
+    11,
+    "#62ef82"
+  );
+}
+
+function drawPanoramic(canvas,context){
+
+  const [width,height]=clearCanvas(
+    canvas,
+    context
+  );
+
+  const current=state.hp.i;
+  const angle=state.hp.angle;
+
+  const cx=width/2;
+  const cy=height/2;
+
+  const colors=[
+    "#25b8ff",
+    "#42ed72",
+    "#ffe04b",
+    "#ff9e27",
+    "#c765ff",
+    "#8e72ff"
+  ];
+
+  circle(
+    context,
+    cx,
+    cy,
+    69,
+    "#180b22",
+    "#e1baff",
+    3
+  );
+
+  text(
+    context,
+    "SAME OBJECT",
+    cx,
+    cy,
+    11,
+    "#fff"
+  );
+
+  MODELS.hp.stages.forEach((stage,index)=>{
+
+    const a=
+      angle+
+      index*Math.PI/3;
+
+    const radius=Math.min(
+      width*.36,
+      270
+    );
+
+    const x=
+      cx+
+      Math.cos(a)*radius;
+
+    const y=
+      cy+
+      Math.sin(a)*Math.min(
+        height*.31,
+        175
+      );
+
+    const active=index===current;
+
+    arrow(
+      context,
+      cx,
+      cy,
+      x,
+      y,
+      active
+        ?colors[index]
+        :"#344657"
+    );
+
+    circle(
+      context,
+      x,
+      y,
+      active?31:28,
+      active?"#32154a":"#07111b",
+      colors[index],
+      active?3:1
+    );
+
+    text(
+      context,
+      stage,
+      x,
+      y+45,
+      8,
+      active?"#fff":colors[index]
+    );
+  });
+
+  text(
+    context,
+    "ONE OBJECT · MANY PROJECTIONS",
+    width/2,
+    34,
+    11,
+    "#dc92ff"
+  );
+}
+
+function drawVortical(canvas,context){
+
+  const [width,height]=clearCanvas(
+    canvas,
+    context
+  );
+
+  const s=state.vs;
+
+  const cx=width/2;
+  const cy=height/2;
+
+  const colors=[
+    "#ff9e27",
+    "#ff4fbd",
+    "#c765ff",
+    "#25b8ff",
+    "#42ed72",
+    "#ffe04b"
+  ];
+
+  for(let q=0;q<6;q++){
+
+    context.beginPath();
+
+    for(let i=0;i<330;i++){
+
+      const angle=
+        i*.052+
+        q*1.03+
+        s.t*.4;
+
+      const radius=
+        40+
+        i*(q+1)*.48;
+
+      const x=
+        cx+
+        Math.cos(angle)*radius;
+
+      const y=
+        cy+
+        Math.sin(angle)*radius*.49;
+
+      if(i===0){
+        context.moveTo(x,y);
+      }else{
+        context.lineTo(x,y);
+      }
+    }
+
+    context.strokeStyle=
+      colors[q]+"66";
+
+    context.lineWidth=1.5;
+    context.stroke();
+  }
+
+  for(let i=0;i<110;i++){
+
+    const angle=
+      random()*Math.PI*2+
+      s.t*.4;
+
+    const radius=
+      70+
+      random()*Math.min(
+        340,
+        width*.38
+      );
+
+    const x=
+      cx+
+      Math.cos(angle)*radius;
+
+    const y=
+      cy+
+      Math.sin(angle)*radius*.5;
+
+    const color=
+      colors[i%colors.length];
+
+    context.fillStyle=color;
+    context.shadowColor=color;
+    context.shadowBlur=10;
+
+    context.beginPath();
+    context.arc(
+      x,
+      y,
+      1.4+random()*2.7,
+      0,
+      Math.PI*2
+    );
+
+    context.fill();
+    context.shadowBlur=0;
+  }
+
+  circle(
+    context,
+    cx,
+    cy,
+    62,
+    "#2c1703",
+    "#ffc56c",
+    3
+  );
+
+  text(
+    context,
+    "ATTRACTOR",
+    cx,
+    cy,
+    11,
+    "#fff"
+  );
+
+  text(
+    context,
+    "ALTERNATIVES → FEEDBACK → SELF-ORGANIZATION",
+    width/2,
+    34,
+    11,
+    "#ffb34c"
+  );
+}
+
+function updateInterface(id){
+
+  const model=MODELS[id];
+  const s=state[id];
+
+  const current=
+    typeof s.i==="number"
+      ?s.i
+      :0;
+
+  const phase=
+    typeof s.i==="number"
+      ?model.stages[current]
+      :"Dynamic attractor field";
+
+  const stageElement=
+    document.getElementById(`stage-${id}`);
+
+  stageElement.textContent=
+    typeof s.i==="number"
+      ?`STAGE ${String(current+1).padStart(2,"0")} / ${model.stages.length}`
+      :"LIVE FIELD";
+
+  document.getElementById(
+    `phase-${id}`
+  ).textContent=phase;
+
+  let explanation="";
+
+  if(id==="cd"){
+    explanation=
+      `The model is emphasizing ${phase.toLowerCase()} and its relationship to the next state.`;
+  }
+
+  if(id==="da"){
+    explanation=
+      `The current transition is ${phase.toLowerCase()}; opposing information remains visible so synthesis can be inspected.`;
+  }
+
+  if(id==="hp"){
+    explanation=
+      `The object is unchanged; the active projection is ${phase.toLowerCase()}.`;
+  }
+
+  if(id==="vs"){
+    explanation=
+      `The field is fluctuating; attraction is ${(s.attractor*100).toFixed(0)}% and feedback is ${(s.feedback*100).toFixed(0)}%.`;
+  }
+
+  document.getElementById(
+    `explain-${id}`
+  ).textContent=explanation;
+
+  let metrics=[];
+
+  if(id==="cd"){
+    metrics=[
+      ["STAGE",current+1],
+      ["CAUSALITY","1.00"],
+      ["NOISE",".02"],
+      ["OUTPUT",phase.toUpperCase()]
+    ];
+  }
+
+  if(id==="da"){
+    metrics=[
+      ["STAGE",current+1],
+      ["OPPOSITION",".81"],
+      ["SYNTHESIS",current>=3?".76":".31"],
+      ["ALGORITHM",current>=4?"READY":"FORMING"]
+    ];
+  }
+
+  if(id==="hp"){
+    metrics=[
+      ["VIEW",current+1],
+      ["OBJECT","STABLE"],
+      ["PROJECTIONS","6"],
+      ["CRITERION","CHANGING"]
+    ];
+  }
+
+  if(id==="vs"){
+    metrics=[
+      ["FIELD","DYNAMIC"],
+      ["ATTRACTOR",(s.attractor*100).toFixed(0)+"%"],
+      ["FEEDBACK",(s.feedback*100).toFixed(0)+"%"],
+      ["DENSITY",(s.field*100).toFixed(0)+"%"]
+    ];
+  }
+
+  document.getElementById(
+    `metrics-${id}`
+  ).innerHTML=metrics.map(
+    metric=>`
+      <div class="metric">
+        <b>${metric[0]}</b>
+        <span>${metric[1]}</span>
+      </div>
+    `
+  ).join("");
+
+  document.getElementById(
+    `progress-${id}`
+  ).style.width=
+    typeof s.i==="number"
+      ?`${((current+1)/model.stages.length)*100}%`
+      :"100%";
+}
+
+function render(){
+
+  Object.keys(MODELS).forEach(id=>{
+
+    const canvas=
+      document.getElementById(`canvas-${id}`);
+
+    const context=
+      canvas.getContext("2d");
+
+    if(id==="cd"){
+      drawCausal(canvas,context);
+    }
+
+    if(id==="da"){
+      drawDialectical(canvas,context);
+    }
+
+    if(id==="hp"){
+      drawPanoramic(canvas,context);
+    }
+
+    if(id==="vs"){
+      drawVortical(canvas,context);
+    }
+
+    updateInterface(id);
+  });
+
+  document.querySelectorAll(
+    "#overview button"
+  ).forEach(button=>{
+    button.classList.toggle(
+      "active",
+      button.dataset.id===selected
+    );
+  });
+}
+
+function stepSimulation(id){
+
+  if(id==="cd"){
+    state.cd.i=
+      (state.cd.i+1)%
+      MODELS.cd.stages.length;
+  }
+
+  if(id==="da"){
+    state.da.i=
+      (state.da.i+1)%
+      MODELS.da.stages.length;
+  }
+
+  if(id==="hp"){
+    state.hp.i=
+      (state.hp.i+1)%
+      MODELS.hp.stages.length;
+
+    state.hp.angle+=Math.PI/8;
+  }
+
+  if(id==="vs"){
+    state.vs.t+=.35;
+
+    state.vs.field=
+      .35+
+      .25*Math.abs(
+        Math.sin(state.vs.t)
+      );
+
+    state.vs.attractor=
+      .55+
+      .4*Math.abs(
+        Math.cos(state.vs.t*.7)
+      );
+
+    state.vs.feedback=
+      .4+
+      .45*Math.abs(
+        Math.sin(state.vs.t*.9)
+      );
+  }
+
+  render();
+}
+
+function resetSimulation(id){
+
+  if(id==="cd"){
+    state.cd={i:0};
+  }
+
+  if(id==="da"){
+    state.da={i:0};
+  }
+
+  if(id==="hp"){
+    state.hp={
+      i:0,
+      angle:0
+    };
+  }
+
+  if(id==="vs"){
+    state.vs={
+      t:0,
+      field:.45,
+      attractor:.72,
+      feedback:.62
+    };
+  }
+
+  render();
+}
+
+function focusSimulation(id){
+
+  selected=id;
+
+  document.querySelectorAll(
+    ".sim"
+  ).forEach(sim=>{
+    sim.classList.toggle(
+      "focused",
+      sim.id===`sim-${id}`
+    );
+  });
+
+  document.getElementById(
+    `sim-${id}`
+  ).scrollIntoView({
+    behavior:reducedMotion?"auto":"smooth",
+    block:"center"
+  });
+}
+
+async function toggleFullscreen(id){
+
+  const element=
+    document.getElementById(`sim-${id}`);
+
+  try{
+
+    if(!document.fullscreenElement){
+
+      await element.requestFullscreen();
+
+    }else{
+
+      await document.exitFullscreen();
+
+    }
+
+  }catch(error){
+
+    console.warn(
+      "Fullscreen was unavailable:",
+      error
+    );
+  }
+}
+
+buildSimulations();
+focusSimulation("cd");
+
+window.addEventListener(
+  "resize",
+  render
+);
+
+document.addEventListener(
+  "fullscreenchange",
+  ()=>{
+    document.querySelectorAll(
+      ".sim"
+    ).forEach(sim=>{
+      sim.classList.remove("fullscreen");
+    });
+
+    if(document.fullscreenElement){
+      document.fullscreenElement.classList.add(
+        "fullscreen"
+      );
+    }
+
+    render();
+  }
+);
+
+let lastFrame=performance.now();
+
+let accumulator={
+  cd:0,
+  da:0
+};
+
+function animationLoop(now){
+
+  const delta=
+    Math.min(
+      .05,
+      (now-lastFrame)/1000
+    );
+
+  lastFrame=now;
+
+  if(!reducedMotion){
+
+    if(!paused.hp){
+
+      state.hp.angle+=
+        delta*.18*speeds.hp;
+
+      state.hp.t=
+        (state.hp.t||0)+
+        delta*.18*speeds.hp;
+    }
+
+    if(!paused.vs){
+
+      state.vs.t+=
+        delta*speeds.vs;
+
+      state.vs.field=
+        .35+
+        .25*Math.abs(
+          Math.sin(state.vs.t)
+        );
+
+      state.vs.attractor=
+        .55+
+        .4*Math.abs(
+          Math.cos(state.vs.t*.7)
+        );
+
+      state.vs.feedback=
+        .4+
+        .45*Math.abs(
+          Math.sin(state.vs.t*.9)
+        );
+    }
+
+    ["cd","da"].forEach(id=>{
+
+      if(paused[id]){
+        return;
+      }
+
+      accumulator[id]+=
+        delta*speeds[id];
+
+      if(accumulator[id]>=.9){
+
+        accumulator[id]-=.9;
+
+        stepSimulation(id);
+      }
+    });
+  }
+
+  render();
+
+  requestAnimationFrame(
+    animationLoop
+  );
+}
+
+requestAnimationFrame(
+  animationLoop
+);
+
+document.getElementById(
+  "model"
+).addEventListener(
+  "change",
+  event=>{
+    focusSimulation(
+      event.target.value
+    );
+  }
+);
+
+document.getElementById(
+  "seed"
+).addEventListener(
+  "change",
+  event=>{
+
+    random=
+      makeRandom(
+        event.target.value
+      );
+
+    Object.keys(
+      MODELS
+    ).forEach(
+      resetSimulation
+    );
+  }
+);
+
+function snapshot(){
+
+  const id=
+    document.getElementById(
+      "model"
+    ).value;
+
+  return {
+    project:"Cognitive Dynamics Studio",
+    model:MODELS[id].name,
+    modelVersion:"final",
+    seed:
+      Number(
+        document.getElementById("seed").value
+      )||1,
+    timestamp:
+      new Date().toISOString(),
+    state:
+      JSON.parse(
+        JSON.stringify(state[id])
+      ),
+    interpretationBoundary:
+      "Computational state only; not a human measurement."
+  };
+}
+
+function showExperimentOutput(){
+
+  const output=
+    document.getElementById("out");
+
+  output.textContent=
+    JSON.stringify(
+      {
+        baseline,
+        intervention
+      },
+      null,
+      2
+    );
+
+  output.classList.remove(
+    "hidden"
+  );
+}
+
+document.getElementById(
+  "baseline"
+).addEventListener(
+  "click",
+  ()=>{
+    baseline=snapshot();
+    showExperimentOutput();
+  }
+);
+
+document.getElementById(
+  "intervention"
+).addEventListener(
+  "click",
+  ()=>{
+    intervention=snapshot();
+    showExperimentOutput();
+  }
+);
+
+document.getElementById(
+  "run"
+).addEventListener(
+  "click",
+  ()=>{
+
+    const id=
+      document.getElementById(
+        "model"
+      ).value;
+
+    resetSimulation(id);
+
+    const steps=
+      Math.max(
+        1,
+        Math.min(
+          1000,
+          Number(
+            document.getElementById(
+              "steps"
+            ).value
+          )||20
+        )
+      );
+
+    for(let i=0;i<steps;i++){
+      stepSimulation(id);
+    }
+
+    const output=
+      document.getElementById("out");
+
+    output.textContent=
+      JSON.stringify(
+        {
+          run:snapshot(),
+          steps,
+          fixedTimestep:.05,
+          baseline,
+          intervention
+        },
+        null,
+        2
+      );
+
+    output.classList.remove(
+      "hidden"
+    );
+  }
+);
+
+document.getElementById(
+  "download"
+).addEventListener(
+  "click",
+  ()=>{
+
+    const content=
+      document.getElementById(
+        "out"
+      ).textContent||
+      JSON.stringify(
+        snapshot(),
+        null,
+        2
+      );
+
+    const blob=
+      new Blob(
+        [content],
+        {
+          type:"application/json"
+        }
+      );
+
+    const url=
+      URL.createObjectURL(blob);
+
+    const link=
+      document.createElement("a");
+
+    link.href=url;
+    link.download=
+      "cognitive-dynamics-studio-experiment.json";
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    setTimeout(
+      ()=>URL.revokeObjectURL(url),
+      500
+    );
+  }
+);
+
+document.getElementById(
+  "textsize"
+).addEventListener(
+  "change",
+  event=>{
+
+    document.documentElement.classList.remove(
+      "large",
+      "xl"
+    );
+
+    if(event.target.value!=="normal"){
+      document.documentElement.classList.add(
+        event.target.value
+      );
+    }
+  }
+);
+
+document.getElementById(
+  "contrast"
+).addEventListener(
+  "change",
+  event=>{
+    document.body.classList.toggle(
+      "high-contrast",
+      event.target.checked
+    );
+  }
+);
+
+document.getElementById(
+  "reduced"
+).addEventListener(
+  "change",
+  event=>{
+
+    reducedMotion=
+      event.target.checked;
+
+    document.querySelectorAll(
+      ".play"
+    ).forEach(button=>{
+
+      if(reducedMotion){
+
+        paused[
+          button.dataset.id
+        ]=true;
+
+        button.textContent=
+          "▶ Resume";
+      }
+    });
+  }
+);
+</script>
+
+</body>
+</html>
