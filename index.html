@@ -1,1 +1,2808 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#030711">
+<meta name="description" content="Cognitive Dynamics Studio — Four Interactive Models of Cognition. Explore four educational computational visualizations of causal, dialectical, panoramic, and synergetic dynamics.">
+<meta property="og:title" content="Cognitive Dynamics Studio — Four Interactive Models of Cognition">
+<meta property="og:description" content="Explore four interactive computational models of cognition.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cognitivedynamicsstudio.com/">
+<link rel="canonical" href="https://cognitivedynamicsstudio.com/">
+<title>Cognitive Dynamics Studio — Four Interactive Models of Cognition</title>
 
+<style>
+:root{
+  --bg:#030711;
+  --panel:#09131f;
+  --panel2:#0d1a28;
+  --line:#2a4052;
+  --text:#f7faff;
+  --muted:#adbdca;
+  --soft:#788b9c;
+  --cyan:#38c9ff;
+  --green:#51ef7d;
+  --purple:#c878ff;
+  --orange:#ffad3d;
+  --red:#ff6475;
+  --shadow:0 24px 80px #0009;
+}
+
+*{box-sizing:border-box}
+
+html{
+  scroll-behavior:smooth;
+  background:var(--bg);
+}
+
+body{
+  margin:0;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 50% -8%,#17364e 0,transparent 38%),
+    radial-gradient(circle at 0 38%,#38c9ff0c,transparent 28%),
+    radial-gradient(circle at 100% 60%,#c878ff0a,transparent 28%),
+    var(--bg);
+  font:18px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+
+button,input,select{
+  font:inherit;
+}
+
+button,a{
+  outline-offset:3px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible{
+  outline:3px solid #e8f7ff;
+}
+
+.wrap{
+  width:min(1560px,100%);
+  margin:auto;
+  padding:0 22px;
+}
+
+.top{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:#030711e8;
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid #203548;
+}
+
+.topin{
+  width:min(1560px,100%);
+  margin:auto;
+  padding:12px 22px;
+}
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:18px;
+}
+
+.eyebrow{
+  font:800 10px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#8195a8;
+}
+
+.brand{
+  font-weight:950;
+  font-size:1.15rem;
+}
+
+.nav{
+  display:flex;
+  gap:5px;
+  overflow:auto;
+  padding-top:8px;
+  scrollbar-width:none;
+}
+
+.nav::-webkit-scrollbar{
+  display:none;
+}
+
+.nav a{
+  color:#afbecb;
+  text-decoration:none;
+  white-space:nowrap;
+  padding:8px 11px;
+  border-radius:8px;
+}
+
+.nav a:hover{
+  background:#101d2a;
+  color:#fff;
+}
+
+.hero{
+  padding:72px 0 42px;
+}
+
+.hero h1{
+  max-width:1150px;
+  margin:12px 0 22px;
+  font-size:clamp(3.1rem,7vw,7.1rem);
+  line-height:.91;
+  letter-spacing:-.07em;
+}
+
+.hero p{
+  max-width:930px;
+  color:var(--muted);
+  font-size:1.14rem;
+}
+
+.cta{
+  display:inline-block;
+  margin-top:19px;
+  padding:14px 20px;
+  border-radius:10px;
+  background:#f4f8fb;
+  color:#05080d;
+  text-decoration:none;
+  font-weight:900;
+}
+
+.cta:hover{
+  background:#fff;
+}
+
+.section{
+  padding:34px 0;
+  scroll-margin-top:105px;
+}
+
+.section h2{
+  margin:6px 0 8px;
+  font-size:clamp(2rem,3.2vw,3.2rem);
+  line-height:1;
+  letter-spacing:-.04em;
+}
+
+.muted{
+  color:var(--muted);
+}
+
+.overview{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:9px;
+  margin:22px 0;
+}
+
+.overview button{
+  padding:13px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  background:#07111c;
+  color:#dce7ef;
+  text-align:left;
+}
+
+.overview button:hover,
+.overview button.active{
+  border-color:#9cafbd;
+  background:#101e2b;
+}
+
+.overview strong{
+  display:block;
+  font-size:.95rem;
+}
+
+.overview small{
+  display:block;
+  color:#7f92a3;
+  margin-top:3px;
+}
+
+.simgrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+}
+
+.sim{
+  --accent:var(--cyan);
+  overflow:hidden;
+  border:1px solid #2c4152;
+  border-radius:20px;
+  background:linear-gradient(145deg,#09131f,#040912);
+  box-shadow:var(--shadow);
+  transition:.2s;
+}
+
+.sim.focused{
+  border-color:var(--accent);
+  box-shadow:
+    0 0 0 1px var(--accent),
+    var(--shadow),
+    0 0 50px color-mix(in srgb,var(--accent) 12%,transparent);
+}
+
+.simhead{
+  min-height:108px;
+  padding:18px 19px 15px;
+  display:flex;
+  align-items:flex-start;
+  gap:13px;
+  border-bottom:1px solid #263b4c;
+}
+
+.number{
+  flex:0 0 43px;
+  height:43px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  background:var(--accent);
+  color:#03101a;
+  font-weight:950;
+  box-shadow:0 0 28px color-mix(in srgb,var(--accent) 55%,transparent);
+}
+
+.simtitle{
+  font-size:1.43rem;
+  font-weight:950;
+  line-height:1.1;
+}
+
+.simdesc{
+  color:#afbeca;
+  font-size:.9rem;
+}
+
+.live{
+  margin-left:auto;
+  white-space:nowrap;
+  padding:5px 8px;
+  border:1px solid #2e663f;
+  border-radius:999px;
+  background:#06150a;
+  color:#6eff8a;
+  font:800 9px ui-monospace,SFMono-Regular,monospace;
+}
+
+.live:before{
+  content:"";
+  display:inline-block;
+  width:7px;
+  height:7px;
+  margin-right:5px;
+  border-radius:50%;
+  background:#55ff73;
+  box-shadow:0 0 10px #55ff73;
+}
+
+.visual{
+  height:610px;
+  position:relative;
+  background:#010409;
+}
+
+.visual canvas{
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+.hud{
+  position:absolute;
+  inset:13px;
+  display:flex;
+  justify-content:space-between;
+  pointer-events:none;
+}
+
+.badge{
+  padding:6px 8px;
+  border:1px solid #415667;
+  border-radius:8px;
+  background:#03070de0;
+  color:#cbd7df;
+  font:800 9px ui-monospace,SFMono-Regular,monospace;
+}
+
+.explain{
+  padding:15px 18px;
+  border-top:1px solid color-mix(in srgb,var(--accent) 32%,#263746);
+  background:linear-gradient(
+    90deg,
+    color-mix(in srgb,var(--accent) 8%,#07101a),
+    #070d14
+  );
+}
+
+.explain strong{
+  color:var(--accent);
+  font:900 10px ui-monospace,SFMono-Regular,monospace;
+  letter-spacing:.12em;
+}
+
+.phase{
+  font-size:1.1rem;
+  font-weight:900;
+}
+
+.explain p{
+  margin:2px 0 0;
+  color:#adbbc6;
+  font-size:.9rem;
+}
+
+.metrics{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:7px;
+  padding:11px;
+  background:#050a10;
+}
+
+.metric{
+  padding:8px;
+  border:1px solid #273b4c;
+  border-radius:8px;
+  background:#08111a;
+}
+
+.metric b{
+  display:block;
+  color:#728698;
+  font:800 9px ui-monospace,SFMono-Regular,monospace;
+}
+
+.metric span{
+  display:block;
+  color:#e1e8ee;
+  font-size:.82rem;
+}
+
+.controls{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:7px;
+  padding:11px;
+  border-top:1px solid #263746;
+}
+
+.btn{
+  min-height:44px;
+  padding:9px 13px;
+  border:1px solid #3c5264;
+  border-radius:9px;
+  background:#09131e;
+  color:#eef5f9;
+  font-weight:800;
+}
+
+.btn:hover{
+  background:#152535;
+  border-color:#91a3b1;
+}
+
+.btn.primary{
+  background:#f3f8fb;
+  color:#05080c;
+  border-color:#f3f8fb;
+}
+
+.speed{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  margin-left:auto;
+  color:#8193a2;
+  font:800 9px ui-monospace,SFMono-Regular,monospace;
+}
+
+.speed input{
+  width:120px;
+  accent-color:var(--accent);
+}
+
+.progress{
+  height:5px;
+  background:#16232e;
+}
+
+.progress div{
+  height:100%;
+  width:0;
+  background:var(--accent);
+  box-shadow:0 0 14px var(--accent);
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:20px;
+}
+
+.card,
+.source{
+  padding:19px;
+  border:1px solid #293e50;
+  border-radius:14px;
+  background:#080f17;
+}
+
+.card h3{
+  margin:5px 0;
+}
+
+.card p,
+.source p{
+  color:#9faeba;
+  font-size:.91rem;
+}
+
+.source{
+  margin-top:0;
+}
+
+.grid3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:18px;
+}
+
+.field-label{
+  display:block;
+}
+
+.field-label .eyebrow{
+  display:block;
+  margin-bottom:6px;
+}
+
+.input,
+.select{
+  width:100%;
+  padding:11px;
+  border:1px solid #3a5163;
+  border-radius:9px;
+  background:#050a10;
+  color:#eef4f8;
+}
+
+.output{
+  margin-top:15px;
+  max-height:350px;
+  overflow:auto;
+  padding:15px;
+  border:1px solid #293e50;
+  border-radius:12px;
+  background:#02060b;
+  color:#ced9e1;
+  font:12px/1.5 ui-monospace,SFMono-Regular,monospace;
+}
+
+.check{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.check input{
+  width:20px;
+  height:20px;
+  accent-color:#fff;
+}
+
+.fullscreen{
+  position:fixed!important;
+  inset:0!important;
+  z-index:1000!important;
+  border-radius:0!important;
+  background:#010409!important;
+}
+
+.fullscreen .visual{
+  height:calc(100vh - 190px);
+}
+
+footer{
+  padding:55px 0 75px;
+  text-align:center;
+}
+
+html.large body{
+  font-size:20px;
+}
+
+html.xl body{
+  font-size:22px;
+}
+
+html.large .simtitle{
+  font-size:1.58rem;
+}
+
+html.xl .simtitle{
+  font-size:1.7rem;
+}
+
+html.large .simdesc,
+html.large .explain p,
+html.large .card p,
+html.large .source p{
+  font-size:1rem;
+}
+
+html.xl .simdesc,
+html.xl .explain p,
+html.xl .card p,
+html.xl .source p{
+  font-size:1.08rem;
+}
+
+body.high-contrast{
+  --muted:#dce6ed;
+}
+
+body.high-contrast .sim,
+body.high-contrast .card,
+body.high-contrast .source,
+body.high-contrast .metric{
+  border-color:#718798;
+}
+
+@media(max-width:1120px){
+  .simgrid{
+    grid-template-columns:1fr;
+  }
+
+  .cards{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:800px){
+  .overview,
+  .grid3{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:620px){
+  .wrap,
+  .topin{
+    padding-left:13px;
+    padding-right:13px;
+  }
+
+  .hero{
+    padding-top:42px;
+  }
+
+  .hero h1{
+    font-size:clamp(2.7rem,14vw,4.5rem);
+  }
+
+  .visual{
+    height:470px;
+  }
+
+  .overview,
+  .cards,
+  .grid3{
+    grid-template-columns:1fr;
+  }
+
+  .metrics{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .speed{
+    width:100%;
+    margin-left:0;
+  }
+
+  .speed input{
+    flex:1;
+  }
+
+  .simtitle{
+    font-size:1.26rem;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{
+    scroll-behavior:auto;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="top">
+  <div class="topin">
+    <div class="row">
+      <div>
+        <div class="eyebrow">Cognitive Dynamics Studio · Interactive Laboratory</div>
+        <div class="brand">Four Interactive Models of Cognition</div>
+      </div>
+      <div class="eyebrow">LIVE · EDUCATIONAL</div>
+    </div>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#simulations">Simulations</a>
+      <a href="#models">Models</a>
+      <a href="#experiment">Experiment</a>
+      <a href="#integrity">Integrity</a>
+      <a href="#accessibility">Accessibility</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="hero">
+  <div class="eyebrow">Cognitive Dynamics Studio</div>
+
+  <h1>Four Interactive Models of Cognition.</h1>
+
+  <p>
+    Explore four computational visualizations of causal, dialectical,
+    panoramic, and synergetic dynamics. The simulations are the centerpiece:
+    pause them, step through states, change speed, inspect live variables,
+    and open any model fullscreen.
+  </p>
+
+  <a class="cta" href="#simulations">
+    Enter the simulation studio ↓
+  </a>
+</section>
+
+
+<section id="simulations" class="section">
+
+  <div class="eyebrow">01 · Live simulation studio</div>
+
+  <h2>See the four models in motion.</h2>
+
+  <p class="muted">
+    Each model has a distinct visual grammar, state sequence,
+    color system, and explanatory panel.
+  </p>
+
+  <div id="overview" class="overview"></div>
+
+  <div id="simgrid" class="simgrid"></div>
+
+</section>
+
+
+<section id="models" class="section">
+
+  <div class="eyebrow">02 · How they work</div>
+
+  <h2>Four models, four visual languages.</h2>
+
+  <div class="cards">
+
+    <article class="card">
+      <div class="eyebrow" style="color:var(--cyan)">
+        Causal–Determinist
+      </div>
+
+      <h3>Follow a causal chain.</h3>
+
+      <p>
+        Observation and premise lead through mechanism, process,
+        deduction, and result in a directional sequence.
+      </p>
+    </article>
+
+
+    <article class="card">
+      <div class="eyebrow" style="color:var(--green)">
+        Dialectical–Algorithmic
+      </div>
+
+      <h3>Hold opposites together.</h3>
+
+      <p>
+        Thesis and antithesis move through contradiction toward
+        synthesis, rule formation, and algorithmic execution.
+      </p>
+    </article>
+
+
+    <article class="card">
+      <div class="eyebrow" style="color:var(--purple)">
+        Holographical–Panoramic
+      </div>
+
+      <h3>Change the viewpoint.</h3>
+
+      <p>
+        A stable conceptual object remains central while changing
+        projections make different aspects visible.
+      </p>
+    </article>
+
+
+    <article class="card">
+      <div class="eyebrow" style="color:var(--orange)">
+        Vortical–Synergetic
+      </div>
+
+      <h3>Watch a dynamic field.</h3>
+
+      <p>
+        Alternatives fluctuate, are screened, and gather around
+        an attractor as feedback changes the field.
+      </p>
+    </article>
+
+  </div>
+</section>
+
+
+<section id="experiment" class="section">
+
+  <div class="source">
+
+    <div class="eyebrow">03 · Experiment studio</div>
+
+    <h2>Run a reproducible computational experiment.</h2>
+
+    <p>
+      Seeds and steps control the software model. The resulting states
+      describe the simulation, not a measurement of a person's cognition.
+    </p>
+
+
+    <div class="grid3">
+
+      <label class="field-label">
+        <span class="eyebrow">Seed</span>
+        <input
+          id="seed"
+          class="input"
+          type="number"
+          value="482913"
+        >
+      </label>
+
+
+      <label class="field-label">
+        <span class="eyebrow">Model</span>
+
+        <select id="model" class="select">
+          <option value="cd">Causal–Determinist</option>
+          <option value="da">Dialectical–Algorithmic</option>
+          <option value="hp">Holographical–Panoramic</option>
+          <option value="vs">Vortical–Synergetic</option>
+        </select>
+      </label>
+
+
+      <label class="field-label">
+        <span class="eyebrow">Steps</span>
+
+        <input
+          id="steps"
+          class="input"
+          type="number"
+          min="1"
+          max="1000"
+          value="20"
+        >
+      </label>
+
+    </div>
+
+
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px">
+
+      <button class="btn" id="baseline">
+        Capture baseline
+      </button>
+
+      <button class="btn" id="intervention">
+        Capture intervention
+      </button>
+
+      <button class="btn primary" id="run">
+        Run experiment
+      </button>
+
+      <button class="btn" id="download">
+        Export JSON
+      </button>
+
+    </div>
+
+
+    <pre id="output" class="output" hidden></pre>
+
+  </div>
+
+</section>
+
+
+<section id="integrity" class="section">
+
+  <div class="source">
+
+    <div class="eyebrow">04 · Scientific integrity</div>
+
+    <h2>
+      Clear boundaries between source, software, and evidence.
+    </h2>
+
+
+    <div class="cards">
+
+      <article class="card">
+        <div class="eyebrow">Source-derived</div>
+
+        <p>
+          Conceptual terminology and framing are identified as
+          source-derived where applicable.
+        </p>
+      </article>
+
+
+      <article class="card">
+        <div class="eyebrow">Original implementation</div>
+
+        <p>
+          Numerical variables, transition rules, trajectories,
+          particles, animation, and interface are software
+          representations created for this studio.
+        </p>
+      </article>
+
+
+      <article class="card">
+        <div class="eyebrow">Evidence boundary</div>
+
+        <p>
+          Simulation output is an output of the computational model.
+          It is not automatically empirical evidence for a theory
+          of human cognition.
+        </p>
+      </article>
+
+
+      <article class="card">
+        <div class="eyebrow">Educational purpose</div>
+
+        <p>
+          This is an educational interactive laboratory, not a
+          diagnostic tool, clinical instrument, or validated
+          psychological assessment.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="section">
+
+  <div class="source">
+
+    <div class="eyebrow">05 · Sources</div>
+
+    <h2>Reference material</h2>
+
+    <p>
+      <strong>
+        Viktor V. Gulenko, “Forms of Thinking”
+      </strong>
+      <br>
+      <em>
+        Socionics, Mentology and Personality Psychology
+      </em>,
+      No. 4 (2002), pp. 9–25.
+    </p>
+
+    <p>
+      <a
+        href="https://www.publishing.socionic.info/index.php/socionics/article/view/1228"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Publisher record ↗
+      </a>
+    </p>
+
+    <p>
+      This project does not claim endorsement by the author or publication.
+    </p>
+
+  </div>
+
+</section>
+
+
+<section id="accessibility" class="section">
+
+  <div class="source">
+
+    <div class="eyebrow">06 · Accessibility</div>
+
+    <h2>
+      Make the studio easier to see and use.
+    </h2>
+
+
+    <div class="grid3">
+
+      <label class="field-label">
+        <span class="eyebrow">Text size</span>
+
+        <select id="textSize" class="select">
+          <option value="normal">Normal</option>
+          <option value="large">Large</option>
+          <option value="xl">Extra large</option>
+        </select>
+      </label>
+
+
+      <label class="card check">
+        <span>High contrast</span>
+        <input id="contrast" type="checkbox">
+      </label>
+
+
+      <label class="card check">
+        <span>Reduced motion</span>
+        <input id="motion" type="checkbox">
+      </label>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<footer>
+
+  <div class="eyebrow">
+    Cognitive Dynamics Studio
+  </div>
+
+  <p class="muted">
+    Four Interactive Models of Cognition · educational computational
+    software · not a validated psychological measurement.
+  </p>
+
+</footer>
+
+</main>
+
+
+<script>
+'use strict';
+
+const M = {
+
+  cd:{
+    name:'Causal–Determinist',
+    color:'#38c9ff',
+    stages:[
+      'Observation',
+      'Premise',
+      'Mechanism',
+      'Causal Link',
+      'Process',
+      'Deduction',
+      'Result'
+    ]
+  },
+
+  da:{
+    name:'Dialectical–Algorithmic',
+    color:'#51ef7d',
+    stages:[
+      'Thesis',
+      'Antithesis',
+      'Contradiction',
+      'Synthesis',
+      'Rule',
+      'Algorithm'
+    ]
+  },
+
+  hp:{
+    name:'Holographical–Panoramic',
+    color:'#c878ff',
+    stages:[
+      'Front',
+      'Right',
+      'Top',
+      'Detail',
+      'Context',
+      'Analogy'
+    ]
+  },
+
+  vs:{
+    name:'Vortical–Synergetic',
+    color:'#ffad3d',
+    stages:[
+      'Fluctuation',
+      'Alternatives',
+      'Trial',
+      'Screening',
+      'Attractor',
+      'Feedback',
+      'Dissipation'
+    ]
+  }
+
+};
+
+
+const S = {
+
+  cd:{i:0},
+
+  da:{i:0},
+
+  hp:{
+    i:0,
+    a:0
+  },
+
+  vs:{
+    t:0,
+    field:.45,
+    attractor:.72,
+    feedback:.62
+  }
+
+};
+
+
+const P = {
+  cd:false,
+  da:false,
+  hp:false,
+  vs:false
+};
+
+
+const speed = {
+  cd:1,
+  da:1,
+  hp:1,
+  vs:1
+};
+
+
+let selected = 'cd';
+let reduced = false;
+let rng = seeded(482913);
+let base = null;
+let intv = null;
+let last = performance.now();
+
+let acc = {
+  cd:0,
+  da:0
+};
+
+
+function seeded(seed){
+
+  let x = (Number(seed)||1) >>> 0;
+
+  return () => {
+
+    x = (
+      Math.imul(1664525,x) +
+      1013904223
+    ) >>> 0;
+
+    return x / 4294967296;
+
+  };
+
+}
+
+
+function build(){
+
+  const o = document.getElementById('overview');
+  const g = document.getElementById('simgrid');
+
+
+  Object.entries(M).forEach(([id,m],n)=>{
+
+    let b = document.createElement('button');
+
+    b.dataset.id = id;
+
+    b.innerHTML =
+      '<strong>' +
+      (n+1) +
+      '. ' +
+      m.name +
+      '</strong>' +
+      '<small>' +
+      m.stages.join(' → ') +
+      '</small>';
+
+    b.onclick = () => focus(id);
+
+    o.appendChild(b);
+
+
+    let a = document.createElement('article');
+
+    a.className = 'sim';
+    a.id = 'sim-' + id;
+
+    a.style.setProperty(
+      '--accent',
+      m.color
+    );
+
+
+    a.innerHTML =
+
+      '<div class="simhead">' +
+
+        '<div class="number">' +
+          (n+1) +
+        '</div>' +
+
+        '<div>' +
+
+          '<div class="eyebrow">' +
+            id.toUpperCase() +
+            ' · LIVE MODEL' +
+          '</div>' +
+
+          '<div class="simtitle">' +
+            m.name +
+          '</div>' +
+
+          '<div class="simdesc">' +
+
+            (
+              id === 'cd'
+              ? 'Explicit causal chain with premises, mechanism and deduction.'
+
+              : id === 'da'
+              ? 'Opposites become contradiction, synthesis and an executable rule.'
+
+              : id === 'hp'
+              ? 'A stable conceptual object examined through changing projections.'
+
+              : 'Alternatives fluctuate, are screened and gather around an attractor.'
+            ) +
+
+          '</div>' +
+
+        '</div>' +
+
+        '<div class="live">LIVE</div>' +
+
+      '</div>' +
+
+
+      '<div class="visual">' +
+
+        '<canvas ' +
+          'id="c-' + id + '" ' +
+          'aria-label="' + m.name + ' simulation">' +
+        '</canvas>' +
+
+        '<div class="hud">' +
+
+          '<span class="badge">' +
+            'LIVE · ' +
+            id.toUpperCase() +
+          '</span>' +
+
+          '<span class="badge" id="stage-' + id + '">' +
+            'STAGE 01' +
+          '</span>' +
+
+        '</div>' +
+
+      '</div>' +
+
+
+      '<div class="explain">' +
+
+        '<strong>CURRENT MODEL STATE</strong>' +
+
+        '<div class="phase" id="phase-' + id + '"></div>' +
+
+        '<p id="desc-' + id + '"></p>' +
+
+      '</div>' +
+
+
+      '<div class="metrics" id="metrics-' + id + '"></div>' +
+
+
+      '<div class="controls">' +
+
+        '<button class="btn primary play" data-id="' + id + '">' +
+          'Ⅱ Pause' +
+        '</button>' +
+
+        '<button class="btn step" data-id="' + id + '">' +
+          '▶ Step' +
+        '</button>' +
+
+        '<button class="btn reset" data-id="' + id + '">' +
+          '↻ Reset' +
+        '</button>' +
+
+        '<button class="btn full" data-id="' + id + '">' +
+          '⛶ Fullscreen' +
+        '</button>' +
+
+        '<label class="speed">' +
+
+          'SPEED ' +
+
+          '<input ' +
+            'data-speed="' + id + '" ' +
+            'type="range" ' +
+            'min=".25" ' +
+            'max="2" ' +
+            'step=".25" ' +
+            'value="1">' +
+
+          '<span data-speed-label="' + id + '">' +
+            '1×' +
+          '</span>' +
+
+        '</label>' +
+
+      '</div>' +
+
+
+      '<div class="progress">' +
+        '<div id="prog-' + id + '"></div>' +
+      '</div>';
+
+
+    g.appendChild(a);
+
+  });
+
+
+  document
+    .querySelectorAll('.play')
+    .forEach(b=>{
+
+      b.onclick = () => {
+
+        let id = b.dataset.id;
+
+        P[id] = !P[id];
+
+        b.textContent =
+          P[id]
+          ? '▶ Resume'
+          : 'Ⅱ Pause';
+
+      };
+
+    });
+
+
+  document
+    .querySelectorAll('.step')
+    .forEach(b=>{
+      b.onclick = () => step(b.dataset.id);
+    });
+
+
+  document
+    .querySelectorAll('.reset')
+    .forEach(b=>{
+      b.onclick = () => reset(b.dataset.id);
+    });
+
+
+  document
+    .querySelectorAll('.full')
+    .forEach(b=>{
+      b.onclick = () => full(b.dataset.id);
+    });
+
+
+  document
+    .querySelectorAll('[data-speed]')
+    .forEach(r=>{
+
+      r.oninput = () => {
+
+        speed[r.dataset.speed] = +r.value;
+
+        document.querySelector(
+          '[data-speed-label="' +
+          r.dataset.speed +
+          '"]'
+        ).textContent =
+          r.value + '×';
+
+      };
+
+    });
+
+}
+
+
+function prep(c,x){
+
+  let r = c.getBoundingClientRect();
+
+  let d = Math.min(
+    devicePixelRatio || 1,
+    2
+  );
+
+  let w = Math.max(
+    1,
+    Math.floor(r.width)
+  );
+
+  let h = Math.max(
+    1,
+    Math.floor(r.height)
+  );
+
+  let cw = Math.floor(w*d);
+  let ch = Math.floor(h*d);
+
+
+  if(
+    c.width !== cw ||
+    c.height !== ch
+  ){
+
+    c.width = cw;
+    c.height = ch;
+
+  }
+
+
+  x.setTransform(
+    d,
+    0,
+    0,
+    d,
+    0,
+    0
+  );
+
+
+  return [w,h];
+
+}
+
+
+function clear(c,x){
+
+  let [w,h] = prep(c,x);
+
+  x.fillStyle = '#010409';
+
+  x.fillRect(
+    0,
+    0,
+    w,
+    h
+  );
+
+
+  x.strokeStyle = '#ffffff09';
+
+
+  for(
+    let i=0;
+    i<w;
+    i+=42
+  ){
+
+    x.beginPath();
+    x.moveTo(i,0);
+    x.lineTo(i,h);
+    x.stroke();
+
+  }
+
+
+  for(
+    let i=0;
+    i<h;
+    i+=42
+  ){
+
+    x.beginPath();
+    x.moveTo(0,i);
+    x.lineTo(w,i);
+    x.stroke();
+
+  }
+
+
+  return [w,h];
+
+}
+
+
+function T(
+  x,
+  s,
+  a,
+  b,
+  z,
+  c='#fff'
+){
+
+  x.fillStyle = c;
+
+  x.font =
+    '800 ' +
+    z +
+    'px ui-monospace,SFMono-Regular,Menlo,monospace';
+
+  x.textAlign = 'center';
+
+  x.textBaseline = 'middle';
+
+  x.fillText(
+    s,
+    a,
+    b
+  );
+
+}
+
+
+function C(
+  x,
+  a,
+  b,
+  r,
+  f,
+  st,
+  l=2
+){
+
+  x.shadowColor = st;
+
+  x.shadowBlur = 18;
+
+  x.beginPath();
+
+  x.arc(
+    a,
+    b,
+    r,
+    0,
+    Math.PI*2
+  );
+
+  x.fillStyle = f;
+
+  x.fill();
+
+  x.shadowBlur = 0;
+
+  x.strokeStyle = st;
+
+  x.lineWidth = l;
+
+  x.stroke();
+
+}
+
+
+function L(
+  x,
+  a,
+  b,
+  c,
+  d,
+  col,
+  w=2
+){
+
+  x.strokeStyle = col;
+
+  x.lineWidth = w;
+
+  x.beginPath();
+
+  x.moveTo(a,b);
+
+  x.lineTo(c,d);
+
+  x.stroke();
+
+}
+
+
+function A(
+  x,
+  a,
+  b,
+  c,
+  d,
+  col
+){
+
+  L(
+    x,
+    a,
+    b,
+    c,
+    d,
+    col,
+    2.5
+  );
+
+  let q = Math.atan2(
+    d-b,
+    c-a
+  );
+
+  let n = 11;
+
+  x.fillStyle = col;
+
+  x.beginPath();
+
+  x.moveTo(c,d);
+
+  x.lineTo(
+    c-n*Math.cos(q-.5),
+    d-n*Math.sin(q-.5)
+  );
+
+  x.lineTo(
+    c-n*Math.cos(q+.5),
+    d-n*Math.sin(q+.5)
+  );
+
+  x.fill();
+
+}
+
+
+function draw(id){
+
+  let c = document.getElementById('c-'+id);
+
+  let x = c.getContext(
+    '2d',
+    {alpha:false}
+  );
+
+  let [w,h] = clear(c,x);
+
+
+  if(id === 'cd'){
+
+    let s = S.cd.i;
+
+    let g = Math.min(
+      150,
+      (w-110)/6
+    );
+
+    let st =
+      (w-g*6)/2;
+
+    let y = h*.5;
+
+
+    for(
+      let i=0;
+      i<6;
+      i++
+    ){
+
+      A(
+        x,
+        st+i*g+34,
+        y,
+        st+(i+1)*g-34,
+        y,
+        i<s
+        ? '#38c9ff'
+        : '#304657'
+      );
+
+    }
+
+
+    M.cd.stages.forEach(
+      (v,i)=>{
+
+        let on = i===s;
+
+        let Cx =
+          st+i*g;
+
+
+        C(
+          x,
+          Cx,
+          y,
+          on ? 34 : 29,
+          on ? '#10344b' : '#07111b',
+          on ? '#9be6ff' : '#496275',
+          on ? 3 : 1
+        );
+
+
+        T(
+          x,
+          String(i+1).padStart(2,'0'),
+          Cx,
+          y,
+          11,
+          on
+          ? '#fff'
+          : '#8799a8'
+        );
+
+
+        T(
+          x,
+          v,
+          Cx,
+          y+52,
+          8,
+          on
+          ? '#e9f8ff'
+          : '#738493'
+        );
+
+      }
+    );
+
+
+    T(
+      x,
+      'OBSERVE → PREMISE → MECHANISM → DEDUCTION → RESULT',
+      w/2,
+      36,
+      11,
+      '#55cfff'
+    );
+
+  }
+
+
+  if(id === 'da'){
+
+    let s = S.da.i;
+
+    let cx = w/2;
+    let cy = h/2;
+
+
+    let p = [
+      [-.34,-.22],
+      [-.34,.22],
+      [-.10,0],
+      [.14,0],
+      [.37,0],
+      [.49,0]
+    ];
+
+
+    let co = [
+      '#51ef7d',
+      '#c878ff',
+      '#ff6475',
+      '#38c9ff',
+      '#ffe16a',
+      '#ffad3d'
+    ];
+
+
+    L(
+      x,
+      cx-.34*w,
+      cy-.22*h,
+      cx-.10*w,
+      cy,
+      '#51ef7d',
+      4
+    );
+
+
+    L(
+      x,
+      cx-.34*w,
+      cy+.22*h,
+      cx-.10*w,
+      cy,
+      '#c878ff',
+      4
+    );
+
+
+    for(
+      let i=2;
+      i<5;
+      i++
+    ){
+
+      A(
+        x,
+        cx+p[i][0]*w,
+        cy,
+        cx+p[i+1][0]*w,
+        cy,
+        i<s
+        ? '#51ef7d'
+        : '#304a39'
+      );
+
+    }
+
+
+    p.forEach(
+      (q,i)=>{
+
+        let X =
+          cx+q[0]*w;
+
+        let Y =
+          cy+q[1]*h;
+
+        let on =
+          i===s;
+
+
+        C(
+          x,
+          X,
+          Y,
+          on ? 34 : 29,
+          on ? '#123a23' : '#07111b',
+          co[i],
+          on ? 3 : 1
+        );
+
+
+        T(
+          x,
+          M.da.stages[i],
+          X,
+          Y+49,
+          8,
+          on ? '#fff' : co[i]
+        );
+
+      }
+    );
+
+
+    T(
+      x,
+      'OPPOSITION → CONTRADICTION → SYNTHESIS → RULE',
+      w/2,
+      36,
+      11,
+      '#63f58a'
+    );
+
+  }
+
+
+  if(id === 'hp'){
+
+    let s = S.hp.i;
+    let a = S.hp.a;
+
+    let cx = w/2;
+    let cy = h/2;
+
+    let co = [
+      '#38c9ff',
+      '#51ef7d',
+      '#ffe16a',
+      '#ffad3d',
+      '#c878ff',
+      '#8e72ff'
+    ];
+
+
+    C(
+      x,
+      cx,
+      cy,
+      72,
+      '#1c0d27',
+      '#e4b9ff',
+      3
+    );
+
+
+    T(
+      x,
+      'SAME OBJECT',
+      cx,
+      cy,
+      11
+    );
+
+
+    M.hp.stages.forEach(
+      (v,i)=>{
+
+        let q =
+          a+i*Math.PI/3;
+
+        let r =
+          Math.min(
+            w*.36,
+            270
+          );
+
+        let X =
+          cx+Math.cos(q)*r;
+
+        let Y =
+          cy+
+          Math.sin(q)*
+          Math.min(
+            h*.31,
+            180
+          );
+
+        let on =
+          i===s;
+
+
+        A(
+          x,
+          cx,
+          cy,
+          X,
+          Y,
+          on
+          ? co[i]
+          : '#344657'
+        );
+
+
+        C(
+          x,
+          X,
+          Y,
+          on ? 34 : 29,
+          on ? '#32164b' : '#07111b',
+          co[i],
+          on ? 3 : 1
+        );
+
+
+        T(
+          x,
+          v,
+          X,
+          Y+49,
+          8,
+          on ? '#fff' : co[i]
+        );
+
+      }
+    );
+
+
+    T(
+      x,
+      'ONE OBJECT · MANY PROJECTIONS',
+      w/2,
+      36,
+      11,
+      '#db94ff'
+    );
+
+  }
+
+
+  if(id === 'vs'){
+
+    let s = S.vs;
+
+    let cx = w/2;
+    let cy = h/2;
+
+    let co = [
+      '#ffad3d',
+      '#ff5bb9',
+      '#c878ff',
+      '#38c9ff',
+      '#51ef7d',
+      '#ffe16a'
+    ];
+
+
+    for(
+      let q=0;
+      q<6;
+      q++
+    ){
+
+      x.beginPath();
+
+
+      for(
+        let i=0;
+        i<350;
+        i++
+      ){
+
+        let a =
+          i*.052+
+          q*1.03+
+          s.t*.4;
+
+        let r =
+          45+
+          i*(q+1)*.47;
+
+        let X =
+          cx+
+          Math.cos(a)*r;
+
+        let Y =
+          cy+
+          Math.sin(a)*r*.48;
+
+
+        if(i){
+          x.lineTo(X,Y);
+        }else{
+          x.moveTo(X,Y);
+        }
+
+      }
+
+
+      x.strokeStyle =
+        co[q]+'66';
+
+      x.stroke();
+
+    }
+
+
+    for(
+      let i=0;
+      i<110;
+      i++
+    ){
+
+      let a =
+        rng()*Math.PI*2+
+        s.t*.4;
+
+      let r =
+        75+
+        rng()*Math.min(
+          350,
+          w*.38
+        );
+
+      let X =
+        cx+
+        Math.cos(a)*r;
+
+      let Y =
+        cy+
+        Math.sin(a)*r*.5;
+
+      let col =
+        co[i%co.length];
+
+
+      x.fillStyle = col;
+
+      x.shadowColor = col;
+
+      x.shadowBlur = 9;
+
+      x.beginPath();
+
+      x.arc(
+        X,
+        Y,
+        1.3+rng()*2.7,
+        0,
+        Math.PI*2
+      );
+
+      x.fill();
+
+      x.shadowBlur = 0;
+
+    }
+
+
+    C(
+      x,
+      cx,
+      cy,
+      65,
+      '#2e1905',
+      '#ffd08a',
+      3
+    );
+
+
+    T(
+      x,
+      'ATTRACTOR',
+      cx,
+      cy,
+      11,
+      '#fff'
+    );
+
+
+    T(
+      x,
+      'ALTERNATIVES → FEEDBACK → SELF-ORGANIZATION',
+      w/2,
+      36,
+      11,
+      '#ffba60'
+    );
+
+  }
+
+
+  update(id);
+
+}
+
+
+function update(id){
+
+  let m = M[id];
+
+  let s = S[id];
+
+  let i =
+    typeof s.i === 'number'
+    ? s.i
+    : 0;
+
+  let p =
+    typeof s.i === 'number'
+    ? m.stages[i]
+    : 'Dynamic attractor field';
+
+
+  document.getElementById(
+    'stage-'+id
+  ).textContent =
+    typeof s.i === 'number'
+    ? 'STAGE ' +
+      String(i+1).padStart(2,'0') +
+      ' / ' +
+      m.stages.length
+    : 'LIVE FIELD';
+
+
+  document.getElementById(
+    'phase-'+id
+  ).textContent = p;
+
+
+  document.getElementById(
+    'desc-'+id
+  ).textContent =
+
+    id === 'cd'
+    ? 'The model emphasizes ' +
+      p.toLowerCase() +
+      ' and its next directional transition.'
+
+    : id === 'da'
+    ? 'The model is emphasizing ' +
+      p.toLowerCase() +
+      ' within the opposition-to-synthesis sequence.'
+
+    : id === 'hp'
+    ? 'The central object remains stable while the active projection is ' +
+      p.toLowerCase() +
+      '.'
+
+    : 'Alternatives are fluctuating around the attractor as feedback changes the field.';
+
+
+  let a =
+
+    id === 'cd'
+    ? [
+        ['STEP',i+1],
+        ['CAUSALITY','1.00'],
+        ['NOISE','.02'],
+        ['OUTPUT',p.toUpperCase()]
+      ]
+
+    : id === 'da'
+    ? [
+        ['STEP',i+1],
+        ['OPPOSITION','.81'],
+        ['SYNTHESIS',i>=3?'.76':'.31'],
+        ['RULE',i>=4?'ACTIVE':'FORMING']
+      ]
+
+    : id === 'hp'
+    ? [
+        ['VIEW',i+1],
+        ['OBJECT','STABLE'],
+        ['PROJECTIONS','6'],
+        ['CRITERION','CHANGING']
+      ]
+
+    : [
+        ['FIELD',(s.field*100).toFixed(0)+'%'],
+        ['ATTRACTOR',(s.attractor*100).toFixed(0)+'%'],
+        ['FEEDBACK',(s.feedback*100).toFixed(0)+'%'],
+        ['DENSITY',(s.field*100).toFixed(0)+'%']
+      ];
+
+
+  document.getElementById(
+    'metrics-'+id
+  ).innerHTML = a.map(
+    v =>
+      '<div class="metric">' +
+        '<b>' + v[0] + '</b>' +
+        '<span>' + v[1] + '</span>' +
+      '</div>'
+  ).join('');
+
+
+  document.getElementById(
+    'prog-'+id
+  ).style.width =
+    typeof s.i === 'number'
+    ? ((i+1)/m.stages.length*100)+'%'
+    : '100%';
+
+}
+
+
+function render(){
+
+  Object.keys(M).forEach(draw);
+
+  document
+    .querySelectorAll('#overview button')
+    .forEach(b=>{
+      b.classList.toggle(
+        'active',
+        b.dataset.id === selected
+      );
+    });
+
+}
+
+
+function step(id){
+
+  if(id === 'cd'){
+
+    S.cd.i =
+      (S.cd.i+1) %
+      M.cd.stages.length;
+
+  }
+
+
+  if(id === 'da'){
+
+    S.da.i =
+      (S.da.i+1) %
+      M.da.stages.length;
+
+  }
+
+
+  if(id === 'hp'){
+
+    S.hp.i =
+      (S.hp.i+1) %
+      M.hp.stages.length;
+
+    S.hp.a += Math.PI/8;
+
+  }
+
+
+  if(id === 'vs'){
+
+    S.vs.t += .35;
+
+    S.vs.field =
+      .35+
+      .25*
+      Math.abs(
+        Math.sin(S.vs.t)
+      );
+
+    S.vs.attractor =
+      .55+
+      .4*
+      Math.abs(
+        Math.cos(S.vs.t*.7)
+      );
+
+    S.vs.feedback =
+      .4+
+      .45*
+      Math.abs(
+        Math.sin(S.vs.t*.9)
+      );
+
+  }
+
+
+  render();
+
+}
+
+
+function reset(id){
+
+  if(id === 'cd'){
+    S.cd = {i:0};
+  }
+
+  if(id === 'da'){
+    S.da = {i:0};
+  }
+
+  if(id === 'hp'){
+    S.hp = {
+      i:0,
+      a:0
+    };
+  }
+
+  if(id === 'vs'){
+    S.vs = {
+      t:0,
+      field:.45,
+      attractor:.72,
+      feedback:.62
+    };
+  }
+
+  render();
+
+}
+
+
+function focus(id){
+
+  selected = id;
+
+  document
+    .querySelectorAll('.sim')
+    .forEach(s=>{
+      s.classList.toggle(
+        'focused',
+        s.id === 'sim-'+id
+      );
+    });
+
+
+  document
+    .getElementById('sim-'+id)
+    .scrollIntoView({
+      behavior:reduced
+        ? 'auto'
+        : 'smooth',
+      block:'center'
+    });
+
+}
+
+
+async function full(id){
+
+  let e =
+    document.getElementById(
+      'sim-'+id
+    );
+
+  try{
+
+    if(document.fullscreenElement){
+
+      await document.exitFullscreen();
+
+    }else{
+
+      await e.requestFullscreen();
+
+    }
+
+  }catch(e){
+
+    console.warn(e);
+
+  }
+
+}
+
+
+function snap(){
+
+  let id =
+    document.getElementById(
+      'model'
+    ).value;
+
+
+  return {
+
+    project:
+      'Cognitive Dynamics Studio',
+
+    model:
+      M[id].name,
+
+    modelVersion:
+      '1.0',
+
+    seed:
+      +document.getElementById(
+        'seed'
+      ).value || 1,
+
+    timestamp:
+      new Date().toISOString(),
+
+    state:
+      JSON.parse(
+        JSON.stringify(
+          S[id]
+        )
+      ),
+
+    interpretationBoundary:
+      'Computational state only; not a human measurement.'
+
+  };
+
+}
+
+
+function show(o){
+
+  let e =
+    document.getElementById(
+      'output'
+    );
+
+  e.hidden = false;
+
+  e.textContent =
+    JSON.stringify(
+      o,
+      null,
+      2
+    );
+
+}
+
+
+build();
+
+focus('cd');
+
+render();
+
+
+window.addEventListener(
+  'resize',
+  render,
+  {passive:true}
+);
+
+
+document.addEventListener(
+  'fullscreenchange',
+  ()=>{
+
+    document
+      .querySelectorAll('.sim')
+      .forEach(s=>{
+        s.classList.remove(
+          'fullscreen'
+        );
+      });
+
+
+    if(document.fullscreenElement){
+
+      document.fullscreenElement
+        .classList.add(
+          'fullscreen'
+        );
+
+    }
+
+
+    setTimeout(
+      render,
+      30
+    );
+
+  }
+);
+
+
+document.getElementById(
+  'model'
+).onchange = e =>
+  focus(e.target.value);
+
+
+document.getElementById(
+  'seed'
+).onchange = e => {
+
+  rng =
+    seeded(
+      e.target.value
+    );
+
+  Object.keys(M)
+    .forEach(reset);
+
+};
+
+
+document.getElementById(
+  'baseline'
+).onclick = () => {
+
+  base = snap();
+
+  show({
+    baseline:base,
+    intervention:intv
+  });
+
+};
+
+
+document.getElementById(
+  'intervention'
+).onclick = () => {
+
+  intv = snap();
+
+  show({
+    baseline:base,
+    intervention:intv
+  });
+
+};
+
+
+document.getElementById(
+  'run'
+).onclick = () => {
+
+  let id =
+    document.getElementById(
+      'model'
+    ).value;
+
+  let n =
+    Math.max(
+      1,
+      Math.min(
+        1000,
+        +document.getElementById(
+          'steps'
+        ).value || 20
+      )
+    );
+
+
+  reset(id);
+
+
+  for(
+    let i=0;
+    i<n;
+    i++
+  ){
+
+    step(id);
+
+  }
+
+
+  show({
+
+    run:snap(),
+
+    steps:n,
+
+    baseline:base,
+
+    intervention:intv
+
+  });
+
+};
+
+
+document.getElementById(
+  'download'
+).onclick = () => {
+
+  let d =
+    document.getElementById(
+      'output'
+    ).textContent ||
+    JSON.stringify(
+      snap(),
+      null,
+      2
+    );
+
+
+  let u =
+    URL.createObjectURL(
+      new Blob(
+        [d],
+        {type:'application/json'}
+      )
+    );
+
+
+  let a =
+    document.createElement(
+      'a'
+    );
+
+  a.href = u;
+
+  a.download =
+    'cognitive-dynamics-studio-experiment.json';
+
+  a.click();
+
+
+  setTimeout(
+    () =>
+      URL.revokeObjectURL(u),
+    500
+  );
+
+};
+
+
+document.getElementById(
+  'textSize'
+).onchange = e => {
+
+  document.documentElement
+    .classList.remove(
+      'large',
+      'xl'
+    );
+
+
+  if(
+    e.target.value !==
+    'normal'
+  ){
+
+    document.documentElement
+      .classList.add(
+        e.target.value
+      );
+
+  }
+
+
+  render();
+
+};
+
+
+document.getElementById(
+  'contrast'
+).onchange = e => {
+
+  document.body
+    .classList.toggle(
+      'high-contrast',
+      e.target.checked
+    );
+
+};
+
+
+document.getElementById(
+  'motion'
+).onchange = e => {
+
+  reduced =
+    e.target.checked;
+
+
+  Object.keys(P)
+    .forEach(id=>{
+
+      if(reduced){
+
+        P[id] = true;
+
+        let b =
+          document.querySelector(
+            '.play[data-id="' +
+            id +
+            '"]'
+          );
+
+
+        if(b){
+
+          b.textContent =
+            '▶ Resume';
+
+        }
+
+      }
+
+    });
+
+};
+
+
+function loop(now){
+
+  let dt =
+    Math.min(
+      .05,
+      (now-last)/1000
+    );
+
+
+  last = now;
+
+
+  if(!reduced){
+
+    if(!P.hp){
+
+      S.hp.a +=
+        dt*
+        .18*
+        speed.hp;
+
+    }
+
+
+    if(!P.vs){
+
+      S.vs.t +=
+        dt*
+        speed.vs;
+
+
+      S.vs.field =
+        .35+
+        .25*
+        Math.abs(
+          Math.sin(
+            S.vs.t
+          )
+        );
+
+
+      S.vs.attractor =
+        .55+
+        .4*
+        Math.abs(
+          Math.cos(
+            S.vs.t*.7
+          )
+        );
+
+
+      S.vs.feedback =
+        .4+
+        .45*
+        Math.abs(
+          Math.sin(
+            S.vs.t*.9
+          )
+        );
+
+    }
+
+
+    for(
+      let id of ['cd','da']
+    ){
+
+      if(!P[id]){
+
+        acc[id] +=
+          dt*
+          speed[id];
+
+
+        if(acc[id]>=.9){
+
+          acc[id] -= .9;
+
+          step(id);
+
+        }
+
+      }
+
+    }
+
+  }
+
+
+  render();
+
+  requestAnimationFrame(
+    loop
+  );
+
+}
+
+
+requestAnimationFrame(
+  loop
+);
+
+</script>
+
+</body>
+</html>
