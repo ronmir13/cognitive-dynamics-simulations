@@ -32,165 +32,462 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;background:var(--bg)}
 body{
-  margin:0;min-height:100vh;color:var(--text);
+  margin:0;
+  min-height:100vh;
+  color:var(--text);
   background:
     radial-gradient(circle at 50% -8%,#17364e 0,transparent 38%),
     radial-gradient(circle at 0 38%,#38c9ff0c,transparent 28%),
     radial-gradient(circle at 100% 60%,#c878ff0a,transparent 28%),
     var(--bg);
-  font:18px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font:18px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
 }
 button,input,select{font:inherit}
 button,a,input,select{outline-offset:3px}
-button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #e8f7ff}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
+  outline:3px solid #e8f7ff
+}
 button{cursor:pointer}
 .wrap{width:min(1560px,100%);margin:auto;padding:0 22px}
 .top{
-  position:sticky;top:0;z-index:50;background:#030711e8;
-  backdrop-filter:blur(18px);border-bottom:1px solid #203548
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:#030711e8;
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid #203548
 }
 .topin{width:min(1560px,100%);margin:auto;padding:12px 22px}
-.row{display:flex;justify-content:space-between;align-items:center;gap:18px}
+.row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:18px
+}
 .eyebrow{
   font:800 10px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;
-  letter-spacing:.16em;text-transform:uppercase;color:#8195a8
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#8195a8
 }
 .brand{font-weight:950;font-size:1.15rem}
-.nav{display:flex;gap:5px;overflow:auto;padding-top:8px;scrollbar-width:none}
+.nav{
+  display:flex;
+  gap:5px;
+  overflow:auto;
+  padding-top:8px;
+  scrollbar-width:none
+}
 .nav::-webkit-scrollbar{display:none}
-.nav a{color:#afbecb;text-decoration:none;white-space:nowrap;padding:8px 11px;border-radius:8px}
+.nav a{
+  color:#afbecb;
+  text-decoration:none;
+  white-space:nowrap;
+  padding:8px 11px;
+  border-radius:8px
+}
 .nav a:hover,.nav a.active{background:#101d2a;color:#fff}
 .hero{padding:72px 0 42px}
 .hero h1{
-  max-width:1150px;margin:12px 0 22px;font-size:clamp(3.1rem,7vw,7.1rem);
-  line-height:.91;letter-spacing:-.07em
+  max-width:1150px;
+  margin:12px 0 22px;
+  font-size:clamp(3.1rem,7vw,7.1rem);
+  line-height:.91;
+  letter-spacing:-.07em
 }
-.hero p{max-width:930px;color:var(--muted);font-size:1.14rem}
+.hero p{
+  max-width:930px;
+  color:var(--muted);
+  font-size:1.14rem
+}
 .cta{
-  display:inline-flex;align-items:center;gap:9px;margin-top:19px;padding:14px 20px;
-  border-radius:10px;background:#f4f8fb;color:#05080d;text-decoration:none;font-weight:900;
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  margin-top:19px;
+  padding:14px 20px;
+  border-radius:10px;
+  background:#f4f8fb;
+  color:#05080d;
+  text-decoration:none;
+  font-weight:900;
   transition:transform .18s,box-shadow .18s
 }
-.cta:hover{background:#fff;transform:translateY(-2px);box-shadow:0 14px 35px #fff2}
-.section{padding:34px 0;scroll-margin-top:105px}
-.section h2{margin:6px 0 8px;font-size:clamp(2rem,3.2vw,3.2rem);line-height:1;letter-spacing:-.04em}
+.cta:hover{
+  background:#fff;
+  transform:translateY(-2px);
+  box-shadow:0 14px 35px #fff2
+}
+.section{
+  padding:34px 0;
+  scroll-margin-top:105px
+}
+.section h2{
+  margin:6px 0 8px;
+  font-size:clamp(2rem,3.2vw,3.2rem);
+  line-height:1;
+  letter-spacing:-.04em
+}
 .muted{color:var(--muted)}
 .overview{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:22px 0
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:9px;
+  margin:22px 0
 }
 .overview button{
-  min-height:92px;padding:14px;border:1px solid var(--line);border-radius:11px;
-  background:#07111c;color:#dce7ef;text-align:left;
+  min-height:92px;
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  background:#07111c;
+  color:#dce7ef;
+  text-align:left;
   transition:background .18s,border-color .18s,transform .18s,box-shadow .18s
 }
-.overview button:hover{background:#101e2b;border-color:#708797;transform:translateY(-1px)}
-.overview button.active{border-color:#9cafbd;background:#101e2b;box-shadow:0 0 0 1px #9cafbd33 inset}
+.overview button:hover{
+  background:#101e2b;
+  border-color:#708797;
+  transform:translateY(-1px)
+}
+.overview button.active{
+  border-color:#9cafbd;
+  background:#101e2b;
+  box-shadow:0 0 0 1px #9cafbd33 inset
+}
 .overview strong{display:block;font-size:1rem}
-.overview small{display:block;color:#8fa1af;margin-top:4px;font-size:.84rem;line-height:1.4}
-.simgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.overview small{
+  display:block;
+  color:#8fa1af;
+  margin-top:4px;
+  font-size:.84rem;
+  line-height:1.4
+}
+.simgrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px
+}
 .sim{
-  --accent:var(--cyan);overflow:hidden;border:1px solid #2c4152;border-radius:20px;
-  background:linear-gradient(145deg,#09131f,#040912);box-shadow:var(--shadow);
+  --accent:var(--cyan);
+  overflow:hidden;
+  border:1px solid #2c4152;
+  border-radius:20px;
+  background:linear-gradient(145deg,#09131f,#040912);
+  box-shadow:var(--shadow);
   transition:border-color .25s,box-shadow .25s,transform .25s
 }
 .sim:hover{transform:translateY(-2px)}
 .sim.focused{
   border-color:var(--accent);
-  box-shadow:0 0 0 1px var(--accent),var(--shadow),0 0 60px color-mix(in srgb,var(--accent) 14%,transparent)
+  box-shadow:
+    0 0 0 1px var(--accent),
+    var(--shadow),
+    0 0 60px color-mix(in srgb,var(--accent) 14%,transparent)
 }
 .simhead{
-  min-height:128px;padding:20px 21px 17px;display:flex;align-items:flex-start;gap:13px;
+  min-height:128px;
+  padding:20px 21px 17px;
+  display:flex;
+  align-items:flex-start;
+  gap:13px;
   border-bottom:1px solid #263b4c
 }
 .number{
-  flex:0 0 48px;height:48px;display:grid;place-items:center;border-radius:12px;
-  background:var(--accent);color:#03101a;font-size:1.08rem;font-weight:950;
+  flex:0 0 48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  background:var(--accent);
+  color:#03101a;
+  font-size:1.08rem;
+  font-weight:950;
   box-shadow:0 0 28px color-mix(in srgb,var(--accent) 55%,transparent)
 }
-.simtitle{font-size:1.72rem;line-height:1.08;letter-spacing:-.03em;font-weight:950}
-.simdesc{max-width:680px;margin-top:6px;color:#afbeca;font-size:1rem;line-height:1.42}
+.simtitle{
+  font-size:1.72rem;
+  line-height:1.08;
+  letter-spacing:-.03em;
+  font-weight:950
+}
+.simdesc{
+  max-width:680px;
+  margin-top:6px;
+  color:#afbeca;
+  font-size:1rem;
+  line-height:1.42
+}
 .live{
-  margin-left:auto;white-space:nowrap;padding:7px 10px;border:1px solid #2e663f;
-  border-radius:999px;background:#06150a;color:#6eff8a;
+  margin-left:auto;
+  white-space:nowrap;
+  padding:7px 10px;
+  border:1px solid #2e663f;
+  border-radius:999px;
+  background:#06150a;
+  color:#6eff8a;
   font:800 10px ui-monospace,SFMono-Regular,Menlo,monospace
 }
 .live:before{
-  content:"";display:inline-block;width:7px;height:7px;margin-right:5px;border-radius:50%;
-  background:#55ff73;box-shadow:0 0 10px #55ff73;animation:pulse 1.8s infinite
+  content:"";
+  display:inline-block;
+  width:7px;
+  height:7px;
+  margin-right:5px;
+  border-radius:50%;
+  background:#55ff73;
+  box-shadow:0 0 10px #55ff73;
+  animation:pulse 1.8s infinite
 }
-@keyframes pulse{50%{opacity:.35;transform:scale(.7)}}
-.visual{position:relative;height:680px;background:#010409}
-.visual canvas{width:100%;height:100%;display:block}
+@keyframes pulse{
+  50%{opacity:.35;transform:scale(.7)}
+}
+.visual{
+  position:relative;
+  height:680px;
+  background:#010409
+}
+.visual canvas{
+  width:100%;
+  height:100%;
+  display:block
+}
 .hud{
-  position:absolute;inset:13px;display:flex;justify-content:space-between;align-items:flex-start;
+  position:absolute;
+  inset:13px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
   pointer-events:none
 }
 .badge{
-  padding:8px 10px;border:1px solid #415667;border-radius:9px;background:#03070de0;
-  color:#d5e0e7;font:800 11px ui-monospace,SFMono-Regular,Menlo,monospace;
+  padding:8px 10px;
+  border:1px solid #415667;
+  border-radius:9px;
+  background:#03070de0;
+  color:#d5e0e7;
+  font:800 11px ui-monospace,SFMono-Regular,Menlo,monospace;
   backdrop-filter:blur(8px)
 }
-.badge.state{border-color:var(--accent);color:#fff;box-shadow:0 0 18px color-mix(in srgb,var(--accent) 25%,transparent)}
-.explain{
-  padding:20px 21px;border-top:1px solid color-mix(in srgb,var(--accent) 32%,#263746);
-  background:linear-gradient(90deg,color-mix(in srgb,var(--accent) 8%,#07101a),#070d14)
+.badge.state{
+  border-color:var(--accent);
+  color:#fff;
+  box-shadow:0 0 18px color-mix(in srgb,var(--accent) 25%,transparent)
 }
-.explain strong{color:var(--accent);font:900 12px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.14em}
-.phase{margin-top:4px;font-size:1.62rem;line-height:1.12;font-weight:950}
-.explain p{margin:6px 0 0;color:#adbbc6;font-size:1.02rem;line-height:1.5}
-.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;padding:13px;background:#050a10}
+.explain{
+  padding:20px 21px;
+  border-top:1px solid color-mix(in srgb,var(--accent) 32%,#263746);
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb,var(--accent) 8%,#07101a),
+      #070d14
+    )
+}
+.explain strong{
+  color:var(--accent);
+  font:900 12px ui-monospace,SFMono-Regular,Menlo,monospace;
+  letter-spacing:.14em
+}
+.phase{
+  margin-top:4px;
+  font-size:1.62rem;
+  line-height:1.12;
+  font-weight:950
+}
+.explain p{
+  margin:6px 0 0;
+  color:#adbbc6;
+  font-size:1.02rem;
+  line-height:1.5
+}
+.metrics{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:9px;
+  padding:13px;
+  background:#050a10
+}
 .metric{
-  min-height:70px;padding:11px;border:1px solid #273b4c;border-radius:8px;background:#08111a;
+  min-height:70px;
+  padding:11px;
+  border:1px solid #273b4c;
+  border-radius:8px;
+  background:#08111a;
   transition:border-color .2s,background .2s
 }
-.metric:hover{border-color:#607789;background:#0b1722}
-.metric b{display:block;color:#8195a6;font:800 10px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em}
-.metric span{display:block;margin-top:4px;color:#e1e8ee;font-size:1rem;font-weight:800;overflow-wrap:anywhere}
+.metric:hover{
+  border-color:#607789;
+  background:#0b1722
+}
+.metric b{
+  display:block;
+  color:#8195a6;
+  font:800 10px ui-monospace,SFMono-Regular,Menlo,monospace;
+  letter-spacing:.06em
+}
+.metric span{
+  display:block;
+  margin-top:4px;
+  color:#e1e8ee;
+  font-size:1rem;
+  font-weight:800;
+  overflow-wrap:anywhere
+}
 .controls{
-  display:flex;align-items:center;flex-wrap:wrap;gap:9px;padding:13px;border-top:1px solid #263746
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:9px;
+  padding:13px;
+  border-top:1px solid #263746
 }
 .btn{
-  min-height:48px;padding:10px 15px;border:1px solid #3c5264;border-radius:9px;
-  background:#09131e;color:#eef5f9;font-size:1rem;font-weight:800;
+  min-height:48px;
+  padding:10px 15px;
+  border:1px solid #3c5264;
+  border-radius:9px;
+  background:#09131e;
+  color:#eef5f9;
+  font-size:1rem;
+  font-weight:800;
   transition:background .15s,border-color .15s,transform .15s,box-shadow .15s
 }
-.btn:hover{background:#152535;border-color:#91a3b1;transform:translateY(-1px)}
-.btn.primary{background:#f3f8fb;color:#05080c;border-color:#f3f8fb}
+.btn:hover{
+  background:#152535;
+  border-color:#91a3b1;
+  transform:translateY(-1px)
+}
+.btn.primary{
+  background:#f3f8fb;
+  color:#05080c;
+  border-color:#f3f8fb
+}
 .btn.primary:hover{box-shadow:0 8px 24px #fff2}
-.btn.active{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset;color:#fff}
+.btn.active{
+  border-color:var(--accent);
+  box-shadow:0 0 0 1px var(--accent) inset;
+  color:#fff
+}
 .speed{
-  display:flex;align-items:center;gap:7px;margin-left:auto;color:#8193a2;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  margin-left:auto;
+  color:#8193a2;
   font:800 10px ui-monospace,SFMono-Regular,Menlo,monospace
 }
-.speed input{width:135px;height:22px;accent-color:var(--accent);cursor:pointer}
-.speed span{color:#dbe7ee;font-size:1rem;font-weight:900;min-width:30px}
-.progress{height:7px;background:#16232e}
-.progress div{width:0;height:100%;background:var(--accent);box-shadow:0 0 14px var(--accent);transition:width .18s linear}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
-.card,.source{padding:19px;border:1px solid #293e50;border-radius:14px;background:#080f17}
-.card{transition:border-color .2s,transform .2s,background .2s}
-.card:hover{border-color:#51697a;transform:translateY(-2px);background:#0a141e}
-.card h3{margin:5px 0;font-size:1.2rem}
-.card p,.source p{color:#9faeba;font-size:.91rem}
+.speed input{
+  width:135px;
+  height:22px;
+  accent-color:var(--accent);
+  cursor:pointer
+}
+.speed span{
+  color:#dbe7ee;
+  font-size:1rem;
+  font-weight:900;
+  min-width:30px
+}
+.progress{
+  height:7px;
+  background:#16232e
+}
+.progress div{
+  width:0;
+  height:100%;
+  background:var(--accent);
+  box-shadow:0 0 14px var(--accent);
+  transition:width .18s linear
+}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:20px
+}
+.card,.source{
+  padding:19px;
+  border:1px solid #293e50;
+  border-radius:14px;
+  background:#080f17
+}
+.card{
+  transition:border-color .2s,transform .2s,background .2s
+}
+.card:hover{
+  border-color:#51697a;
+  transform:translateY(-2px);
+  background:#0a141e
+}
+.card h3{
+  margin:5px 0;
+  font-size:1.2rem
+}
+.card p,.source p{
+  color:#9faeba;
+  font-size:.91rem
+}
 .source{margin-top:0}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+.grid3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:18px
+}
 .field-label{display:block}
-.field-label .eyebrow{display:block;margin-bottom:6px}
+.field-label .eyebrow{
+  display:block;
+  margin-bottom:6px
+}
 .input,.select{
-  width:100%;padding:11px;border:1px solid #3a5163;border-radius:9px;background:#050a10;color:#eef4f8
+  width:100%;
+  padding:11px;
+  border:1px solid #3a5163;
+  border-radius:9px;
+  background:#050a10;
+  color:#eef4f8
 }
 .output{
-  max-height:350px;overflow:auto;margin-top:15px;padding:15px;border:1px solid #293e50;
-  border-radius:12px;background:#02060b;color:#ced9e1;font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace
+  max-height:350px;
+  overflow:auto;
+  margin-top:15px;
+  padding:15px;
+  border:1px solid #293e50;
+  border-radius:12px;
+  background:#02060b;
+  color:#ced9e1;
+  font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace
 }
-.check{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.check input{width:20px;height:20px;accent-color:#fff}
+.check{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px
+}
+.check input{
+  width:20px;
+  height:20px;
+  accent-color:#fff
+}
 .fullscreen{
-  position:fixed!important;inset:0!important;z-index:1000!important;width:100vw!important;height:100vh!important;
-  border-radius:0!important;background:#010409!important;overflow:auto
+  position:fixed!important;
+  inset:0!important;
+  z-index:1000!important;
+  width:100vw!important;
+  height:100vh!important;
+  border-radius:0!important;
+  background:#010409!important;
+  overflow:auto
 }
-.fullscreen .visual{height:calc(100vh - 230px);min-height:500px}
-.fullscreen .simhead{padding-left:28px;padding-right:28px}
+.fullscreen .visual{
+  height:calc(100vh - 230px);
+  min-height:500px
+}
+.fullscreen .simhead{
+  padding-left:28px;
+  padding-right:28px
+}
 .fullscreen .simtitle{font-size:2.1rem}
 .fullscreen .phase{font-size:1.9rem}
 html.large body{font-size:20px}
@@ -199,18 +496,43 @@ html.large .simtitle{font-size:1.9rem}
 html.xl .simtitle{font-size:2.05rem}
 html.large .phase{font-size:1.75rem}
 html.xl .phase{font-size:1.95rem}
-html.large .simdesc,html.large .explain p,html.large .card p,html.large .source p{font-size:1rem}
-html.xl .simdesc,html.xl .explain p,html.xl .card p,html.xl .source p{font-size:1.08rem}
+html.large .simdesc,
+html.large .explain p,
+html.large .card p,
+html.large .source p{font-size:1rem}
+html.xl .simdesc,
+html.xl .explain p,
+html.xl .card p,
+html.xl .source p{font-size:1.08rem}
 body.high-contrast{--muted:#dce6ed}
-body.high-contrast .sim,body.high-contrast .card,body.high-contrast .source,body.high-contrast .metric{border-color:#718798}
+body.high-contrast .sim,
+body.high-contrast .card,
+body.high-contrast .source,
+body.high-contrast .metric{
+  border-color:#718798
+}
 footer{padding:40px 0 70px}
 .toast{
-  position:fixed;right:20px;bottom:20px;z-index:2000;max-width:min(420px,calc(100vw - 40px));
-  padding:13px 16px;border:1px solid #526b7c;border-radius:12px;background:#07111beF;color:#eef7fb;
-  box-shadow:0 18px 50px #0009;transform:translateY(20px);opacity:0;pointer-events:none;
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:2000;
+  max-width:min(420px,calc(100vw - 40px));
+  padding:13px 16px;
+  border:1px solid #526b7c;
+  border-radius:12px;
+  background:#07111beF;
+  color:#eef7fb;
+  box-shadow:0 18px 50px #0009;
+  transform:translateY(20px);
+  opacity:0;
+  pointer-events:none;
   transition:opacity .2s,transform .2s
 }
-.toast.show{opacity:1;transform:none}
+.toast.show{
+  opacity:1;
+  transform:none
+}
 @media(max-width:1120px){
   .simgrid{grid-template-columns:1fr}
   .cards{grid-template-columns:1fr 1fr}
@@ -220,31 +542,64 @@ footer{padding:40px 0 70px}
   .overview,.grid3{grid-template-columns:1fr 1fr}
 }
 @media(max-width:620px){
-  .wrap,.topin{padding-left:13px;padding-right:13px}
+  .wrap,.topin{
+    padding-left:13px;
+    padding-right:13px
+  }
   .hero{padding-top:42px}
-  .hero h1{font-size:clamp(2.7rem,14vw,4.5rem)}
-  .overview,.cards,.grid3{grid-template-columns:1fr}
-  .simhead{min-height:112px;padding:17px 15px}
-  .number{flex-basis:43px;height:43px}
+  .hero h1{
+    font-size:clamp(2.7rem,14vw,4.5rem)
+  }
+  .overview,.cards,.grid3{
+    grid-template-columns:1fr
+  }
+  .simhead{
+    min-height:112px;
+    padding:17px 15px
+  }
+  .number{
+    flex-basis:43px;
+    height:43px
+  }
   .simtitle{font-size:1.42rem}
   .simdesc{font-size:.94rem}
-  .live{font-size:8px;padding:6px 7px}
+  .live{
+    font-size:8px;
+    padding:6px 7px
+  }
   .visual{height:540px}
-  .badge{font-size:9px;padding:6px 8px}
+  .badge{
+    font-size:9px;
+    padding:6px 8px
+  }
   .explain{padding:17px 15px}
   .phase{font-size:1.35rem}
   .explain p{font-size:.96rem}
   .metrics{grid-template-columns:1fr 1fr}
   .metric{min-height:64px}
   .metric span{font-size:.94rem}
-  .btn{min-height:47px;font-size:.96rem}
-  .speed{width:100%;margin-left:0;padding-top:4px}
+  .btn{
+    min-height:47px;
+    font-size:.96rem
+  }
+  .speed{
+    width:100%;
+    margin-left:0;
+    padding-top:4px
+  }
   .speed input{flex:1}
-  .fullscreen .visual{height:calc(100vh - 280px);min-height:420px}
+  .fullscreen .visual{
+    height:calc(100vh - 280px);
+    min-height:420px
+  }
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  *,*:before,*:after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important
+  }
 }
 </style>
 </head>
@@ -260,6 +615,7 @@ footer{padding:40px 0 70px}
       </div>
       <div class="eyebrow">LIVE · EDUCATIONAL</div>
     </div>
+
     <nav class="nav" aria-label="Main navigation">
       <a href="#simulations">Simulations</a>
       <a href="#models">Models</a>
@@ -274,74 +630,120 @@ footer{padding:40px 0 70px}
 
 <section class="hero">
   <div class="eyebrow">Cognitive Dynamics Studio</div>
+
   <h1>Four Interactive Models of Cognition.</h1>
+
   <p>
     Explore four computational visualizations of causal, dialectical,
     panoramic, and synergetic dynamics. Pause them, step through states,
     change speed, inspect live variables, and open any model fullscreen.
   </p>
-  <a class="cta" href="#simulations">Enter the simulation studio ↓</a>
+
+  <a class="cta" href="#simulations">
+    Enter the simulation studio ↓
+  </a>
 </section>
 
 <section id="simulations" class="section">
+
   <div class="eyebrow">01 · Live simulation studio</div>
+
   <h2>See the four models in motion.</h2>
+
   <p class="muted">
     Each model has a distinct visual grammar, state sequence, color system,
     and explanatory panel. Select a model to focus it.
   </p>
+
   <div id="overview" class="overview"></div>
+
   <div id="simgrid" class="simgrid"></div>
+
 </section>
 
 <section id="models" class="section">
+
   <div class="eyebrow">02 · How they work</div>
+
   <h2>Four models, four visual languages.</h2>
 
   <div class="cards">
+
     <article class="card">
-      <div class="eyebrow" style="color:var(--cyan)">Causal–Determinist</div>
+      <div class="eyebrow" style="color:var(--cyan)">
+        Causal–Determinist
+      </div>
       <h3>Follow a causal chain.</h3>
-      <p>Observation and premise lead through mechanism, process, deduction, and result in a directional sequence.</p>
+      <p>
+        Observation and premise lead through mechanism, process,
+        deduction, and result in a directional sequence.
+      </p>
     </article>
 
     <article class="card">
-      <div class="eyebrow" style="color:var(--green)">Dialectical–Algorithmic</div>
+      <div class="eyebrow" style="color:var(--green)">
+        Dialectical–Algorithmic
+      </div>
       <h3>Hold opposites together.</h3>
-      <p>Thesis and antithesis move through contradiction toward synthesis, rule formation, and algorithmic execution.</p>
+      <p>
+        Thesis and antithesis move through contradiction toward synthesis,
+        rule formation, and algorithmic execution.
+      </p>
     </article>
 
     <article class="card">
-      <div class="eyebrow" style="color:var(--purple)">Holographical–Panoramic</div>
+      <div class="eyebrow" style="color:var(--purple)">
+        Holographical–Panoramic
+      </div>
       <h3>Change the viewpoint.</h3>
-      <p>A stable conceptual object remains central while changing projections make different aspects visible.</p>
+      <p>
+        A stable conceptual object remains central while changing
+        projections make different aspects visible.
+      </p>
     </article>
 
     <article class="card">
-      <div class="eyebrow" style="color:var(--orange)">Vortical–Synergetic</div>
+      <div class="eyebrow" style="color:var(--orange)">
+        Vortical–Synergetic
+      </div>
       <h3>Watch a dynamic field.</h3>
-      <p>Alternatives fluctuate, are screened, and gather around an attractor as feedback changes the field.</p>
+      <p>
+        Alternatives fluctuate, are screened, and gather around an
+        attractor as feedback changes the field.
+      </p>
     </article>
+
   </div>
 </section>
 
 <section id="experiment" class="section">
+
   <div class="source">
+
     <div class="eyebrow">03 · Experiment studio</div>
+
     <h2>Run a reproducible computational experiment.</h2>
+
     <p>
-      Seeds and steps control the software model. The resulting states describe
-      the simulation, not a measurement of a person's cognition.
+      Seeds and steps control the software model. The resulting states
+      describe the simulation, not a measurement of a person's cognition.
     </p>
 
     <div class="grid3">
+
       <label class="field-label">
         <span class="eyebrow">Seed</span>
-        <input id="seed" class="input" type="number" value="482913">
+        <input
+          id="seed"
+          class="input"
+          type="number"
+          value="482913"
+        >
       </label>
 
       <label class="field-label">
         <span class="eyebrow">Model</span>
+
         <select id="model" class="select">
           <option value="cd">Causal–Determinist</option>
           <option value="da">Dialectical–Algorithmic</option>
@@ -352,80 +754,154 @@ footer{padding:40px 0 70px}
 
       <label class="field-label">
         <span class="eyebrow">Steps</span>
-        <input id="steps" class="input" type="number" min="1" max="1000" value="20">
+
+        <input
+          id="steps"
+          class="input"
+          type="number"
+          min="1"
+          max="1000"
+          value="20"
+        >
       </label>
+
     </div>
 
     <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px">
-      <button class="btn" id="baseline">Capture baseline</button>
-      <button class="btn" id="intervention">Capture intervention</button>
-      <button class="btn primary" id="run">Run experiment</button>
-      <button class="btn" id="download">Export JSON</button>
+
+      <button class="btn" id="baseline">
+        Capture baseline
+      </button>
+
+      <button class="btn" id="intervention">
+        Capture intervention
+      </button>
+
+      <button class="btn primary" id="run">
+        Run experiment
+      </button>
+
+      <button class="btn" id="download">
+        Export JSON
+      </button>
+
     </div>
 
     <pre id="output" class="output" hidden></pre>
+
   </div>
+
 </section>
 
 <section id="integrity" class="section">
+
   <div class="source">
+
     <div class="eyebrow">04 · Scientific integrity</div>
-    <h2>Clear boundaries between source, software, and evidence.</h2>
+
+    <h2>
+      Clear boundaries between source, software, and evidence.
+    </h2>
 
     <div class="cards">
+
       <article class="card">
         <div class="eyebrow">Source-derived</div>
-        <p>Conceptual terminology and framing are identified as source-derived where applicable.</p>
+        <p>
+          Conceptual terminology and framing are identified as
+          source-derived where applicable.
+        </p>
       </article>
 
       <article class="card">
         <div class="eyebrow">Original implementation</div>
-        <p>Numerical variables, transition rules, trajectories, particles, animation, and interface are software representations created for this studio.</p>
+        <p>
+          Numerical variables, transition rules, trajectories, particles,
+          animation, and interface are software representations created
+          for this studio.
+        </p>
       </article>
 
       <article class="card">
         <div class="eyebrow">Evidence boundary</div>
-        <p>Simulation output is an output of the computational model. It is not automatically empirical evidence for a theory of human cognition.</p>
+        <p>
+          Simulation output is an output of the computational model.
+          It is not automatically empirical evidence for a theory of
+          human cognition.
+        </p>
       </article>
 
       <article class="card">
         <div class="eyebrow">Educational purpose</div>
-        <p>This is an educational interactive laboratory, not a diagnostic tool, clinical instrument, or validated psychological assessment.</p>
+        <p>
+          This is an educational interactive laboratory, not a diagnostic
+          tool, clinical instrument, or validated psychological assessment.
+        </p>
       </article>
+
     </div>
+
   </div>
+
 </section>
 
 <section class="section">
+
   <div class="source">
+
     <div class="eyebrow">05 · Sources</div>
+
     <h2>Reference material</h2>
+
     <p>
-      <strong>Viktor V. Gulenko, “Forms of Thinking”</strong><br>
-      <em>Socionics, Mentology and Personality Psychology</em>, No. 4 (2002), pp. 9–25.
+      <strong>
+        Viktor V. Gulenko, “Forms of Thinking”
+      </strong>
+      <br>
+      <em>
+        Socionics, Mentology and Personality Psychology
+      </em>,
+      No. 4 (2002), pp. 9–25.
     </p>
+
     <p>
-      <a href="https://www.publishing.socionic.info/index.php/socionics/article/view/1228" target="_blank" rel="noopener noreferrer">
+      <a
+        href="https://www.publishing.socionic.info/index.php/socionics/article/view/1228"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Publisher record ↗
       </a>
     </p>
-    <p>This project does not claim endorsement by the author or publication.</p>
+
+    <p>
+      This project does not claim endorsement by the author or publication.
+    </p>
+
   </div>
+
 </section>
 
 <section id="accessibility" class="section">
+
   <div class="source">
+
     <div class="eyebrow">06 · Accessibility</div>
+
     <h2>Make the studio easier to see and use.</h2>
 
     <div class="grid3">
+
       <label class="field-label">
+
         <span class="eyebrow">Text size</span>
+
         <select id="textSize" class="select">
           <option value="normal">Normal</option>
           <option value="large">Large</option>
           <option value="xl">Extra large</option>
         </select>
+
       </label>
 
       <label class="card check">
@@ -437,757 +913,2350 @@ footer{padding:40px 0 70px}
         <span>Reduced motion</span>
         <input id="motion" type="checkbox">
       </label>
+
     </div>
+
   </div>
+
 </section>
 
 <footer>
-  <div class="eyebrow">Cognitive Dynamics Studio</div>
+
+  <div class="eyebrow">
+    Cognitive Dynamics Studio
+  </div>
+
   <p class="muted">
     Four Interactive Models of Cognition · educational computational software ·
     not a validated psychological measurement.
   </p>
+
 </footer>
 
 </main>
 
-<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div
+  id="toast"
+  class="toast"
+  role="status"
+  aria-live="polite"
+></div>
 
 <script>
 'use strict';
 
-const M={
-  cd:{
-    name:'Causal–Determinist',
-    color:'#38c9ff',
-    stages:['Observation','Premise','Mechanism','Causal Link','Process','Deduction','Result'],
-    description:'Explicit causal chain with premises, mechanism and deduction.'
+const M = {
+  cd: {
+    name: 'Causal–Determinist',
+    color: '#38c9ff',
+    stages: [
+      'Observation',
+      'Premise',
+      'Mechanism',
+      'Causal Link',
+      'Process',
+      'Deduction',
+      'Result'
+    ],
+    description:
+      'Explicit causal chain with premises, mechanism and deduction.'
   },
-  da:{
-    name:'Dialectical–Algorithmic',
-    color:'#51ef7d',
-    stages:['Thesis','Antithesis','Contradiction','Synthesis','Rule','Algorithm'],
-    description:'Opposites become contradiction, synthesis and an executable rule.'
+
+  da: {
+    name: 'Dialectical–Algorithmic',
+    color: '#51ef7d',
+    stages: [
+      'Thesis',
+      'Antithesis',
+      'Contradiction',
+      'Synthesis',
+      'Rule',
+      'Algorithm'
+    ],
+    description:
+      'Opposites become contradiction, synthesis and an executable rule.'
   },
-  hp:{
-    name:'Holographical–Panoramic',
-    color:'#c878ff',
-    stages:['Front','Right','Top','Detail','Context','Analogy'],
-    description:'A stable conceptual object examined through changing projections.'
+
+  hp: {
+    name: 'Holographical–Panoramic',
+    color: '#c878ff',
+    stages: [
+      'Front',
+      'Right',
+      'Top',
+      'Detail',
+      'Context',
+      'Analogy'
+    ],
+    description:
+      'A stable conceptual object examined through changing projections.'
   },
-  vs:{
-    name:'Vortical–Synergetic',
-    color:'#ffad3d',
-    stages:['Fluctuation','Alternatives','Trial','Screening','Attractor','Feedback','Dissipation'],
-    description:'Alternatives fluctuate, are screened and gather around an attractor.'
+
+  vs: {
+    name: 'Vortical–Synergetic',
+    color: '#ffad3d',
+    stages: [
+      'Fluctuation',
+      'Alternatives',
+      'Trial',
+      'Screening',
+      'Attractor',
+      'Feedback',
+      'Dissipation'
+    ],
+    description:
+      'Alternatives fluctuate, are screened and gather around an attractor.'
   }
 };
 
-const S={
-  cd:{i:0},
-  da:{i:0},
-  hp:{i:0,a:0},
-  vs:{t:0,field:.45,attractor:.72,feedback:.62}
+const S = {
+  cd: {i:0},
+  da: {i:0},
+  hp: {i:0,a:0},
+  vs: {
+    t:0,
+    field:.45,
+    attractor:.72,
+    feedback:.62
+  }
 };
 
-const P={cd:false,da:false,hp:false,vs:false};
-const speed={cd:1,da:1,hp:1,vs:1};
+const P = {
+  cd:false,
+  da:false,
+  hp:false,
+  vs:false
+};
 
-let selected='cd';
-let reduced=false;
-let rng=seeded(482913);
-let experimentRng=seeded(482913);
-let base=null;
-let intv=null;
-let last=performance.now();
-let acc={cd:0,da:0};
-let dirty={cd:true,da:true,hp:true,vs:true};
-let toastTimer=0;
+const speed = {
+  cd:1,
+  da:1,
+  hp:1,
+  vs:1
+};
 
-function seeded(seed){
-  let x=(Number(seed)||1)>>>0;
-  return ()=>{
-    x=(Math.imul(1664525,x)+1013904223)>>>0;
-    return x/4294967296;
+let selected = 'cd';
+let reduced = false;
+let rng = seeded(482913);
+let experimentRng = seeded(482913);
+let base = null;
+let intv = null;
+let last = performance.now();
+let acc = {
+  cd:0,
+  da:0
+};
+let dirty = {
+  cd:true,
+  da:true,
+  hp:true,
+  vs:true
+};
+let toastTimer = 0;
+
+function seeded(seed) {
+  let x = (Number(seed) || 1) >>> 0;
+
+  return () => {
+    x = (
+      Math.imul(1664525,x) +
+      1013904223
+    ) >>> 0;
+
+    return x / 4294967296;
   };
 }
 
-function toast(message){
-  const el=document.getElementById('toast');
-  el.textContent=message;
+function toast(message) {
+  const el = document.getElementById('toast');
+
+  el.textContent = message;
   el.classList.add('show');
+
   clearTimeout(toastTimer);
-  toastTimer=setTimeout(()=>el.classList.remove('show'),2200);
+
+  toastTimer = setTimeout(() => {
+    el.classList.remove('show');
+  },2200);
 }
 
-function saveSettings(){
-  try{
-    localStorage.setItem('cds-settings',JSON.stringify({
-      text:document.getElementById('textSize')?.value||'normal',
-      contrast:document.getElementById('contrast')?.checked||false,
-      motion:document.getElementById('motion')?.checked||false
-    }));
-  }catch{}
+function saveSettings() {
+  try {
+    localStorage.setItem(
+      'cds-settings',
+      JSON.stringify({
+        text:
+          document.getElementById('textSize')?.value ||
+          'normal',
+
+        contrast:
+          document.getElementById('contrast')?.checked ||
+          false,
+
+        motion:
+          document.getElementById('motion')?.checked ||
+          false
+      })
+    );
+  } catch {}
 }
 
-function loadSettings(){
-  try{
-    const data=JSON.parse(localStorage.getItem('cds-settings')||'{}');
-    const text=document.getElementById('textSize');
-    const contrast=document.getElementById('contrast');
-    const motion=document.getElementById('motion');
+function loadSettings() {
+  try {
+    const data = JSON.parse(
+      localStorage.getItem('cds-settings') || '{}'
+    );
 
-    if(data.text){
-      text.value=data.text;
-      document.documentElement.classList.remove('large','xl');
-      if(data.text!=='normal') document.documentElement.classList.add(data.text);
+    const text = document.getElementById('textSize');
+    const contrast = document.getElementById('contrast');
+    const motion = document.getElementById('motion');
+
+    if (data.text) {
+      text.value = data.text;
+
+      document.documentElement.classList.remove(
+        'large',
+        'xl'
+      );
+
+      if (data.text !== 'normal') {
+        document.documentElement.classList.add(
+          data.text
+        );
+      }
     }
 
-    if(data.contrast){
-      contrast.checked=true;
+    if (data.contrast) {
+      contrast.checked = true;
       document.body.classList.add('high-contrast');
     }
 
-    if(data.motion){
-      motion.checked=true;
-      reduced=true;
+    if (data.motion) {
+      motion.checked = true;
+      reduced = true;
     }
-  }catch{}
+
+  } catch {}
 }
 
-function build(){
-  const overview=document.getElementById('overview');
-  const grid=document.getElementById('simgrid');
+function build() {
 
-  Object.entries(M).forEach(([id,m],n)=>{
-    const button=document.createElement('button');
-    button.dataset.id=id;
-    button.setAttribute('aria-label','Focus '+m.name);
-    button.innerHTML=
-      '<strong>'+(n+1)+'. '+m.name+'</strong>'+
-      '<small>'+m.stages.join(' → ')+'</small>';
-    button.onclick=()=>focus(id,true);
-    overview.appendChild(button);
+  const overview =
+    document.getElementById('overview');
 
-    const article=document.createElement('article');
-    article.className='sim';
-    article.id='sim-'+id;
-    article.style.setProperty('--accent',m.color);
+  const grid =
+    document.getElementById('simgrid');
 
-    article.innerHTML=
-      '<div class="simhead">'+
-        '<div class="number">'+(n+1)+'</div>'+
-        '<div>'+
-          '<div class="eyebrow">'+id.toUpperCase()+' · LIVE MODEL</div>'+
-          '<div class="simtitle">'+m.name+'</div>'+
-          '<div class="simdesc">'+m.description+'</div>'+
-        '</div>'+
-        '<div class="live">LIVE</div>'+
-      '</div>'+
-      '<div class="visual">'+
-        '<canvas id="c-'+id+'" aria-label="'+m.name+' simulation"></canvas>'+
-        '<div class="hud">'+
-          '<span class="badge">LIVE · '+id.toUpperCase()+'</span>'+
-          '<span class="badge state" id="stage-'+id+'">STAGE 01</span>'+
-        '</div>'+
-      '</div>'+
-      '<div class="explain">'+
-        '<strong>CURRENT MODEL STATE</strong>'+
-        '<div class="phase" id="phase-'+id+'"></div>'+
-        '<p id="desc-'+id+'"></p>'+
-      '</div>'+
-      '<div class="metrics" id="metrics-'+id+'"></div>'+
-      '<div class="controls">'+
-        '<button class="btn primary play" data-id="'+id+'">Ⅱ Pause</button>'+
-        '<button class="btn step" data-id="'+id+'">▶ Step</button>'+
-        '<button class="btn reset" data-id="'+id+'">↻ Reset</button>'+
-        '<button class="btn full" data-id="'+id+'">⛶ Fullscreen</button>'+
-        '<label class="speed">SPEED <input data-speed="'+id+'" type="range" min=".25" max="2" step=".25" value="1"><span data-speed-label="'+id+'">1×</span></label>'+
-      '</div>'+
-      '<div class="progress"><div id="prog-'+id+'"></div></div>';
+  Object.entries(M).forEach(
+    ([id,m],n) => {
 
-    grid.appendChild(article);
-  });
+      const button =
+        document.createElement('button');
 
-  document.querySelectorAll('.play').forEach(button=>{
-    button.onclick=()=>{
-      const id=button.dataset.id;
-      P[id]=!P[id];
-      button.textContent=P[id]?'▶ Resume':'Ⅱ Pause';
-      button.classList.toggle('active',P[id]);
-      dirty[id]=true;
-      toast(P[id]?M[id].name+' paused':'Playing '+M[id].name);
-    };
-  });
+      button.dataset.id = id;
 
-  document.querySelectorAll('.step').forEach(button=>{
-    button.onclick=()=>step(button.dataset.id);
-  });
+      button.setAttribute(
+        'aria-label',
+        'Focus ' + m.name
+      );
 
-  document.querySelectorAll('.reset').forEach(button=>{
-    button.onclick=()=>reset(button.dataset.id);
-  });
+      button.innerHTML =
+        '<strong>' +
+        (n + 1) +
+        '. ' +
+        m.name +
+        '</strong>' +
 
-  document.querySelectorAll('.full').forEach(button=>{
-    button.onclick=()=>full(button.dataset.id);
-  });
+        '<small>' +
+        m.stages.join(' → ') +
+        '</small>';
 
-  document.querySelectorAll('[data-speed]').forEach(range=>{
-    range.oninput=()=>{
-      const id=range.dataset.speed;
-      speed[id]=+range.value;
-      document.querySelector('[data-speed-label="'+id+'"]').textContent=range.value+'×';
-    };
-  });
-}
+      button.onclick =
+        () => focus(id,true);
 
-function prep(canvas,ctx){
-  const rect=canvas.getBoundingClientRect();
-  const d=Math.min(window.devicePixelRatio||1,2);
-  const width=Math.max(1,Math.floor(rect.width));
-  const height=Math.max(1,Math.floor(rect.height));
-  const cw=Math.floor(width*d);
-  const ch=Math.floor(height*d);
+      overview.appendChild(button);
 
-  if(canvas.width!==cw||canvas.height!==ch){
-    canvas.width=cw;
-    canvas.height=ch;
-  }
+      const article =
+        document.createElement('article');
 
-  ctx.setTransform(d,0,0,d,0,0);
-  return [width,height];
-}
+      article.className = 'sim';
 
-function clear(canvas,ctx){
-  const [width,height]=prep(canvas,ctx);
+      article.id = 'sim-' + id;
 
-  const gradient=ctx.createRadialGradient(
-    width*.5,height*.48,20,
-    width*.5,height*.48,Math.max(width,height)*.7
+      article.style.setProperty(
+        '--accent',
+        m.color
+      );
+
+      article.innerHTML =
+        '<div class="simhead">' +
+
+          '<div class="number">' +
+            (n + 1) +
+          '</div>' +
+
+          '<div>' +
+
+            '<div class="eyebrow">' +
+              id.toUpperCase() +
+              ' · LIVE MODEL' +
+            '</div>' +
+
+            '<div class="simtitle">' +
+              m.name +
+            '</div>' +
+
+            '<div class="simdesc">' +
+              m.description +
+            '</div>' +
+
+          '</div>' +
+
+          '<div class="live">LIVE</div>' +
+
+        '</div>' +
+
+        '<div class="visual">' +
+
+          '<canvas ' +
+            'id="c-' +
+            id +
+            '" ' +
+            'aria-label="' +
+            m.name +
+            ' simulation">' +
+          '</canvas>' +
+
+          '<div class="hud">' +
+
+            '<span class="badge">' +
+              'LIVE · ' +
+              id.toUpperCase() +
+            '</span>' +
+
+            '<span ' +
+              'class="badge state" ' +
+              'id="stage-' +
+              id +
+            '>' +
+              'STAGE 01' +
+            '</span>' +
+
+          '</div>' +
+
+        '</div>' +
+
+        '<div class="explain">' +
+
+          '<strong>CURRENT MODEL STATE</strong>' +
+
+          '<div ' +
+            'class="phase" ' +
+            'id="phase-' +
+            id +
+          '></div>' +
+
+          '<p ' +
+            'id="desc-' +
+            id +
+          '></p>' +
+
+        '</div>' +
+
+        '<div ' +
+          'class="metrics" ' +
+          'id="metrics-' +
+          id +
+        '></div>' +
+
+        '<div class="controls">' +
+
+          '<button ' +
+            'class="btn primary play" ' +
+            'data-id="' +
+            id +
+          '">' +
+            'Ⅱ Pause' +
+          '</button>' +
+
+          '<button ' +
+            'class="btn step" ' +
+            'data-id="' +
+            id +
+          '">' +
+            '▶ Step' +
+          '</button>' +
+
+          '<button ' +
+            'class="btn reset" ' +
+            'data-id="' +
+            id +
+          '">' +
+            '↻ Reset' +
+          '</button>' +
+
+          '<button ' +
+            'class="btn full" ' +
+            'data-id="' +
+            id +
+          '">' +
+            '⛶ Fullscreen' +
+          '</button>' +
+
+          '<label class="speed">' +
+
+            'SPEED ' +
+
+            '<input ' +
+              'data-speed="' +
+              id +
+              '" ' +
+              'type="range" ' +
+              'min=".25" ' +
+              'max="2" ' +
+              'step=".25" ' +
+              'value="1">' +
+
+            '<span ' +
+              'data-speed-label="' +
+              id +
+            '>' +
+              '1×' +
+            '</span>' +
+
+          '</label>' +
+
+        '</div>' +
+
+        '<div class="progress">' +
+          '<div id="prog-' +
+          id +
+          '></div>' +
+        '</div>';
+
+      grid.appendChild(article);
+    }
   );
-  gradient.addColorStop(0,'#07131f');
-  gradient.addColorStop(.55,'#02070d');
-  gradient.addColorStop(1,'#010409');
 
-  ctx.fillStyle=gradient;
-  ctx.fillRect(0,0,width,height);
+  document
+    .querySelectorAll('.play')
+    .forEach(button => {
 
-  ctx.strokeStyle='#ffffff0b';
-  ctx.lineWidth=1;
+      button.onclick = () => {
 
-  for(let x=0;x<width;x+=42){
+        const id = button.dataset.id;
+
+        P[id] = !P[id];
+
+        button.textContent =
+          P[id]
+            ? '▶ Resume'
+            : 'Ⅱ Pause';
+
+        button.classList.toggle(
+          'active',
+          P[id]
+        );
+
+        dirty[id] = true;
+
+        toast(
+          P[id]
+            ? M[id].name + ' paused'
+            : 'Playing ' + M[id].name
+        );
+      };
+    });
+
+  document
+    .querySelectorAll('.step')
+    .forEach(button => {
+
+      button.onclick =
+        () => step(button.dataset.id);
+    });
+
+  document
+    .querySelectorAll('.reset')
+    .forEach(button => {
+
+      button.onclick =
+        () => reset(button.dataset.id);
+    });
+
+  document
+    .querySelectorAll('.full')
+    .forEach(button => {
+
+      button.onclick =
+        () => full(button.dataset.id);
+    });
+
+  document
+    .querySelectorAll('[data-speed]')
+    .forEach(range => {
+
+      range.oninput = () => {
+
+        const id =
+          range.dataset.speed;
+
+        speed[id] =
+          +range.value;
+
+        document.querySelector(
+          '[data-speed-label="' +
+          id +
+          '"]'
+        ).textContent =
+          range.value + '×';
+      };
+    });
+}
+
+function prep(canvas,ctx) {
+
+  const rect =
+    canvas.getBoundingClientRect();
+
+  const d =
+    Math.min(
+      window.devicePixelRatio || 1,
+      2
+    );
+
+  const width =
+    Math.max(
+      1,
+      Math.floor(rect.width)
+    );
+
+  const height =
+    Math.max(
+      1,
+      Math.floor(rect.height)
+    );
+
+  const cw =
+    Math.floor(width * d);
+
+  const ch =
+    Math.floor(height * d);
+
+  if (
+    canvas.width !== cw ||
+    canvas.height !== ch
+  ) {
+    canvas.width = cw;
+    canvas.height = ch;
+  }
+
+  ctx.setTransform(
+    d,
+    0,
+    0,
+    d,
+    0,
+    0
+  );
+
+  return [
+    width,
+    height
+  ];
+}
+
+function clear(canvas,ctx) {
+
+  const [
+    width,
+    height
+  ] = prep(canvas,ctx);
+
+  const gradient =
+    ctx.createRadialGradient(
+      width * .5,
+      height * .48,
+      20,
+      width * .5,
+      height * .48,
+      Math.max(
+        width,
+        height
+      ) * .7
+    );
+
+  gradient.addColorStop(
+    0,
+    '#07131f'
+  );
+
+  gradient.addColorStop(
+    .55,
+    '#02070d'
+  );
+
+  gradient.addColorStop(
+    1,
+    '#010409'
+  );
+
+  ctx.fillStyle = gradient;
+
+  ctx.fillRect(
+    0,
+    0,
+    width,
+    height
+  );
+
+  ctx.strokeStyle = '#ffffff0b';
+
+  ctx.lineWidth = 1;
+
+  for (
+    let x = 0;
+    x < width;
+    x += 42
+  ) {
+
     ctx.beginPath();
+
     ctx.moveTo(x,0);
-    ctx.lineTo(x,height);
+
+    ctx.lineTo(
+      x,
+      height
+    );
+
     ctx.stroke();
   }
 
-  for(let y=0;y<height;y+=42){
+  for (
+    let y = 0;
+    y < height;
+    y += 42
+  ) {
+
     ctx.beginPath();
+
     ctx.moveTo(0,y);
-    ctx.lineTo(width,y);
+
+    ctx.lineTo(
+      width,
+      y
+    );
+
     ctx.stroke();
   }
 
-  const glow=ctx.createRadialGradient(width/2,height/2,0,width/2,height/2,Math.min(width,height)*.45);
-  glow.addColorStop(0,'#ffffff06');
-  glow.addColorStop(1,'transparent');
-  ctx.fillStyle=glow;
-  ctx.fillRect(0,0,width,height);
+  const glow =
+    ctx.createRadialGradient(
+      width / 2,
+      height / 2,
+      0,
+      width / 2,
+      height / 2,
+      Math.min(
+        width,
+        height
+      ) * .45
+    );
 
-  return [width,height];
+  glow.addColorStop(
+    0,
+    '#ffffff06'
+  );
+
+  glow.addColorStop(
+    1,
+    'transparent'
+  );
+
+  ctx.fillStyle = glow;
+
+  ctx.fillRect(
+    0,
+    0,
+    width,
+    height
+  );
+
+  return [
+    width,
+    height
+  ];
 }
 
-function T(ctx,text,x,y,baseSize,color='#fff'){
-  const value=String(text);
-  let scale=1.48;
+function T(
+  ctx,
+  text,
+  x,
+  y,
+  baseSize,
+  color='#fff'
+) {
 
-  if(value.length>42) scale=1.03;
-  else if(value.length>30) scale=1.12;
-  else if(value.length>20) scale=1.28;
+  const value =
+    String(text);
 
-  if(value==='SAME OBJECT'||value==='ATTRACTOR') scale=1.75;
+  let scale = 1.48;
 
-  const size=Math.max(12,Math.round(baseSize*scale));
+  if (value.length > 42)
+    scale = 1.03;
+  else if (value.length > 30)
+    scale = 1.12;
+  else if (value.length > 20)
+    scale = 1.28;
 
-  ctx.font='850 '+size+'px ui-monospace,SFMono-Regular,Menlo,monospace';
-  ctx.textAlign='center';
-  ctx.textBaseline='middle';
-  ctx.fillStyle=color;
-  ctx.shadowColor=color;
-  ctx.shadowBlur=size>=15?8:4;
-  ctx.fillText(value,x,y);
-  ctx.shadowBlur=0;
+  if (
+    value === 'SAME OBJECT' ||
+    value === 'ATTRACTOR'
+  ) {
+    scale = 1.75;
+  }
+
+  const size =
+    Math.max(
+      12,
+      Math.round(
+        baseSize * scale
+      )
+    );
+
+  ctx.font =
+    '850 ' +
+    size +
+    'px ui-monospace,SFMono-Regular,Menlo,monospace';
+
+  ctx.textAlign = 'center';
+
+  ctx.textBaseline = 'middle';
+
+  ctx.fillStyle = color;
+
+  ctx.shadowColor = color;
+
+  ctx.shadowBlur =
+    size >= 15 ? 8 : 4;
+
+  ctx.fillText(
+    value,
+    x,
+    y
+  );
+
+  ctx.shadowBlur = 0;
 }
 
-function C(ctx,x,y,radius,fill,stroke,lineWidth=2){
-  ctx.shadowColor=stroke;
-  ctx.shadowBlur=20;
+function C(
+  ctx,
+  x,
+  y,
+  radius,
+  fill,
+  stroke,
+  lineWidth=2
+) {
+
+  ctx.shadowColor = stroke;
+
+  ctx.shadowBlur = 20;
+
   ctx.beginPath();
-  ctx.arc(x,y,radius,0,Math.PI*2);
-  ctx.fillStyle=fill;
+
+  ctx.arc(
+    x,
+    y,
+    radius,
+    0,
+    Math.PI * 2
+  );
+
+  ctx.fillStyle = fill;
+
   ctx.fill();
-  ctx.shadowBlur=0;
-  ctx.strokeStyle=stroke;
-  ctx.lineWidth=lineWidth;
+
+  ctx.shadowBlur = 0;
+
+  ctx.strokeStyle = stroke;
+
+  ctx.lineWidth = lineWidth;
+
   ctx.stroke();
 }
 
-function L(ctx,x1,y1,x2,y2,color,width=2){
-  ctx.strokeStyle=color;
-  ctx.lineWidth=width;
+function L(
+  ctx,
+  x1,
+  y1,
+  x2,
+  y2,
+  color,
+  width=2
+) {
+
+  ctx.strokeStyle = color;
+
+  ctx.lineWidth = width;
+
   ctx.beginPath();
-  ctx.moveTo(x1,y1);
-  ctx.lineTo(x2,y2);
+
+  ctx.moveTo(
+    x1,
+    y1
+  );
+
+  ctx.lineTo(
+    x2,
+    y2
+  );
+
   ctx.stroke();
 }
 
-function A(ctx,x1,y1,x2,y2,color,width=2.5){
-  L(ctx,x1,y1,x2,y2,color,width);
-  const angle=Math.atan2(y2-y1,x2-x1);
-  const size=12;
-  ctx.fillStyle=color;
+function A(
+  ctx,
+  x1,
+  y1,
+  x2,
+  y2,
+  color,
+  width=2.5
+) {
+
+  L(
+    ctx,
+    x1,
+    y1,
+    x2,
+    y2,
+    color,
+    width
+  );
+
+  const angle =
+    Math.atan2(
+      y2 - y1,
+      x2 - x1
+    );
+
+  const size = 12;
+
+  ctx.fillStyle = color;
+
   ctx.beginPath();
-  ctx.moveTo(x2,y2);
-  ctx.lineTo(x2-size*Math.cos(angle-.5),y2-size*Math.sin(angle-.5));
-  ctx.lineTo(x2-size*Math.cos(angle+.5),y2-size*Math.sin(angle+.5));
+
+  ctx.moveTo(
+    x2,
+    y2
+  );
+
+  ctx.lineTo(
+    x2 -
+      size *
+      Math.cos(
+        angle - .5
+      ),
+    y2 -
+      size *
+      Math.sin(
+        angle - .5
+      )
+  );
+
+  ctx.lineTo(
+    x2 -
+      size *
+      Math.cos(
+        angle + .5
+      ),
+    y2 -
+      size *
+      Math.sin(
+        angle + .5
+      )
+  );
+
   ctx.fill();
 }
 
-function drawCD(ctx,width,height){
-  const stage=S.cd.i;
-  const count=M.cd.stages.length;
-  const gap=Math.min(150,(width-120)/(count-1));
-  const start=(width-gap*(count-1))/2;
-  const y=height*.52;
+function drawCD(
+  ctx,
+  width,
+  height
+) {
 
-  for(let i=0;i<count-1;i++){
-    const x1=start+i*gap+43;
-    const x2=start+(i+1)*gap-43;
-    A(ctx,x1,y,x2,y,i<stage?'#38c9ff':'#304657',i<stage?3:2);
+  const stage =
+    S.cd.i;
+
+  const count =
+    M.cd.stages.length;
+
+  const gap =
+    Math.min(
+      150,
+      (width - 120) /
+      (count - 1)
+    );
+
+  const start =
+    (width -
+      gap *
+      (count - 1)) /
+    2;
+
+  const y =
+    height * .52;
+
+  for (
+    let i = 0;
+    i < count - 1;
+    i++
+  ) {
+
+    const x1 =
+      start +
+      i * gap +
+      43;
+
+    const x2 =
+      start +
+      (i + 1) * gap -
+      43;
+
+    A(
+      ctx,
+      x1,
+      y,
+      x2,
+      y,
+      i < stage
+        ? '#38c9ff'
+        : '#304657',
+      i < stage ? 3 : 2
+    );
   }
 
-  M.cd.stages.forEach((label,index)=>{
-    const active=index===stage;
-    const x=start+index*gap;
+  M.cd.stages.forEach(
+    (label,index) => {
 
-    C(ctx,x,y,active?47:34,
-      active?'#103f59':'#07111b',
-      active?'#b9eeff':'#496275',
-      active?4:1.5);
+      const active =
+        index === stage;
 
-    T(ctx,String(index+1).padStart(2,'0'),x,y,12,active?'#fff':'#8799a8');
-    T(ctx,label,x,y+70,9.5,active?'#e9f8ff':'#8b9daa');
-  });
+      const x =
+        start +
+        index * gap;
 
-  T(ctx,'OBSERVE → PREMISE → MECHANISM → DEDUCTION → RESULT',width/2,40,11,'#55cfff');
+      C(
+        ctx,
+        x,
+        y,
+        active ? 47 : 34,
+        active
+          ? '#103f59'
+          : '#07111b',
+        active
+          ? '#b9eeff'
+          : '#496275',
+        active ? 4 : 1.5
+      );
 
-  C(ctx,width/2,height*.82,4,'#38c9ff','#38c9ff',1);
-  T(ctx,'DIRECTIONAL CAUSAL FLOW',width/2,height*.82+26,9,'#6d8494');
-}
+      T(
+        ctx,
+        String(index + 1)
+          .padStart(2,'0'),
+        x,
+        y,
+        12,
+        active
+          ? '#fff'
+          : '#8799a8'
+      );
 
-function drawDA(ctx,width,height){
-  const stage=S.da.i;
-  const cx=width/2,cy=height/2;
-  const positions=[[-.36,-.23],[-.36,.23],[-.10,0],[.15,0],[.38,0],[.51,0]];
-  const colors=['#51ef7d','#c878ff','#ff6475','#38c9ff','#ffe16a','#ffad3d'];
-
-  L(ctx,cx-.36*width,cy-.23*height,cx-.10*width,cy,'#51ef7d',4);
-  L(ctx,cx-.36*width,cy+.23*height,cx-.10*width,cy,'#c878ff',4);
-
-  for(let i=2;i<5;i++){
-    A(ctx,cx+positions[i][0]*width,cy,cx+positions[i+1][0]*width,cy,i<stage?'#51ef7d':'#304a39',i<stage?3:2);
-  }
-
-  positions.forEach((p,index)=>{
-    const x=cx+p[0]*width,y=cy+p[1]*height,active=index===stage;
-    C(ctx,x,y,active?47:34,active?'#123a23':'#07111b',colors[index],active?4:1.5);
-    T(ctx,M.da.stages[index],x,y+70,9.5,active?'#fff':colors[index]);
-  });
-
-  T(ctx,'OPPOSITION → CONTRADICTION → SYNTHESIS → RULE',width/2,40,11,'#63f58a');
-  T(ctx,'THESIS',cx-.36*width,cy-.23*height-55,8.5,'#51ef7d');
-  T(ctx,'ANTITHESIS',cx-.36*width,cy+.23*height+55,8.5,'#c878ff');
-}
-
-function drawHP(ctx,width,height){
-  const stage=S.hp.i;
-  const angleOffset=S.hp.a;
-  const cx=width/2,cy=height/2;
-  const colors=['#38c9ff','#51ef7d','#ffe16a','#ffad3d','#c878ff','#8e72ff'];
-
-  C(ctx,cx,cy,88,'#1c0d27','#e4b9ff',4);
-  T(ctx,'SAME OBJECT',cx,cy,13,'#fff');
-
-  for(let ring=1;ring<=3;ring++){
-    ctx.beginPath();
-    ctx.arc(cx,cy,88+ring*48,0,Math.PI*2);
-    ctx.strokeStyle='#c878ff'+(ring===1?'24':'12');
-    ctx.lineWidth=1;
-    ctx.stroke();
-  }
-
-  M.hp.stages.forEach((label,index)=>{
-    const angle=angleOffset+index*Math.PI/3;
-    const radius=Math.min(width*.36,280);
-    const x=cx+Math.cos(angle)*radius;
-    const y=cy+Math.sin(angle)*Math.min(height*.31,190);
-    const active=index===stage;
-
-    A(ctx,cx,cy,x,y,active?colors[index]:'#344657',active?3:1.5);
-    C(ctx,x,y,active?47:34,active?'#32164b':'#07111b',colors[index],active?4:1.5);
-    T(ctx,label,x,y+70,9.5,active?'#fff':colors[index]);
-  });
-
-  T(ctx,'ONE OBJECT · MANY PROJECTIONS',width/2,40,11,'#db94ff');
-  T(ctx,'VIEWPOINT '+String(stage+1).padStart(2,'0'),width/2,height*.84,9,'#b48acb');
-}
-
-function drawVS(ctx,width,height){
-  const state=S.vs;
-  const cx=width/2,cy=height/2;
-  const colors=['#ffad3d','#ff5bb9','#c878ff','#38c9ff','#51ef7d','#ffe16a'];
-
-  for(let q=0;q<6;q++){
-    ctx.beginPath();
-    const turns=420;
-    for(let i=0;i<turns;i++){
-      const angle=i*.055+q*1.03+state.t*.42;
-      const radius=42+i*(q+1)*.54;
-      const x=cx+Math.cos(angle)*radius;
-      const y=cy+Math.sin(angle)*radius*.48;
-      if(i)ctx.lineTo(x,y);else ctx.moveTo(x,y);
+      T(
+        ctx,
+        label,
+        x,
+        y + 70,
+        9.5,
+        active
+          ? '#e9f8ff'
+          : '#8b9daa'
+      );
     }
-    ctx.strokeStyle=colors[q]+'66';
-    ctx.lineWidth=q===0?2.5:1.2;
+  );
+
+  T(
+    ctx,
+    'OBSERVE → PREMISE → MECHANISM → DEDUCTION → RESULT',
+    width / 2,
+    40,
+    11,
+    '#55cfff'
+  );
+
+  C(
+    ctx,
+    width / 2,
+    height * .82,
+    4,
+    '#38c9ff',
+    '#38c9ff',
+    1
+  );
+
+  T(
+    ctx,
+    'DIRECTIONAL CAUSAL FLOW',
+    width / 2,
+    height * .82 + 26,
+    9,
+    '#6d8494'
+  );
+}
+
+function drawDA(
+  ctx,
+  width,
+  height
+) {
+
+  const stage =
+    S.da.i;
+
+  const cx =
+    width / 2;
+
+  const cy =
+    height / 2;
+
+  const positions = [
+    [-.36,-.23],
+    [-.36,.23],
+    [-.10,0],
+    [.15,0],
+    [.38,0],
+    [.51,0]
+  ];
+
+  const colors = [
+    '#51ef7d',
+    '#c878ff',
+    '#ff6475',
+    '#38c9ff',
+    '#ffe16a',
+    '#ffad3d'
+  ];
+
+  L(
+    ctx,
+    cx - .36 * width,
+    cy - .23 * height,
+    cx - .10 * width,
+    cy,
+    '#51ef7d',
+    4
+  );
+
+  L(
+    ctx,
+    cx - .36 * width,
+    cy + .23 * height,
+    cx - .10 * width,
+    cy,
+    '#c878ff',
+    4
+  );
+
+  for (
+    let i = 2;
+    i < 5;
+    i++
+  ) {
+
+    A(
+      ctx,
+      cx + positions[i][0] * width,
+      cy,
+      cx + positions[i + 1][0] * width,
+      cy,
+      i < stage
+        ? '#51ef7d'
+        : '#304a39',
+      i < stage ? 3 : 2
+    );
+  }
+
+  positions.forEach(
+    (p,index) => {
+
+      const x =
+        cx +
+        p[0] * width;
+
+      const y =
+        cy +
+        p[1] * height;
+
+      const active =
+        index === stage;
+
+      C(
+        ctx,
+        x,
+        y,
+        active ? 47 : 34,
+        active
+          ? '#123a23'
+          : '#07111b',
+        colors[index],
+        active ? 4 : 1.5
+      );
+
+      T(
+        ctx,
+        M.da.stages[index],
+        x,
+        y + 70,
+        9.5,
+        active
+          ? '#fff'
+          : colors[index]
+      );
+    }
+  );
+
+  T(
+    ctx,
+    'OPPOSITION → CONTRADICTION → SYNTHESIS → RULE',
+    width / 2,
+    40,
+    11,
+    '#63f58a'
+  );
+
+  T(
+    ctx,
+    'THESIS',
+    cx - .36 * width,
+    cy - .23 * height - 55,
+    8.5,
+    '#51ef7d'
+  );
+
+  T(
+    ctx,
+    'ANTITHESIS',
+    cx - .36 * width,
+    cy + .23 * height + 55,
+    8.5,
+    '#c878ff'
+  );
+}
+
+function drawHP(
+  ctx,
+  width,
+  height
+) {
+
+  const stage =
+    S.hp.i;
+
+  const angleOffset =
+    S.hp.a;
+
+  const cx =
+    width / 2;
+
+  const cy =
+    height / 2;
+
+  const colors = [
+    '#38c9ff',
+    '#51ef7d',
+    '#ffe16a',
+    '#ffad3d',
+    '#c878ff',
+    '#8e72ff'
+  ];
+
+  C(
+    ctx,
+    cx,
+    cy,
+    88,
+    '#1c0d27',
+    '#e4b9ff',
+    4
+  );
+
+  T(
+    ctx,
+    'SAME OBJECT',
+    cx,
+    cy,
+    13,
+    '#fff'
+  );
+
+  for (
+    let ring = 1;
+    ring <= 3;
+    ring++
+  ) {
+
+    ctx.beginPath();
+
+    ctx.arc(
+      cx,
+      cy,
+      88 + ring * 48,
+      0,
+      Math.PI * 2
+    );
+
+    ctx.strokeStyle =
+      '#c878ff' +
+      (ring === 1
+        ? '24'
+        : '12');
+
+    ctx.lineWidth = 1;
+
     ctx.stroke();
   }
 
-  for(let i=0;i<150;i++){
-    const angle=experimentRng()*Math.PI*2+state.t*.4;
-    const radius=65+experimentRng()*Math.min(380,width*.4);
-    const x=cx+Math.cos(angle)*radius;
-    const y=cy+Math.sin(angle)*radius*.5;
-    const color=colors[i%colors.length];
+  M.hp.stages.forEach(
+    (label,index) => {
 
-    ctx.fillStyle=color;
-    ctx.shadowColor=color;
-    ctx.shadowBlur=10;
-    ctx.beginPath();
-    ctx.arc(x,y,1.5+experimentRng()*3.5,0,Math.PI*2);
-    ctx.fill();
-    ctx.shadowBlur=0;
-  }
+      const angle =
+        angleOffset +
+        index * Math.PI / 3;
 
-  C(ctx,cx,cy,82,'#2e1905','#ffd08a',4);
-  T(ctx,'ATTRACTOR',cx,cy,13,'#fff');
-  T(ctx,'ALTERNATIVES → FEEDBACK → SELF-ORGANIZATION',width/2,40,11,'#ffba60');
-  T(ctx,'FIELD DENSITY '+Math.round(state.field*100)+'%',width/2,height*.84,9,'#c49460');
+      const radius =
+        Math.min(
+          width * .36,
+          280
+        );
+
+      const x =
+        cx +
+        Math.cos(angle) *
+        radius;
+
+      const y =
+        cy +
+        Math.sin(angle) *
+        Math.min(
+          height * .31,
+          190
+        );
+
+      const active =
+        index === stage;
+
+      A(
+        ctx,
+        cx,
+        cy,
+        x,
+        y,
+        active
+          ? colors[index]
+          : '#344657',
+        active ? 3 : 1.5
+      );
+
+      C(
+        ctx,
+        x,
+        y,
+        active ? 47 : 34,
+        active
+          ? '#32164b'
+          : '#07111b',
+        colors[index],
+        active ? 4 : 1.5
+      );
+
+      T(
+        ctx,
+        label,
+        x,
+        y + 70,
+        9.5,
+        active
+          ? '#fff'
+          : colors[index]
+      );
+    }
+  );
+
+  T(
+    ctx,
+    'ONE OBJECT · MANY PROJECTIONS',
+    width / 2,
+    40,
+    11,
+    '#db94ff'
+  );
+
+  T(
+    ctx,
+    'VIEWPOINT ' +
+      String(stage + 1)
+        .padStart(2,'0'),
+    width / 2,
+    height * .84,
+    9,
+    '#b48acb'
+  );
 }
 
-function draw(id){
-  const canvas=document.getElementById('c-'+id);
-  if(!canvas)return;
-  const ctx=canvas.getContext('2d',{alpha:false});
-  const [width,height]=clear(canvas,ctx);
+function drawVS(
+  ctx,
+  width,
+  height
+) {
 
-  if(id==='cd')drawCD(ctx,width,height);
-  if(id==='da')drawDA(ctx,width,height);
-  if(id==='hp')drawHP(ctx,width,height);
-  if(id==='vs')drawVS(ctx,width,height);
+  const state =
+    S.vs;
+
+  const cx =
+    width / 2;
+
+  const cy =
+    height / 2;
+
+  const colors = [
+    '#ffad3d',
+    '#ff5bb9',
+    '#c878ff',
+    '#38c9ff',
+    '#51ef7d',
+    '#ffe16a'
+  ];
+
+  for (
+    let q = 0;
+    q < 6;
+    q++
+  ) {
+
+    ctx.beginPath();
+
+    const turns = 420;
+
+    for (
+      let i = 0;
+      i < turns;
+      i++
+    ) {
+
+      const angle =
+        i * .055 +
+        q * 1.03 +
+        state.t * .42;
+
+      const radius =
+        42 +
+        i *
+        (q + 1) *
+        .54;
+
+      const x =
+        cx +
+        Math.cos(angle) *
+        radius;
+
+      const y =
+        cy +
+        Math.sin(angle) *
+        radius *
+        .48;
+
+      if (i)
+        ctx.lineTo(x,y);
+      else
+        ctx.moveTo(x,y);
+    }
+
+    ctx.strokeStyle =
+      colors[q] + '66';
+
+    ctx.lineWidth =
+      q === 0 ? 2.5 : 1.2;
+
+    ctx.stroke();
+  }
+
+  for (
+    let i = 0;
+    i < 150;
+    i++
+  ) {
+
+    const angle =
+      experimentRng() *
+      Math.PI *
+      2 +
+      state.t * .4;
+
+    const radius =
+      65 +
+      experimentRng() *
+      Math.min(
+        380,
+        width * .4
+      );
+
+    const x =
+      cx +
+      Math.cos(angle) *
+      radius;
+
+    const y =
+      cy +
+      Math.sin(angle) *
+      radius *
+      .5;
+
+    const color =
+      colors[i % colors.length];
+
+    ctx.fillStyle = color;
+
+    ctx.shadowColor = color;
+
+    ctx.shadowBlur = 10;
+
+    ctx.beginPath();
+
+    ctx.arc(
+      x,
+      y,
+      1.5 +
+        experimentRng() *
+        3.5,
+      0,
+      Math.PI * 2
+    );
+
+    ctx.fill();
+
+    ctx.shadowBlur = 0;
+  }
+
+  C(
+    ctx,
+    cx,
+    cy,
+    82,
+    '#2e1905',
+    '#ffd08a',
+    4
+  );
+
+  T(
+    ctx,
+    'ATTRACTOR',
+    cx,
+    cy,
+    13,
+    '#fff'
+  );
+
+  T(
+    ctx,
+    'ALTERNATIVES → FEEDBACK → SELF-ORGANIZATION',
+    width / 2,
+    40,
+    11,
+    '#ffba60'
+  );
+
+  T(
+    ctx,
+    'FIELD DENSITY ' +
+      Math.round(
+        state.field * 100
+      ) +
+      '%',
+    width / 2,
+    height * .84,
+    9,
+    '#c49460'
+  );
+}
+
+function draw(id) {
+
+  const canvas =
+    document.getElementById(
+      'c-' + id
+    );
+
+  if (!canvas)
+    return;
+
+  const ctx =
+    canvas.getContext(
+      '2d',
+      {alpha:false}
+    );
+
+  const [
+    width,
+    height
+  ] = clear(
+    canvas,
+    ctx
+  );
+
+  if (id === 'cd')
+    drawCD(ctx,width,height);
+
+  if (id === 'da')
+    drawDA(ctx,width,height);
+
+  if (id === 'hp')
+    drawHP(ctx,width,height);
+
+  if (id === 'vs')
+    drawVS(ctx,width,height);
 
   update(id);
-  dirty[id]=false;
+
+  dirty[id] = false;
 }
 
-function update(id){
-  const model=M[id],state=S[id];
-  const index=typeof state.i==='number'?state.i:0;
-  const phase=typeof state.i==='number'?model.stages[index]:'Dynamic attractor field';
+function update(id) {
 
-  document.getElementById('stage-'+id).textContent=
-    typeof state.i==='number'
-      ? 'STAGE '+String(index+1).padStart(2,'0')+' / '+model.stages.length
+  const model =
+    M[id];
+
+  const state =
+    S[id];
+
+  const index =
+    typeof state.i === 'number'
+      ? state.i
+      : 0;
+
+  const phase =
+    typeof state.i === 'number'
+      ? model.stages[index]
+      : 'Dynamic attractor field';
+
+  document.getElementById(
+    'stage-' + id
+  ).textContent =
+    typeof state.i === 'number'
+      ? 'STAGE ' +
+        String(index + 1)
+          .padStart(2,'0') +
+        ' / ' +
+        model.stages.length
       : 'LIVE FIELD';
 
-  document.getElementById('phase-'+id).textContent=phase;
+  document.getElementById(
+    'phase-' + id
+  ).textContent =
+    phase;
 
-  document.getElementById('desc-'+id).textContent=
-    id==='cd'
-      ? 'The model emphasizes '+phase.toLowerCase()+' and its next directional transition.'
-      : id==='da'
-      ? 'The model is emphasizing '+phase.toLowerCase()+' within the opposition-to-synthesis sequence.'
-      : id==='hp'
-      ? 'The central object remains stable while the active projection is '+phase.toLowerCase()+'.'
+  document.getElementById(
+    'desc-' + id
+  ).textContent =
+    id === 'cd'
+      ? 'The model emphasizes ' +
+        phase.toLowerCase() +
+        ' and its next directional transition.'
+
+      : id === 'da'
+      ? 'The model is emphasizing ' +
+        phase.toLowerCase() +
+        ' within the opposition-to-synthesis sequence.'
+
+      : id === 'hp'
+      ? 'The central object remains stable while the active projection is ' +
+        phase.toLowerCase() +
+        '.'
+
       : 'Alternatives are fluctuating around the attractor as feedback changes the field.';
 
-  const metrics=
-    id==='cd'
-      ? [['STEP',index+1],['CAUSALITY','1.00'],['NOISE','.02'],['OUTPUT',phase.toUpperCase()]]
-      : id==='da'
-      ? [['STEP',index+1],['OPPOSITION','.81'],['SYNTHESIS',index>=3?'.76':'.31'],['RULE',index>=4?'ACTIVE':'FORMING']]
-      : id==='hp'
-      ? [['VIEW',index+1],['OBJECT','STABLE'],['PROJECTIONS','6'],['CRITERION','CHANGING']]
-      : [['FIELD',(state.field*100).toFixed(0)+'%'],['ATTRACTOR',(state.attractor*100).toFixed(0)+'%'],['FEEDBACK',(state.feedback*100).toFixed(0)+'%'],['DENSITY',(state.field*100).toFixed(0)+'%']];
+  const metrics =
+    id === 'cd'
+      ? [
+          ['STEP',index + 1],
+          ['CAUSALITY','1.00'],
+          ['NOISE','.02'],
+          ['OUTPUT',phase.toUpperCase()]
+        ]
 
-  document.getElementById('metrics-'+id).innerHTML=metrics.map(m=>
-    '<div class="metric"><b>'+m[0]+'</b><span>'+m[1]+'</span></div>'
-  ).join('');
+      : id === 'da'
+      ? [
+          ['STEP',index + 1],
+          ['OPPOSITION','.81'],
+          [
+            'SYNTHESIS',
+            index >= 3 ? '.76' : '.31'
+          ],
+          [
+            'RULE',
+            index >= 4
+              ? 'ACTIVE'
+              : 'FORMING'
+          ]
+        ]
 
-  document.getElementById('prog-'+id).style.width=
-    typeof state.i==='number'
-      ? (((index+1)/model.stages.length)*100)+'%'
+      : id === 'hp'
+      ? [
+          ['VIEW',index + 1],
+          ['OBJECT','STABLE'],
+          ['PROJECTIONS','6'],
+          ['CRITERION','CHANGING']
+        ]
+
+      : [
+          [
+            'FIELD',
+            (state.field * 100)
+              .toFixed(0) + '%'
+          ],
+          [
+            'ATTRACTOR',
+            (state.attractor * 100)
+              .toFixed(0) + '%'
+          ],
+          [
+            'FEEDBACK',
+            (state.feedback * 100)
+              .toFixed(0) + '%'
+          ],
+          [
+            'DENSITY',
+            (state.field * 100)
+              .toFixed(0) + '%'
+          ]
+        ];
+
+  document.getElementById(
+    'metrics-' + id
+  ).innerHTML =
+    metrics
+      .map(
+        m =>
+          '<div class="metric">' +
+            '<b>' +
+              m[0] +
+            '</b>' +
+            '<span>' +
+              m[1] +
+            '</span>' +
+          '</div>'
+      )
+      .join('');
+
+  document.getElementById(
+    'prog-' + id
+  ).style.width =
+    typeof state.i === 'number'
+      ? (
+          ((index + 1) /
+            model.stages.length) *
+          100
+        ) + '%'
       : '100%';
 }
 
-function render(force=false){
-  Object.keys(M).forEach(id=>{
-    if(force||dirty[id])draw(id);
-  });
+function render(force=false) {
 
-  document.querySelectorAll('#overview button').forEach(button=>{
-    button.classList.toggle('active',button.dataset.id===selected);
-  });
+  Object.keys(M).forEach(
+    id => {
+
+      if (
+        force ||
+        dirty[id]
+      ) {
+        draw(id);
+      }
+    }
+  );
+
+  document
+    .querySelectorAll(
+      '#overview button'
+    )
+    .forEach(
+      button => {
+
+        button.classList.toggle(
+          'active',
+          button.dataset.id ===
+            selected
+        );
+      }
+    );
 }
 
-function step(id){
-  if(id==='cd')S.cd.i=(S.cd.i+1)%M.cd.stages.length;
+function step(id) {
 
-  if(id==='da')S.da.i=(S.da.i+1)%M.da.stages.length;
-
-  if(id==='hp'){
-    S.hp.i=(S.hp.i+1)%M.hp.stages.length;
-    S.hp.a+=Math.PI/8;
+  if (id === 'cd') {
+    S.cd.i =
+      (S.cd.i + 1) %
+      M.cd.stages.length;
   }
 
-  if(id==='vs'){
-    S.vs.t+=.35;
-    S.vs.field=.35+.25*Math.abs(Math.sin(S.vs.t));
-    S.vs.attractor=.55+.4*Math.abs(Math.cos(S.vs.t*.7));
-    S.vs.feedback=.4+.45*Math.abs(Math.sin(S.vs.t*.9));
+  if (id === 'da') {
+    S.da.i =
+      (S.da.i + 1) %
+      M.da.stages.length;
   }
 
-  dirty[id]=true;
+  if (id === 'hp') {
+
+    S.hp.i =
+      (S.hp.i + 1) %
+      M.hp.stages.length;
+
+    S.hp.a +=
+      Math.PI / 8;
+  }
+
+  if (id === 'vs') {
+
+    S.vs.t += .35;
+
+    S.vs.field =
+      .35 +
+      .25 *
+      Math.abs(
+        Math.sin(S.vs.t)
+      );
+
+    S.vs.attractor =
+      .55 +
+      .4 *
+      Math.abs(
+        Math.cos(
+          S.vs.t * .7
+        )
+      );
+
+    S.vs.feedback =
+      .4 +
+      .45 *
+      Math.abs(
+        Math.sin(
+          S.vs.t * .9
+        )
+      );
+  }
+
+  dirty[id] = true;
+
   render();
 }
 
-function reset(id){
-  if(id==='cd')S.cd={i:0};
-  if(id==='da')S.da={i:0};
-  if(id==='hp')S.hp={i:0,a:0};
-  if(id==='vs')S.vs={t:0,field:.45,attractor:.72,feedback:.62};
+function reset(id) {
 
-  dirty[id]=true;
+  if (id === 'cd')
+    S.cd = {i:0};
+
+  if (id === 'da')
+    S.da = {i:0};
+
+  if (id === 'hp')
+    S.hp = {
+      i:0,
+      a:0
+    };
+
+  if (id === 'vs')
+    S.vs = {
+      t:0,
+      field:.45,
+      attractor:.72,
+      feedback:.62
+    };
+
+  dirty[id] = true;
+
   render();
-  toast(M[id].name+' reset');
+
+  toast(
+    M[id].name +
+    ' reset'
+  );
 }
 
-function focus(id,scroll=false){
-  selected=id;
+function focus(
+  id,
+  scroll=false
+) {
 
-  document.querySelectorAll('.sim').forEach(sim=>{
-    sim.classList.toggle('focused',sim.id==='sim-'+id);
-  });
+  selected = id;
 
-  dirty[id]=true;
+  document
+    .querySelectorAll('.sim')
+    .forEach(
+      sim => {
+
+        sim.classList.toggle(
+          'focused',
+          sim.id ===
+            'sim-' + id
+        );
+      }
+    );
+
+  dirty[id] = true;
+
   render();
 
-  if(scroll){
-    const target=document.getElementById('sim-'+id);
-    if(target){
+  if (scroll) {
+
+    const target =
+      document.getElementById(
+        'sim-' + id
+      );
+
+    if (target) {
+
       target.scrollIntoView({
-        behavior:reduced?'auto':'smooth',
+        behavior:
+          reduced
+            ? 'auto'
+            : 'smooth',
+
         block:'center'
       });
     }
   }
 }
 
-async function full(id){
-  const element=document.getElementById('sim-'+id);
+async function full(id) {
 
-  try{
-    if(document.fullscreenElement){
+  const element =
+    document.getElementById(
+      'sim-' + id
+    );
+
+  try {
+
+    if (document.fullscreenElement) {
+
       await document.exitFullscreen();
-    }else{
+
+    } else {
+
       focus(id);
+
       await element.requestFullscreen();
     }
-  }catch(error){
-    element.classList.toggle('fullscreen');
-    toast('Fullscreen mode toggled');
-    setTimeout(()=>render(true),50);
+
+  } catch (error) {
+
+    element.classList.toggle(
+      'fullscreen'
+    );
+
+    toast(
+      'Fullscreen mode toggled'
+    );
+
+    setTimeout(
+      () => render(true),
+      50
+    );
   }
 }
 
-function snap(){
-  const id=document.getElementById('model').value;
+function snap() {
+
+  const id =
+    document.getElementById(
+      'model'
+    ).value;
 
   return {
-    project:'Cognitive Dynamics Studio',
-    model:M[id].name,
-    modelVersion:'1.0',
-    seed:+document.getElementById('seed').value||1,
-    timestamp:new Date().toISOString(),
-    state:JSON.parse(JSON.stringify(S[id])),
-    interpretationBoundary:'Computational state only; not a human measurement.'
+    project:
+      'Cognitive Dynamics Studio',
+
+    model:
+      M[id].name,
+
+    modelVersion:
+      '1.0',
+
+    seed:
+      +document.getElementById(
+        'seed'
+      ).value || 1,
+
+    timestamp:
+      new Date().toISOString(),
+
+    state:
+      JSON.parse(
+        JSON.stringify(
+          S[id]
+        )
+      ),
+
+    interpretationBoundary:
+      'Computational state only; not a human measurement.'
   };
 }
 
-function show(data){
-  const output=document.getElementById('output');
-  output.hidden=false;
-  output.textContent=JSON.stringify(data,null,2);
-  output.scrollIntoView({behavior:reduced?'auto':'smooth',block:'nearest'});
+function show(data) {
+
+  const output =
+    document.getElementById(
+      'output'
+    );
+
+  output.hidden = false;
+
+  output.textContent =
+    JSON.stringify(
+      data,
+      null,
+      2
+    );
+
+  output.scrollIntoView({
+    behavior:
+      reduced
+        ? 'auto'
+        : 'smooth',
+
+    block:'nearest'
+  });
 }
 
 build();
+
 loadSettings();
+
 focus('cd');
+
 render(true);
 
-window.addEventListener('resize',()=>{
-  Object.keys(dirty).forEach(id=>dirty[id]=true);
-  render(true);
-},{passive:true});
+window.addEventListener(
+  'resize',
+  () => {
 
-document.addEventListener('fullscreenchange',()=>{
-  document.querySelectorAll('.sim').forEach(sim=>sim.classList.remove('fullscreen'));
+    Object.keys(dirty)
+      .forEach(
+        id =>
+          dirty[id] = true
+      );
 
-  if(document.fullscreenElement){
-    document.fullscreenElement.classList.add('fullscreen');
-  }
+    render(true);
+  },
+  {passive:true}
+);
 
-  Object.keys(dirty).forEach(id=>dirty[id]=true);
-  setTimeout(()=>render(true),40);
-});
+document.addEventListener(
+  'fullscreenchange',
+  () => {
 
-document.getElementById('model').onchange=e=>{
-  focus(e.target.value,true);
-};
+    document
+      .querySelectorAll('.sim')
+      .forEach(
+        sim =>
+          sim.classList.remove(
+            'fullscreen'
+          )
+      );
 
-document.getElementById('seed').onchange=e=>{
-  const value=e.target.value;
-  rng=seeded(value);
-  experimentRng=seeded(value);
-  Object.keys(M).forEach(reset);
-  toast('Experiment seed updated');
-};
+    if (
+      document.fullscreenElement
+    ) {
 
-document.getElementById('baseline').onclick=()=>{
-  base=snap();
-  show({baseline:base,intervention:intv});
-  toast('Baseline captured');
-};
-
-document.getElementById('intervention').onclick=()=>{
-  intv=snap();
-  show({baseline:base,intervention:intv});
-  toast('Intervention captured');
-};
-
-document.getElementById('run').onclick=()=>{
-  const id=document.getElementById('model').value;
-  const steps=Math.max(1,Math.min(1000,+document.getElementById('steps').value||20));
-
-  reset(id);
-
-  for(let i=0;i<steps;i++)step(id);
-
-  show({
-    run:snap(),
-    steps,
-    baseline:base,
-    intervention:intv
-  });
-
-  toast('Experiment complete · '+steps+' steps');
-};
-
-document.getElementById('download').onclick=()=>{
-  const data=document.getElementById('output').textContent||JSON.stringify(snap(),null,2);
-  const url=URL.createObjectURL(new Blob([data],{type:'application/json'}));
-  const link=document.createElement('a');
-
-  link.href=url;
-  link.download='cognitive-dynamics-studio-experiment.json';
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-
-  setTimeout(()=>URL.revokeObjectURL(url),500);
-  toast('Experiment JSON exported');
-};
-
-document.getElementById('textSize').onchange=e=>{
-  document.documentElement.classList.remove('large','xl');
-  if(e.target.value!=='normal')document.documentElement.classList.add(e.target.value);
-  saveSettings();
-  Object.keys(dirty).forEach(id=>dirty[id]=true);
-  render(true);
-};
-
-document.getElementById('contrast').onchange=e=>{
-  document.body.classList.toggle('high-contrast',e.target.checked);
-  saveSettings();
-};
-
-document.getElementById('motion').onchange=e=>{
-  reduced=e.target.checked;
-  saveSettings();
-
-  if(reduced){
-    Object.keys(P).forEach(id=>{
-      P[id]=true;
-      const button=document.querySelector('.play[data-id="'+id+'"]');
-      if(button){
-        button.textContent='▶ Resume';
-        button.classList.add('active');
-      }
-    });
-  }else{
-    Object.keys(P).forEach(id=>{
-      P[id]=false;
-      const button=document.querySelector('.play[data-id="'+id+'"]');
-      if(button){
-        button.textContent='Ⅱ Pause';
-        button.classList.remove('active');
-      }
-    });
-  }
-};
-
-document.querySelectorAll('.nav a').forEach(link=>{
-  link.addEventListener('click',()=>{
-    document.querySelectorAll('.nav a').forEach(a=>a.classList.remove('active'));
-    link.classList.add('active');
-  });
-});
-
-function loop(now){
-  const delta=Math.min(.05,(now-last)/1000);
-  last=now;
-
-  if(!reduced){
-    if(!P.hp){
-      S.hp.a+=delta*.18*speed.hp;
-      dirty.hp=true;
+      document
+        .fullscreenElement
+        .classList.add(
+          'fullscreen'
+        );
     }
 
-    if(!P.vs){
-      S.vs.t+=delta*speed.vs;
-      S.vs.field=.35+.25*Math.abs(Math.sin(S.vs.t));
-      S.vs.attractor=.55+.4*Math.abs(Math.cos(S.vs.t*.7));
-      S.vs.feedback=.4+.45*Math.abs(Math.sin(S.vs.t*.9));
-      dirty.vs=true;
+    Object.keys(dirty)
+      .forEach(
+        id =>
+          dirty[id] = true
+      );
+
+    setTimeout(
+      () => render(true),
+      40
+    );
+  }
+);
+
+document.getElementById(
+  'model'
+).onchange =
+  e =>
+    focus(
+      e.target.value,
+      true
+    );
+
+document.getElementById(
+  'seed'
+).onchange =
+  e => {
+
+    const value =
+      e.target.value;
+
+    rng =
+      seeded(value);
+
+    experimentRng =
+      seeded(value);
+
+    Object.keys(M)
+      .forEach(
+        reset
+      );
+
+    toast(
+      'Experiment seed updated'
+    );
+  };
+
+document.getElementById(
+  'baseline'
+).onclick =
+  () => {
+
+    base = snap();
+
+    show({
+      baseline:base,
+      intervention:intv
+    });
+
+    toast(
+      'Baseline captured'
+    );
+  };
+
+document.getElementById(
+  'intervention'
+).onclick =
+  () => {
+
+    intv = snap();
+
+    show({
+      baseline:base,
+      intervention:intv
+    });
+
+    toast(
+      'Intervention captured'
+    );
+  };
+
+document.getElementById(
+  'run'
+).onclick =
+  () => {
+
+    const id =
+      document.getElementById(
+        'model'
+      ).value;
+
+    const steps =
+      Math.max(
+        1,
+        Math.min(
+          1000,
+          +document.getElementById(
+            'steps'
+          ).value || 20
+        )
+      );
+
+    reset(id);
+
+    for (
+      let i = 0;
+      i < steps;
+      i++
+    ) {
+      step(id);
     }
 
-    for(const id of ['cd','da']){
-      if(!P[id]){
-        acc[id]+=delta*speed[id];
+    show({
+      run:snap(),
+      steps,
+      baseline:base,
+      intervention:intv
+    });
 
-        if(acc[id]>=.9){
-          acc[id]-=.9;
+    toast(
+      'Experiment complete · ' +
+      steps +
+      ' steps'
+    );
+  };
+
+document.getElementById(
+  'download'
+).onclick =
+  () => {
+
+    const data =
+      document.getElementById(
+        'output'
+      ).textContent ||
+      JSON.stringify(
+        snap(),
+        null,
+        2
+      );
+
+    const url =
+      URL.createObjectURL(
+        new Blob(
+          [data],
+          {
+            type:
+              'application/json'
+          }
+        )
+      );
+
+    const link =
+      document.createElement(
+        'a'
+      );
+
+    link.href = url;
+
+    link.download =
+      'cognitive-dynamics-studio-experiment.json';
+
+    document.body.appendChild(
+      link
+    );
+
+    link.click();
+
+    link.remove();
+
+    setTimeout(
+      () =>
+        URL.revokeObjectURL(
+          url
+        ),
+      500
+    );
+
+    toast(
+      'Experiment JSON exported'
+    );
+  };
+
+document.getElementById(
+  'textSize'
+).onchange =
+  e => {
+
+    document.documentElement
+      .classList.remove(
+        'large',
+        'xl'
+      );
+
+    if (
+      e.target.value !==
+      'normal'
+    ) {
+
+      document.documentElement
+        .classList.add(
+          e.target.value
+        );
+    }
+
+    saveSettings();
+
+    Object.keys(dirty)
+      .forEach(
+        id =>
+          dirty[id] = true
+      );
+
+    render(true);
+  };
+
+document.getElementById(
+  'contrast'
+).onchange =
+  e => {
+
+    document.body.classList.toggle(
+      'high-contrast',
+      e.target.checked
+    );
+
+    saveSettings();
+  };
+
+document.getElementById(
+  'motion'
+).onchange =
+  e => {
+
+    reduced =
+      e.target.checked;
+
+    saveSettings();
+
+    Object.keys(P)
+      .forEach(
+        id => {
+
+          P[id] =
+            reduced;
+
+          const button =
+            document.querySelector(
+              '.play[data-id="' +
+              id +
+              '"]'
+            );
+
+          if (button) {
+
+            button.textContent =
+              reduced
+                ? '▶ Resume'
+                : 'Ⅱ Pause';
+
+            button.classList.toggle(
+              'active',
+              reduced
+            );
+          }
+        }
+      );
+  };
+
+document
+  .querySelectorAll(
+    '.nav a'
+  )
+  .forEach(
+    link => {
+
+      link.addEventListener(
+        'click',
+        () => {
+
+          document
+            .querySelectorAll(
+              '.nav a'
+            )
+            .forEach(
+              a =>
+                a.classList.remove(
+                  'active'
+                )
+            );
+
+          link.classList.add(
+            'active'
+          );
+        }
+      );
+    }
+  );
+
+function loop(now) {
+
+  const delta =
+    Math.min(
+      .05,
+      (now - last) / 1000
+    );
+
+  last = now;
+
+  if (!reduced) {
+
+    if (!P.hp) {
+
+      S.hp.a +=
+        delta *
+        .18 *
+        speed.hp;
+
+      dirty.hp = true;
+    }
+
+    if (!P.vs) {
+
+      S.vs.t +=
+        delta *
+        speed.vs;
+
+      S.vs.field =
+        .35 +
+        .25 *
+        Math.abs(
+          Math.sin(
+            S.vs.t
+          )
+        );
+
+      S.vs.attractor =
+        .55 +
+        .4 *
+        Math.abs(
+          Math.cos(
+            S.vs.t * .7
+          )
+        );
+
+      S.vs.feedback =
+        .4 +
+        .45 *
+        Math.abs(
+          Math.sin(
+            S.vs.t * .9
+          )
+        );
+
+      dirty.vs = true;
+    }
+
+    for (
+      const id of
+      ['cd','da']
+    ) {
+
+      if (!P[id]) {
+
+        acc[id] +=
+          delta *
+          speed[id];
+
+        if (
+          acc[id] >= .9
+        ) {
+
+          acc[id] -= .9;
+
           step(id);
         }
       }
@@ -1195,10 +3264,15 @@ function loop(now){
   }
 
   render();
-  requestAnimationFrame(loop);
+
+  requestAnimationFrame(
+    loop
+  );
 }
 
-requestAnimationFrame(loop);
+requestAnimationFrame(
+  loop
+);
 </script>
 
 </body>
