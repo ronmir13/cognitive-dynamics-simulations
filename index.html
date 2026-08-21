@@ -3,31 +3,65 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#03050a">
-<meta name="description" content="Cognitive Dynamics Studio — Four Interactive Models of Cognition. An educational interactive simulation laboratory.">
-<meta name="author" content="Cognitive Dynamics Studio">
-<meta property="og:title" content="Cognitive Dynamics Studio">
-<meta property="og:description" content="Four Interactive Models of Cognition">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://cognitivedynamicsstudio.com/">
-<link rel="canonical" href="https://cognitivedynamicsstudio.com/">
-<title>Cognitive Dynamics Studio — Four Interactive Models of Cognition</title>
+<meta name="theme-color" content="#030711">
+
+<meta
+  name="description"
+  content="Cognitive Dynamics Studio — Four Interactive Models of Cognition. Explore four educational computational visualizations of causal, dialectical, panoramic, and synergetic dynamics."
+>
+
+<meta
+  name="author"
+  content="Cognitive Dynamics Studio"
+>
+
+<meta
+  property="og:title"
+  content="Cognitive Dynamics Studio — Four Interactive Models of Cognition"
+>
+
+<meta
+  property="og:description"
+  content="Explore four interactive computational models of cognition."
+>
+
+<meta
+  property="og:type"
+  content="website"
+>
+
+<meta
+  property="og:url"
+  content="https://cognitivedynamicsstudio.com/"
+>
+
+<link
+  rel="canonical"
+  href="https://cognitivedynamicsstudio.com/"
+>
+
+<title>
+  Cognitive Dynamics Studio — Four Interactive Models of Cognition
+</title>
 
 <style>
+
 :root{
-  --bg:#03050a;
-  --panel:#080d15;
-  --panel2:#0b131d;
-  --line:#263746;
-  --text:#f5f8fb;
-  --muted:#a9b6c2;
-  --soft:#718292;
-  --blue:#25b8ff;
-  --green:#42ed72;
-  --purple:#c765ff;
-  --orange:#ff9e27;
-  --danger:#ff5c6c;
-  --shadow:0 24px 90px rgba(0,0,0,.48);
+  --bg:#030711;
+  --panel:#09131f;
+  --panel2:#0d1a28;
+  --line:#2a4052;
+  --text:#f7faff;
+  --muted:#adbdca;
+  --soft:#788b9c;
+
+  --cyan:#38c9ff;
+  --green:#51ef7d;
+  --purple:#c878ff;
+  --orange:#ffad3d;
+  --red:#ff6475;
+
+  --shadow:0 24px 80px #0009;
 }
 
 *{
@@ -35,28 +69,42 @@
 }
 
 html{
-  background:var(--bg);
   scroll-behavior:smooth;
+  background:var(--bg);
 }
 
 body{
   margin:0;
   min-height:100vh;
-  background:
-    radial-gradient(circle at 50% -12%,rgba(23,54,79,.42),transparent 38%),
-    radial-gradient(circle at 0 40%,rgba(37,184,255,.045),transparent 28%),
-    radial-gradient(circle at 100% 65%,rgba(199,101,255,.04),transparent 28%),
-    var(--bg);
+
   color:var(--text);
-  font:18px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-}
 
-html.large body{
-  font-size:20px;
-}
+  background:
+    radial-gradient(
+      circle at 50% -8%,
+      #17364e 0,
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 0 38%,
+      #38c9ff0c,
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 100% 60%,
+      #c878ff0a,
+      transparent 28%
+    ),
+    var(--bg);
 
-html.xl body{
-  font-size:22px;
+  font:
+    18px/1.55
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
 }
 
 button,
@@ -65,62 +113,70 @@ select{
   font:inherit;
 }
 
-button{
-  -webkit-tap-highlight-color:transparent;
-}
-
+button,
 a{
-  color:#c5eaff;
+  outline-offset:3px;
 }
 
-a:hover{
-  color:#fff;
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible{
+  outline:3px solid #e8f7ff;
 }
 
 .wrap{
-  width:min(1600px,100%);
+  width:min(1560px,100%);
   margin:auto;
-  padding:0 20px;
+  padding:0 22px;
 }
 
 .top{
   position:sticky;
   top:0;
-  z-index:100;
-  background:rgba(3,5,10,.9);
+  z-index:50;
+
+  background:#030711e8;
+
   backdrop-filter:blur(18px);
-  border-bottom:1px solid #223241;
+
+  border-bottom:1px solid #203548;
 }
 
 .topin{
-  width:min(1600px,100%);
+  width:min(1560px,100%);
   margin:auto;
-  padding:13px 20px;
+  padding:12px 22px;
 }
 
 .row{
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:15px;
-}
-
-.brand{
-  font-weight:900;
-  font-size:1.15rem;
-  letter-spacing:-.02em;
+  align-items:center;
+  gap:18px;
 }
 
 .eyebrow{
-  color:#8193a5;
-  font:800 10px/1.2 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
-  letter-spacing:.15em;
+  font:
+    800 10px/1.2
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  letter-spacing:.16em;
   text-transform:uppercase;
+  color:#8195a8;
+}
+
+.brand{
+  font-weight:950;
+  font-size:1.15rem;
 }
 
 .nav{
   display:flex;
-  gap:4px;
+  gap:5px;
   overflow:auto;
   padding-top:8px;
   scrollbar-width:none;
@@ -131,424 +187,624 @@ a:hover{
 }
 
 .nav a{
-  color:#aebbc7;
+  color:#afbecb;
   text-decoration:none;
-  padding:8px 11px;
-  border-radius:8px;
   white-space:nowrap;
+
+  padding:8px 11px;
+
+  border-radius:8px;
 }
 
 .nav a:hover{
-  background:#101a25;
+  background:#101d2a;
   color:#fff;
 }
 
 .hero{
-  padding:62px 0 35px;
+  padding:72px 0 42px;
 }
 
 .hero h1{
-  max-width:1120px;
-  margin:10px 0 22px;
-  font-size:clamp(2.8rem,6.2vw,6.2rem);
-  line-height:.94;
-  letter-spacing:-.065em;
+  max-width:1150px;
+
+  margin:12px 0 22px;
+
+  font-size:
+    clamp(
+      3.1rem,
+      7vw,
+      7.1rem
+    );
+
+  line-height:.91;
+
+  letter-spacing:-.07em;
 }
 
 .hero p{
-  max-width:940px;
-  margin:0;
+  max-width:930px;
+
   color:var(--muted);
-  font-size:1.13rem;
+
+  font-size:1.14rem;
 }
 
 .cta{
   display:inline-block;
-  margin-top:20px;
-  padding:14px 19px;
+
+  margin-top:19px;
+
+  padding:14px 20px;
+
   border-radius:10px;
-  background:#f3f7fa;
+
+  background:#f4f8fb;
   color:#05080d;
-  font-weight:900;
+
   text-decoration:none;
+
+  font-weight:900;
 }
 
 .cta:hover{
-  color:#000;
   background:#fff;
-  transform:translateY(-1px);
 }
 
 .section{
-  padding:31px 0;
+  padding:34px 0;
+
   scroll-margin-top:105px;
 }
 
 .section h2{
-  margin:5px 0 8px;
-  font-size:clamp(2rem,3vw,3rem);
-  line-height:1.05;
-  letter-spacing:-.035em;
+  margin:6px 0 8px;
+
+  font-size:
+    clamp(
+      2rem,
+      3.2vw,
+      3.2rem
+    );
+
+  line-height:1;
+
+  letter-spacing:-.04em;
 }
 
 .muted{
   color:var(--muted);
 }
 
-.simgrid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:22px;
-  margin-top:22px;
-}
-
-.sim{
-  --accent:var(--blue);
-  position:relative;
-  overflow:hidden;
-  background:linear-gradient(145deg,#09111a,#05090f);
-  border:1px solid #2b3d4d;
-  border-radius:20px;
-  box-shadow:var(--shadow);
-  transition:border-color .2s,box-shadow .2s;
-}
-
-.sim.focused{
-  border-color:var(--accent);
-  box-shadow:
-    0 0 0 1px var(--accent),
-    0 24px 90px rgba(0,0,0,.55),
-    0 0 55px color-mix(in srgb,var(--accent) 12%,transparent);
-}
-
-.simhead{
-  min-height:106px;
-  padding:19px 20px 15px;
-  border-bottom:1px solid #253746;
-  display:flex;
-  align-items:flex-start;
-  gap:13px;
-}
-
-.number{
-  flex:0 0 42px;
-  height:42px;
-  display:grid;
-  place-items:center;
-  border-radius:11px;
-  background:var(--accent);
-  color:#04101a;
-  font-weight:950;
-  box-shadow:0 0 28px color-mix(in srgb,var(--accent) 60%,transparent);
-}
-
-.simtitle{
-  font-size:1.45rem;
-  font-weight:900;
-  line-height:1.12;
-  letter-spacing:-.025em;
-}
-
-html.large .simtitle{
-  font-size:1.55rem;
-}
-
-html.xl .simtitle{
-  font-size:1.65rem;
-}
-
-.simdesc{
-  margin-top:4px;
-  color:#aebbc6;
-  font-size:.9rem;
-}
-
-html.large .simdesc{
-  font-size:1rem;
-}
-
-html.xl .simdesc{
-  font-size:1.08rem;
-}
-
-.live{
-  margin-left:auto;
-  white-space:nowrap;
-  padding:5px 8px;
-  border:1px solid #285a38;
-  border-radius:999px;
-  background:#06150a;
-  color:#68ff83;
-  font:800 9px ui-monospace,SFMono-Regular,monospace;
-}
-
-.live::before{
-  content:"";
-  display:inline-block;
-  width:7px;
-  height:7px;
-  margin-right:5px;
-  border-radius:50%;
-  background:#55ff73;
-  box-shadow:0 0 10px #55ff73;
-}
-
-.visual{
-  position:relative;
-  height:570px;
-  background:#010409;
-}
-
-.visual canvas{
-  display:block;
-  width:100%;
-  height:100%;
-}
-
-.hud{
-  position:absolute;
-  inset:13px;
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  pointer-events:none;
-}
-
-.badge{
-  padding:6px 8px;
-  border:1px solid #3b4f61;
-  border-radius:8px;
-  background:rgba(3,7,13,.86);
-  color:#c7d2db;
-  font:800 9px ui-monospace,SFMono-Regular,monospace;
-}
-
-.explain{
-  padding:15px 18px;
-  border-top:1px solid color-mix(in srgb,var(--accent) 30%,#263746);
-  background:linear-gradient(
-    90deg,
-    color-mix(in srgb,var(--accent) 9%,#07101a),
-    #070c13
-  );
-}
-
-.explain strong{
-  display:block;
-  color:var(--accent);
-  font:900 10px ui-monospace,SFMono-Regular,monospace;
-  letter-spacing:.12em;
-}
-
-.phase{
-  margin-top:2px;
-  font-size:1.08rem;
-  font-weight:900;
-}
-
-.explain p{
-  margin:3px 0 0;
-  color:#aebbc5;
-  font-size:.9rem;
-}
-
-html.large .explain p{
-  font-size:1rem;
-}
-
-html.xl .explain p{
-  font-size:1.08rem;
-}
-
-.metrics{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:7px;
-  padding:11px;
-  background:#05090f;
-}
-
-.metric{
-  padding:8px;
-  border:1px solid #263746;
-  border-radius:8px;
-  background:#08111a;
-}
-
-.metric b{
-  display:block;
-  color:#728596;
-  font:800 9px ui-monospace,SFMono-Regular,monospace;
-}
-
-.metric span{
-  display:block;
-  margin-top:2px;
-  color:#e0e7ec;
-  font-size:.82rem;
-}
-
-.controls{
-  display:flex;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:7px;
-  padding:11px;
-  border-top:1px solid #263746;
-}
-
-.btn{
-  min-height:43px;
-  padding:9px 13px;
-  border:1px solid #3b5063;
-  border-radius:9px;
-  background:#09121c;
-  color:#eef4f8;
-  cursor:pointer;
-  font-weight:750;
-}
-
-html.large .btn,
-html.xl .btn{
-  min-height:48px;
-}
-
-.btn:hover{
-  background:#162534;
-  border-color:#8b9dac;
-}
-
-.btn.primary{
-  background:#f3f7fa;
-  color:#05080d;
-  border-color:#f3f7fa;
-}
-
-.btn.primary:hover{
-  background:#fff;
-}
-
-.speed{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  margin-left:auto;
-  color:#8091a0;
-  font:800 9px ui-monospace,SFMono-Regular,monospace;
-}
-
-.speed input{
-  width:115px;
-  accent-color:var(--accent);
-}
-
-.progress{
-  height:5px;
-  background:#17232d;
-}
-
-.progress div{
-  width:0;
-  height:100%;
-  background:var(--accent);
-  box-shadow:0 0 15px var(--accent);
-  transition:width .15s;
-}
-
 .overview{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:8px;
-  margin-top:18px;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:9px;
+
+  margin:22px 0;
 }
 
 .overview button{
-  padding:11px;
-  border:1px solid #293c4c;
-  border-radius:10px;
-  background:#07101a;
-  color:#d5dde4;
+  padding:14px;
+
+  border:1px solid var(--line);
+
+  border-radius:11px;
+
+  background:#07111c;
+
+  color:#dce7ef;
+
   text-align:left;
+
   cursor:pointer;
+
+  transition:
+    background .18s ease,
+    border-color .18s ease,
+    transform .18s ease;
 }
 
-.overview button:hover,
+.overview button:hover{
+  background:#101e2b;
+  border-color:#708797;
+  transform:translateY(-1px);
+}
+
 .overview button.active{
-  border-color:#aab8c4;
-  background:#101b26;
+  border-color:#9cafbd;
+  background:#101e2b;
 }
 
 .overview strong{
   display:block;
-  font-size:.9rem;
-}
 
-html.large .overview strong,
-html.xl .overview strong{
   font-size:1rem;
 }
 
 .overview small{
   display:block;
-  margin-top:2px;
-  color:#81909e;
+
+  color:#8fa1af;
+
+  margin-top:4px;
+
+  font-size:.84rem;
+
+  line-height:1.4;
 }
 
-.info{
+.simgrid{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-  margin-top:18px;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:22px;
 }
 
-.info article,
-.source{
-  padding:18px;
-  border:1px solid #293b4b;
-  border-radius:14px;
-  background:#080e15;
+.sim{
+  --accent:var(--cyan);
+
+  overflow:hidden;
+
+  border:1px solid #2c4152;
+
+  border-radius:20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #09131f,
+      #040912
+    );
+
+  box-shadow:var(--shadow);
+
+  transition:
+    border-color .2s ease,
+    box-shadow .2s ease,
+    transform .2s ease;
 }
 
-.info h3{
-  margin:6px 0;
-  font-size:1.05rem;
+.sim:hover{
+  transform:translateY(-1px);
 }
 
-.info p,
-.source p{
-  color:#9facb8;
-  font-size:.9rem;
+.sim.focused{
+  border-color:var(--accent);
+
+  box-shadow:
+    0 0 0 1px var(--accent),
+    var(--shadow),
+    0 0 50px
+      color-mix(
+        in srgb,
+        var(--accent) 12%,
+        transparent
+      );
 }
 
-html.large .info p,
-html.large .source p{
-  font-size:1rem;
+.simhead{
+  min-height:118px;
+
+  padding:20px 21px 17px;
+
+  display:flex;
+
+  align-items:flex-start;
+
+  gap:13px;
+
+  border-bottom:1px solid #263b4c;
 }
 
-html.xl .info p,
-html.xl .source p{
+.number{
+  flex:0 0 48px;
+
+  height:48px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:12px;
+
+  background:var(--accent);
+
+  color:#03101a;
+
   font-size:1.08rem;
+
+  font-weight:950;
+
+  box-shadow:
+    0 0 28px
+    color-mix(
+      in srgb,
+      var(--accent) 55%,
+      transparent
+    );
 }
 
-.source a{
-  color:#c4e9ff;
+.simtitle{
+  font-size:1.72rem;
+
+  line-height:1.08;
+
+  letter-spacing:-.03em;
+
+  font-weight:950;
+}
+
+.simdesc{
+  max-width:680px;
+
+  margin-top:6px;
+
+  color:#afbeca;
+
+  font-size:1rem;
+
+  line-height:1.42;
+}
+
+.live{
+  margin-left:auto;
+
+  white-space:nowrap;
+
+  padding:7px 10px;
+
+  border:1px solid #2e663f;
+
+  border-radius:999px;
+
+  background:#06150a;
+
+  color:#6eff8a;
+
+  font:
+    800 10px
+    ui-monospace,
+    SFMono-Regular,
+    monospace;
+}
+
+.live:before{
+  content:"";
+
+  display:inline-block;
+
+  width:7px;
+  height:7px;
+
+  margin-right:5px;
+
+  border-radius:50%;
+
+  background:#55ff73;
+
+  box-shadow:
+    0 0 10px #55ff73;
+}
+
+.visual{
+  position:relative;
+
+  height:640px;
+
+  background:#010409;
+}
+
+.visual canvas{
+  width:100%;
+  height:100%;
+
+  display:block;
+}
+
+.hud{
+  position:absolute;
+
+  inset:13px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  pointer-events:none;
+}
+
+.badge{
+  padding:8px 10px;
+
+  border:1px solid #415667;
+
+  border-radius:9px;
+
+  background:#03070de0;
+
+  color:#d5e0e7;
+
+  font:
+    800 11px
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+}
+
+.explain{
+  padding:19px 21px;
+
+  border-top:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--accent) 32%,
+      #263746
+    );
+
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(
+        in srgb,
+        var(--accent) 8%,
+        #07101a
+      ),
+      #070d14
+    );
+}
+
+.explain strong{
+  color:var(--accent);
+
+  font:
+    900 12px
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  letter-spacing:.14em;
+}
+
+.phase{
+  margin-top:4px;
+
+  font-size:1.55rem;
+
+  line-height:1.12;
+
+  font-weight:950;
+}
+
+.explain p{
+  margin:6px 0 0;
+
+  color:#adbbc6;
+
+  font-size:1.02rem;
+
+  line-height:1.5;
+}
+
+.metrics{
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:9px;
+
+  padding:13px;
+
+  background:#050a10;
+}
+
+.metric{
+  min-height:67px;
+
+  padding:11px;
+
+  border:1px solid #273b4c;
+
+  border-radius:8px;
+
+  background:#08111a;
+}
+
+.metric b{
+  display:block;
+
+  color:#8195a6;
+
+  font:
+    800 10px
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+
+  letter-spacing:.06em;
+}
+
+.metric span{
+  display:block;
+
+  margin-top:4px;
+
+  color:#e1e8ee;
+
+  font-size:1rem;
+
+  font-weight:800;
+}
+
+.controls{
+  display:flex;
+
+  align-items:center;
+
+  flex-wrap:wrap;
+
+  gap:9px;
+
+  padding:13px;
+
+  border-top:1px solid #263746;
+}
+
+.btn{
+  min-height:48px;
+
+  padding:10px 15px;
+
+  border:1px solid #3c5264;
+
+  border-radius:9px;
+
+  background:#09131e;
+
+  color:#eef5f9;
+
+  font-size:1rem;
+
+  font-weight:800;
+
+  cursor:pointer;
+
+  transition:
+    background .15s ease,
+    border-color .15s ease,
+    transform .15s ease;
+}
+
+.btn:hover{
+  background:#152535;
+
+  border-color:#91a3b1;
+
+  transform:translateY(-1px);
+}
+
+.btn.primary{
+  background:#f3f8fb;
+
+  color:#05080c;
+
+  border-color:#f3f8fb;
+}
+
+.speed{
+  display:flex;
+
+  align-items:center;
+
+  gap:7px;
+
+  margin-left:auto;
+
+  color:#8193a2;
+
+  font:
+    800 10px
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+}
+
+.speed input{
+  width:135px;
+
+  height:22px;
+
+  accent-color:var(--accent);
+
+  cursor:pointer;
+}
+
+.speed span{
+  color:#dbe7ee;
+
+  font-size:1rem;
+
+  font-weight:900;
+}
+
+.progress{
+  height:7px;
+
+  background:#16232e;
+}
+
+.progress div{
+  width:0;
+  height:100%;
+
+  background:var(--accent);
+
+  box-shadow:
+    0 0 14px var(--accent);
+
+  transition:
+    width .18s linear;
+}
+
+.cards{
+  display:grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:12px;
+
+  margin-top:20px;
+}
+
+.card,
+.source{
+  padding:19px;
+
+  border:1px solid #293e50;
+
+  border-radius:14px;
+
+  background:#080f17;
+}
+
+.card h3{
+  margin:5px 0;
+
+  font-size:1.2rem;
+}
+
+.card p,
+.source p{
+  color:#9faeba;
+
+  font-size:.91rem;
+}
+
+.source{
+  margin-top:0;
 }
 
 .grid3{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin-top:18px;
-}
 
-.input,
-.select{
-  width:100%;
-  padding:10px;
-  border:1px solid #3a4d5e;
-  border-radius:9px;
-  background:#050a10;
-  color:#edf2f5;
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:12px;
+
+  margin-top:18px;
 }
 
 .field-label{
@@ -557,327 +813,585 @@ html.xl .source p{
 
 .field-label .eyebrow{
   display:block;
+
   margin-bottom:6px;
 }
 
-.check-card{
+.input,
+.select{
+  width:100%;
+
+  padding:11px;
+
+  border:1px solid #3a5163;
+
+  border-radius:9px;
+
+  background:#050a10;
+
+  color:#eef4f8;
+}
+
+.output{
+  max-height:350px;
+
+  overflow:auto;
+
+  margin-top:15px;
+
+  padding:15px;
+
+  border:1px solid #293e50;
+
+  border-radius:12px;
+
+  background:#02060b;
+
+  color:#ced9e1;
+
+  font:
+    12px/1.5
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    monospace;
+}
+
+.check{
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
+
   gap:12px;
 }
 
-.check-card input{
+.check input{
   width:20px;
   height:20px;
+
   accent-color:#fff;
-}
-
-pre{
-  white-space:pre-wrap;
-  overflow:auto;
-}
-
-.hidden{
-  display:none!important;
 }
 
 .fullscreen{
   position:fixed!important;
+
   inset:0!important;
+
   z-index:1000!important;
+
+  width:100vw!important;
+  height:100vh!important;
+
   border-radius:0!important;
+
   background:#010409!important;
 }
 
 .fullscreen .visual{
-  height:calc(100vh - 185px);
+  height:calc(100vh - 190px);
 }
 
-.fullscreen .simhead{
-  min-height:90px;
+html.large body{
+  font-size:20px;
 }
 
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-select:focus-visible{
-  outline:3px solid #d9e6ef;
-  outline-offset:3px;
+html.xl body{
+  font-size:22px;
+}
+
+html.large .simtitle{
+  font-size:1.9rem;
+}
+
+html.xl .simtitle{
+  font-size:2.05rem;
+}
+
+html.large .phase{
+  font-size:1.75rem;
+}
+
+html.xl .phase{
+  font-size:1.95rem;
+}
+
+html.large .simdesc,
+html.large .explain p,
+html.large .card p,
+html.large .source p{
+  font-size:1rem;
+}
+
+html.xl .simdesc,
+html.xl .explain p,
+html.xl .card p,
+html.xl .source p{
+  font-size:1.08rem;
 }
 
 body.high-contrast{
-  --text:#fff;
-  --muted:#d5dde4;
-  --line:#617485;
+  --muted:#dce6ed;
 }
 
 body.high-contrast .sim,
+body.high-contrast .card,
 body.high-contrast .source,
-body.high-contrast .info article{
-  border-color:#718596;
-}
-
 body.high-contrast .metric{
-  border-color:#667a8b;
+  border-color:#718798;
 }
 
-.sr-only{
-  position:absolute;
-  width:1px;
-  height:1px;
-  padding:0;
-  margin:-1px;
-  overflow:hidden;
-  clip:rect(0,0,0,0);
-  white-space:nowrap;
-  border:0;
-}
+@media(max-width:1120px){
 
-footer{
-  padding:50px 0 70px;
-  text-align:center;
-}
-
-@media(max-width:1100px){
   .simgrid{
     grid-template-columns:1fr;
   }
 
-  .info{
+  .cards{
     grid-template-columns:1fr 1fr;
   }
+
+  .visual{
+    height:620px;
+  }
+
 }
 
 @media(max-width:800px){
+
+  .overview,
+  .grid3{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+@media(max-width:620px){
+
+  .wrap,
+  .topin{
+    padding-left:13px;
+    padding-right:13px;
+  }
+
+  .hero{
+    padding-top:42px;
+  }
+
+  .hero h1{
+    font-size:
+      clamp(
+        2.7rem,
+        14vw,
+        4.5rem
+      );
+  }
+
+  .overview,
+  .cards,
   .grid3{
     grid-template-columns:1fr;
   }
 
-  .overview{
-    grid-template-columns:1fr 1fr;
-  }
-}
+  .simhead{
+    min-height:112px;
 
-@media(max-width:620px){
-  .wrap{
-    padding:0 12px;
+    padding:
+      17px
+      15px;
   }
 
-  .topin{
-    padding:12px;
+  .number{
+    flex-basis:43px;
+
+    height:43px;
   }
 
-  .hero{
-    padding-top:36px;
+  .simtitle{
+    font-size:1.42rem;
   }
 
-  .hero h1{
-    font-size:clamp(2.6rem,14vw,4.3rem);
+  .simdesc{
+    font-size:.94rem;
   }
 
   .visual{
-    height:420px;
+    height:510px;
+  }
+
+  .badge{
+    font-size:9px;
+
+    padding:
+      6px
+      8px;
+  }
+
+  .explain{
+    padding:
+      17px
+      15px;
+  }
+
+  .phase{
+    font-size:1.35rem;
+  }
+
+  .explain p{
+    font-size:.96rem;
   }
 
   .metrics{
     grid-template-columns:1fr 1fr;
   }
 
-  .overview,
-  .info{
-    grid-template-columns:1fr;
+  .metric{
+    min-height:64px;
+  }
+
+  .metric span{
+    font-size:.94rem;
+  }
+
+  .btn{
+    min-height:47px;
+
+    font-size:.96rem;
   }
 
   .speed{
     width:100%;
+
     margin-left:0;
+
+    padding-top:4px;
   }
 
   .speed input{
     flex:1;
   }
 
-  .simtitle{
-    font-size:1.25rem;
-  }
-
-  .simhead{
-    padding:16px;
-  }
 }
 
 @media(prefers-reduced-motion:reduce){
+
   html{
     scroll-behavior:auto;
   }
 
-  *,
-  *::before,
-  *::after{
-    animation-duration:.001ms!important;
-    animation-iteration-count:1!important;
-    transition-duration:.001ms!important;
-  }
 }
+
 </style>
 </head>
+
 
 <body>
 
 <header class="top">
+
   <div class="topin">
+
     <div class="row">
+
       <div>
-        <div class="eyebrow">Cognitive Dynamics Studio · Final Edition</div>
-        <div class="brand">Four Interactive Models of Cognition</div>
+
+        <div class="eyebrow">
+          Cognitive Dynamics Studio · Interactive Laboratory
+        </div>
+
+        <div class="brand">
+          Four Interactive Models of Cognition
+        </div>
+
       </div>
-      <div class="eyebrow">LIVE · EDUCATIONAL</div>
+
+      <div class="eyebrow">
+        LIVE · EDUCATIONAL
+      </div>
+
     </div>
 
-    <nav class="nav" aria-label="Main navigation">
-      <a href="#simulations">Simulations</a>
-      <a href="#how">How they work</a>
-      <a href="#experiment">Experiment</a>
-      <a href="#integrity">Integrity</a>
-      <a href="#sources">Sources</a>
-      <a href="#settings">Accessibility</a>
+
+    <nav
+      class="nav"
+      aria-label="Main navigation"
+    >
+
+      <a href="#simulations">
+        Simulations
+      </a>
+
+      <a href="#models">
+        Models
+      </a>
+
+      <a href="#experiment">
+        Experiment
+      </a>
+
+      <a href="#integrity">
+        Integrity
+      </a>
+
+      <a href="#accessibility">
+        Accessibility
+      </a>
+
     </nav>
+
   </div>
+
 </header>
+
 
 <main class="wrap">
 
-<section class="hero">
-  <div class="eyebrow">Cognitive Dynamics Studio</div>
 
-  <h1>Four different ways of modeling cognition.</h1>
+<section class="hero">
+
+  <div class="eyebrow">
+    Cognitive Dynamics Studio
+  </div>
+
+  <h1>
+    Four Interactive Models of Cognition.
+  </h1>
 
   <p>
-    Explore four interactive computational interpretations through large,
-    visual simulations. Pause them, step through their states, change speed,
-    inspect live metrics, or open a model fullscreen.
+    Explore four computational visualizations of causal,
+    dialectical, panoramic, and synergetic dynamics.
+    The simulations are the centerpiece: pause them,
+    step through states, change speed, inspect live
+    variables, and open any model fullscreen.
   </p>
 
-  <a class="cta" href="#simulations">
+  <a
+    class="cta"
+    href="#simulations"
+  >
     Enter the simulation studio ↓
   </a>
+
 </section>
 
-<section id="simulations" class="section">
-  <div class="eyebrow">01 · Live simulation studio</div>
 
-  <h2>See all four simulations</h2>
+<section
+  id="simulations"
+  class="section"
+>
+
+  <div class="eyebrow">
+    01 · Live simulation studio
+  </div>
+
+  <h2>
+    See the four models in motion.
+  </h2>
 
   <p class="muted">
-    Each model has a distinct visual language. The color identifies the model,
-    while the state panel explains what is happening.
+    Each model has a distinct visual grammar,
+    state sequence, color system, and explanatory panel.
   </p>
 
-  <div id="overview" class="overview"></div>
 
-  <div id="simgrid" class="simgrid"></div>
+  <div
+    id="overview"
+    class="overview"
+  ></div>
+
+
+  <div
+    id="simgrid"
+    class="simgrid"
+  ></div>
+
 </section>
 
-<section id="how" class="section">
-  <div class="eyebrow">02 · How they work</div>
 
-  <h2>What each visualization actually models</h2>
+<section
+  id="models"
+  class="section"
+>
 
-  <div class="info">
+  <div class="eyebrow">
+    02 · How they work
+  </div>
 
-    <article>
-      <div class="eyebrow" style="color:var(--blue)">
-        CAUSAL–DETERMINIST
+  <h2>
+    Four models, four visual languages.
+  </h2>
+
+
+  <div class="cards">
+
+
+    <article class="card">
+
+      <div
+        class="eyebrow"
+        style="color:var(--cyan)"
+      >
+        Causal–Determinist
       </div>
 
-      <h3>Follow a chain</h3>
+      <h3>
+        Follow a causal chain.
+      </h3>
 
       <p>
-        Seven explicit states form a directional chain. Step advances exactly
-        one state; playback uses the same transition.
+        Observation and premise lead through mechanism,
+        process, deduction, and result in a directional sequence.
       </p>
+
     </article>
 
-    <article>
-      <div class="eyebrow" style="color:var(--green)">
-        DIALECTICAL–ALGORITHMIC
+
+    <article class="card">
+
+      <div
+        class="eyebrow"
+        style="color:var(--green)"
+      >
+        Dialectical–Algorithmic
       </div>
 
-      <h3>Hold opposites together</h3>
+      <h3>
+        Hold opposites together.
+      </h3>
 
       <p>
-        Thesis and antithesis converge on contradiction, then move through
-        synthesis, rule formation and algorithmic iteration.
+        Thesis and antithesis move through contradiction
+        toward synthesis, rule formation, and algorithmic execution.
       </p>
+
     </article>
 
-    <article>
-      <div class="eyebrow" style="color:var(--purple)">
-        HOLOGRAPHICAL–PANORAMIC
+
+    <article class="card">
+
+      <div
+        class="eyebrow"
+        style="color:var(--purple)"
+      >
+        Holographical–Panoramic
       </div>
 
-      <h3>Change the viewpoint</h3>
+      <h3>
+        Change the viewpoint.
+      </h3>
 
       <p>
-        The central object remains stable while the active projection rotates
-        through six perspectives.
+        A stable conceptual object remains central while
+        changing projections make different aspects visible.
       </p>
+
     </article>
 
-    <article>
-      <div class="eyebrow" style="color:var(--orange)">
-        VORTICAL–SYNERGETIC
+
+    <article class="card">
+
+      <div
+        class="eyebrow"
+        style="color:var(--orange)"
+      >
+        Vortical–Synergetic
       </div>
 
-      <h3>Watch a dynamic field</h3>
+      <h3>
+        Watch a dynamic field.
+      </h3>
 
       <p>
-        Alternatives fluctuate around an attractor; field density, attraction
-        and feedback are explicit state variables.
+        Alternatives fluctuate, are screened, and gather
+        around an attractor as feedback changes the field.
       </p>
+
     </article>
 
   </div>
+
 </section>
 
-<section id="experiment" class="section">
+
+<section
+  id="experiment"
+  class="section"
+>
+
   <div class="source">
 
-    <div class="eyebrow">03 · Experiment studio</div>
+    <div class="eyebrow">
+      03 · Experiment studio
+    </div>
 
-    <h2>Reproduce a computer-model run</h2>
+    <h2>
+      Run a reproducible computational experiment.
+    </h2>
 
     <p>
-      A reproducible run means that the same model version, seed and transition
-      rules produce the same discrete state sequence. It does not establish
-      empirical validity of the underlying theory.
+      Seeds and steps control the software model.
+      The resulting states describe the simulation,
+      not a measurement of a person's cognition.
     </p>
+
 
     <div class="grid3">
 
+
       <label class="field-label">
-        <span class="eyebrow">Seed</span>
+
+        <span class="eyebrow">
+          Seed
+        </span>
+
         <input
           id="seed"
           class="input"
           type="number"
-          value="482913">
+          value="482913"
+        >
+
       </label>
 
-      <label class="field-label">
-        <span class="eyebrow">Model</span>
 
-        <select id="model" class="select">
-          <option value="cd">Causal–Determinist</option>
-          <option value="da">Dialectical–Algorithmic</option>
-          <option value="hp">Holographical–Panoramic</option>
-          <option value="vs">Vortical–Synergetic</option>
+      <label class="field-label">
+
+        <span class="eyebrow">
+          Model
+        </span>
+
+        <select
+          id="model"
+          class="select"
+        >
+
+          <option value="cd">
+            Causal–Determinist
+          </option>
+
+          <option value="da">
+            Dialectical–Algorithmic
+          </option>
+
+          <option value="hp">
+            Holographical–Panoramic
+          </option>
+
+          <option value="vs">
+            Vortical–Synergetic
+          </option>
+
         </select>
+
       </label>
 
+
       <label class="field-label">
-        <span class="eyebrow">Discrete steps</span>
+
+        <span class="eyebrow">
+          Steps
+        </span>
 
         <input
           id="steps"
@@ -885,173 +1399,282 @@ footer{
           type="number"
           min="1"
           max="1000"
-          value="20">
+          value="20"
+        >
+
       </label>
 
     </div>
 
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px">
 
-      <button class="btn" id="baseline">
+    <div
+      style="
+        display:flex;
+        flex-wrap:wrap;
+        gap:8px;
+        margin-top:16px
+      "
+    >
+
+      <button
+        class="btn"
+        id="baseline"
+      >
         Capture baseline
       </button>
 
-      <button class="btn" id="intervention">
+      <button
+        class="btn"
+        id="intervention"
+      >
         Capture intervention
       </button>
 
-      <button class="btn primary" id="run">
-        Run deterministic experiment
+      <button
+        class="btn primary"
+        id="run"
+      >
+        Run experiment
       </button>
 
-      <button class="btn" id="download">
+      <button
+        class="btn"
+        id="download"
+      >
         Export JSON
       </button>
 
     </div>
 
+
     <pre
-      id="out"
-      class="hidden"
-      aria-live="polite"
-      style="margin-top:16px;background:#03070c;border:1px solid #263746;border-radius:12px;padding:15px;color:#cdd7df;font-size:12px"></pre>
+      id="output"
+      class="output"
+      hidden
+    ></pre>
 
   </div>
+
 </section>
 
-<section id="integrity" class="section">
+
+<section
+  id="integrity"
+  class="section"
+>
+
   <div class="source">
 
-    <div class="eyebrow">04 · Scientific integrity</div>
+    <div class="eyebrow">
+      04 · Scientific integrity
+    </div>
 
     <h2>
-      Source, implementation and evidence are separated.
+      Clear boundaries between source,
+      software, and evidence.
     </h2>
 
-    <div class="grid3">
 
-      <div>
-        <div class="eyebrow">Source-derived</div>
+    <div class="cards">
 
-        <p>
-          The four names, terminology and conceptual framing are presented as
-          source-derived material.
-        </p>
-      </div>
 
-      <div>
-        <div class="eyebrow">Original implementation</div>
+      <article class="card">
+
+        <div class="eyebrow">
+          Source-derived
+        </div>
 
         <p>
-          Numerical state variables, transition rules, particles, trajectories,
-          metrics and visual metaphors are software choices in this website.
+          Conceptual terminology and framing are identified
+          as source-derived where applicable.
         </p>
-      </div>
 
-      <div>
-        <div class="eyebrow">Evidence boundary</div>
+      </article>
+
+
+      <article class="card">
+
+        <div class="eyebrow">
+          Original implementation
+        </div>
 
         <p>
-          These are educational simulations, not psychological tests,
-          diagnoses, neuroscience models or validated measures of individual
-          cognition.
+          Numerical variables, transition rules, trajectories,
+          particles, animation, and interface are software
+          representations created for this studio.
         </p>
-      </div>
 
-    </div>
+      </article>
 
-    <div class="source" style="margin-top:18px">
 
-      <b>How to read the display</b>
+      <article class="card">
 
-      <p>
-        A particle, score, trajectory or state label is an output of the
-        computational model. It should not be treated as empirical evidence
-        that the underlying framework predicts human cognition.
-      </p>
+        <div class="eyebrow">
+          Evidence boundary
+        </div>
+
+        <p>
+          Simulation output is an output of the computational model.
+          It is not automatically empirical evidence for a theory
+          of human cognition.
+        </p>
+
+      </article>
+
+
+      <article class="card">
+
+        <div class="eyebrow">
+          Educational purpose
+        </div>
+
+        <p>
+          This is an educational interactive laboratory,
+          not a diagnostic tool, clinical instrument, or
+          validated psychological assessment.
+        </p>
+
+      </article>
 
     </div>
 
   </div>
+
 </section>
 
-<section id="sources" class="section">
+
+<section class="section">
+
   <div class="source">
 
-    <div class="eyebrow">05 · Sources</div>
+    <div class="eyebrow">
+      05 · Sources
+    </div>
 
-    <h2>Primary publication and English translation</h2>
+    <h2>
+      Reference material
+    </h2>
 
     <p>
-      <b>Viktor V. Gulenko, “Forms of Thinking”</b><br>
-      <em>Socionics, Mentology and Personality Psychology</em>,
-      No. 4 (2002), pp. 9–25.
+
+      <strong>
+        Viktor V. Gulenko,
+        “Forms of Thinking”
+      </strong>
+
+      <br>
+
+      <em>
+        Socionics, Mentology and Personality Psychology
+      </em>,
+
+      No. 4 (2002),
+      pp. 9–25.
+
     </p>
 
     <p>
+
       <a
         href="https://www.publishing.socionic.info/index.php/socionics/article/view/1228"
         target="_blank"
-        rel="noopener noreferrer">
+        rel="noopener noreferrer"
+      >
         Publisher record ↗
       </a>
 
-      ·
-
-      <a
-        href="https://www.socionicsforum.com/vbulletin/content.php/51-Forms-of-Cognition-by-Victor-Gulenko"
-        target="_blank"
-        rel="noopener noreferrer">
-        English translation ↗
-      </a>
     </p>
 
     <p>
-      This project does not claim endorsement by the author, journal or linked
-      sites.
+      This project does not claim endorsement by
+      the author or publication.
     </p>
 
   </div>
+
 </section>
 
-<section id="settings" class="section">
+
+<section
+  id="accessibility"
+  class="section"
+>
+
   <div class="source">
 
-    <div class="eyebrow">06 · Accessibility</div>
+    <div class="eyebrow">
+      06 · Accessibility
+    </div>
 
-    <h2>Make the studio easier to see and control</h2>
+    <h2>
+      Make the studio easier to see and use.
+    </h2>
+
 
     <div class="grid3">
 
+
       <label class="field-label">
-        <span class="eyebrow">Text size</span>
 
-        <select id="textsize" class="select">
-          <option value="normal">Normal</option>
-          <option value="large">Large</option>
-          <option value="xl">Extra large</option>
+        <span class="eyebrow">
+          Text size
+        </span>
+
+        <select
+          id="textSize"
+          class="select"
+        >
+
+          <option value="normal">
+            Normal
+          </option>
+
+          <option value="large">
+            Large
+          </option>
+
+          <option value="xl">
+            Extra large
+          </option>
+
         </select>
+
       </label>
 
-      <label class="source check-card">
-        <span>High contrast</span>
-        <input id="contrast" type="checkbox">
+
+      <label class="card check">
+
+        <span>
+          High contrast
+        </span>
+
+        <input
+          id="contrast"
+          type="checkbox"
+        >
+
       </label>
 
-      <label class="source check-card">
-        <span>Reduced motion</span>
-        <input id="reduced" type="checkbox">
+
+      <label class="card check">
+
+        <span>
+          Reduced motion
+        </span>
+
+        <input
+          id="motion"
+          type="checkbox"
+        >
+
       </label>
 
     </div>
 
-    <p class="muted" style="font-size:.85rem">
-      Reduced motion stops automatic animation. You can still advance every
-      model manually with Step.
-    </p>
-
   </div>
+
 </section>
+
 
 <footer>
 
@@ -1059,84 +1682,105 @@ footer{
     Cognitive Dynamics Studio
   </div>
 
-  <p class="muted" style="font-size:.85rem">
-    Four Interactive Models of Cognition · educational computational software
-    · not a validated psychological measurement
+  <p class="muted">
+    Four Interactive Models of Cognition · educational
+    computational software · not a validated psychological measurement.
   </p>
 
 </footer>
 
+
 </main>
 
-<script>
-"use strict";
 
-const MODELS={
+<script>
+
+'use strict';
+
+
+const M = {
+
   cd:{
-    name:"Causal–Determinist",
-    color:"#25b8ff",
+    name:'Causal–Determinist',
+    color:'#38c9ff',
+
     stages:[
-      "Observation",
-      "Premise",
-      "Mechanism",
-      "Causal Link",
-      "Process",
-      "Deduction",
-      "Result"
+      'Observation',
+      'Premise',
+      'Mechanism',
+      'Causal Link',
+      'Process',
+      'Deduction',
+      'Result'
     ]
   },
+
 
   da:{
-    name:"Dialectical–Algorithmic",
-    color:"#42ed72",
+    name:'Dialectical–Algorithmic',
+    color:'#51ef7d',
+
     stages:[
-      "Thesis",
-      "Antithesis",
-      "Contradiction",
-      "Synthesis",
-      "Rule",
-      "Algorithm"
+      'Thesis',
+      'Antithesis',
+      'Contradiction',
+      'Synthesis',
+      'Rule',
+      'Algorithm'
     ]
   },
+
 
   hp:{
-    name:"Holographical–Panoramic",
-    color:"#c765ff",
+    name:'Holographical–Panoramic',
+    color:'#c878ff',
+
     stages:[
-      "Front",
-      "Right",
-      "Top",
-      "Detail",
-      "Context",
-      "Analogy"
+      'Front',
+      'Right',
+      'Top',
+      'Detail',
+      'Context',
+      'Analogy'
     ]
   },
 
+
   vs:{
-    name:"Vortical–Synergetic",
-    color:"#ff9e27",
+    name:'Vortical–Synergetic',
+    color:'#ffad3d',
+
     stages:[
-      "Fluctuation",
-      "Alternatives",
-      "Trial",
-      "Screening",
-      "Attractor",
-      "Feedback",
-      "Branching",
-      "Dissipation"
+      'Fluctuation',
+      'Alternatives',
+      'Trial',
+      'Screening',
+      'Attractor',
+      'Feedback',
+      'Dissipation'
     ]
   }
+
 };
 
-const state={
-  cd:{i:0},
 
-  da:{i:0},
+const S = {
+
+  cd:{
+    i:0
+  },
+
+
+  da:{
+    i:0
+  },
+
 
   hp:{
     i:0,
-    angle:0
+    a:0
   },
+
 
   vs:{
     t:0,
@@ -1144,339 +1788,401 @@ const state={
     attractor:.72,
     feedback:.62
   }
+
 };
 
-const paused={
+
+const P = {
+
   cd:false,
   da:false,
   hp:false,
   vs:false
+
 };
 
-const speeds={
+
+const speed = {
+
   cd:1,
   da:1,
   hp:1,
   vs:1
+
 };
 
-let selected="cd";
-let reducedMotion=false;
-let random=makeRandom(482913);
-let baseline=null;
-let intervention=null;
 
-function makeRandom(seed){
+let selected='cd';
 
-  let x=(Number(seed)||1)>>>0;
+let reduced=false;
 
-  return function(){
+let rng=seeded(482913);
 
-    x+=0x6D2B79F5;
+let base=null;
 
-    let q=x;
+let intv=null;
 
-    q=Math.imul(q^q>>>15,q|1);
+let last=performance.now();
 
-    q^=q+
-      Math.imul(
-        q^q>>>7,
-        q|61
-      );
+let acc={
 
-    return(
-      (q^q>>>14)>>>0
-    )/4294967296;
+  cd:0,
+  da:0
+
+};
+
+
+function seeded(seed){
+
+  let x=
+    (Number(seed)||1)>>>0;
+
+
+  return ()=>{
+
+    x=
+      (
+        Math.imul(
+          1664525,
+          x
+        )+
+        1013904223
+      )>>>0;
+
+
+    return x/4294967296;
+
   };
+
 }
 
-function buildSimulations(){
+
+function build(){
 
   const overview=
-    document.getElementById("overview");
+    document.getElementById(
+      'overview'
+    );
+
 
   const grid=
-    document.getElementById("simgrid");
+    document.getElementById(
+      'simgrid'
+    );
 
-  Object.entries(MODELS).forEach(
-    ([id,model,index])=>{
 
-      const overviewButton=
-        document.createElement("button");
+  Object.entries(M).forEach(
+    ([id,m],n)=>{
 
-      overviewButton.dataset.id=id;
 
-      overviewButton.setAttribute(
-        "aria-label",
-        `Focus ${model.name} simulation`
-      );
+      const button=
+        document.createElement(
+          'button'
+        );
 
-      overviewButton.innerHTML=`
-        <strong>
-          ${Object.keys(MODELS).indexOf(id)+1}.
-          ${model.name}
-        </strong>
 
-        <small>
-          ${model.stages.join(" → ")}
-        </small>
-      `;
+      button.dataset.id=id;
 
-      overviewButton.addEventListener(
-        "click",
-        ()=>focusSimulation(id)
-      );
+
+      button.innerHTML=
+        '<strong>'+
+        (n+1)+
+        '. '+
+        m.name+
+        '</strong>'+
+        '<small>'+
+        m.stages.join(' → ')+
+        '</small>';
+
+
+      button.onclick=()=>{
+        focus(id);
+      };
+
 
       overview.appendChild(
-        overviewButton
+        button
       );
+
 
       const article=
-        document.createElement("article");
+        document.createElement(
+          'article'
+        );
 
-      article.className="sim";
-      article.id=`sim-${id}`;
+
+      article.className='sim';
+
+      article.id='sim-'+id;
 
       article.style.setProperty(
-        "--accent",
-        model.color
+        '--accent',
+        m.color
       );
 
-      const description=
-        id==="cd"
-          ?"Cause → mechanism → consequence"
-        :id==="da"
-          ?"Opposition → synthesis → algorithm"
-        :id==="hp"
-          ?"One object → many perspectives"
-          :"Alternatives → attraction → feedback";
 
-      article.innerHTML=`
+      article.innerHTML=
 
-        <div class="simhead">
+        '<div class="simhead">'+
 
-          <div class="number">
-            ${Object.keys(MODELS).indexOf(id)+1}
-          </div>
+          '<div class="number">'+
+            (n+1)+
+          '</div>'+
 
-          <div>
+          '<div>'+
 
-            <div class="eyebrow">
-              ${id.toUpperCase()} · LIVE SIMULATION
-            </div>
+            '<div class="eyebrow">'+
+              id.toUpperCase()+
+              ' · LIVE MODEL'+
+            '</div>'+
 
-            <div class="simtitle">
-              ${model.name}
-            </div>
+            '<div class="simtitle">'+
+              m.name+
+            '</div>'+
 
-            <div class="simdesc">
-              ${description}
-            </div>
+            '<div class="simdesc">'+
 
-          </div>
+              (
+                id==='cd'
+                ? 'Explicit causal chain with premises, mechanism and deduction.'
 
-          <div class="live">
-            LIVE
-          </div>
+                : id==='da'
+                ? 'Opposites become contradiction, synthesis and an executable rule.'
 
-        </div>
+                : id==='hp'
+                ? 'A stable conceptual object examined through changing projections.'
 
-        <div class="visual">
+                : 'Alternatives fluctuate, are screened and gather around an attractor.'
+              )+
 
-          <canvas
-            id="canvas-${id}"
-            role="img"
-            aria-label="${model.name} computational visualization">
-          </canvas>
+            '</div>'+
 
-          <div class="hud">
+          '</div>'+
 
-            <span class="badge">
-              COMPUTATIONAL MODEL
-            </span>
+          '<div class="live">LIVE</div>'+
 
-            <span
-              class="badge"
-              id="stage-${id}">
-              STAGE 01
-            </span>
+        '</div>'+
 
-          </div>
 
-        </div>
+        '<div class="visual">'+
 
-        <div class="explain">
+          '<canvas '+
+            'id="c-'+id+'" '+
+            'aria-label="'+
+              m.name+
+              ' simulation">'+
+          '</canvas>'+
 
-          <strong>
-            WHAT IS HAPPENING NOW
-          </strong>
+          '<div class="hud">'+
 
-          <div
-            class="phase"
-            id="phase-${id}">
-          </div>
+            '<span class="badge">'+
+              'LIVE · '+
+              id.toUpperCase()+
+            '</span>'+
 
-          <p id="explain-${id}"></p>
+            '<span '+
+              'class="badge" '+
+              'id="stage-'+id+'">'+
+              'STAGE 01'+
+            '</span>'+
 
-        </div>
+          '</div>'+
 
-        <div
-          class="metrics"
-          id="metrics-${id}">
-        </div>
+        '</div>'+
 
-        <div class="controls">
 
-          <button
-            class="btn primary play"
-            data-id="${id}">
-            Ⅱ Pause
-          </button>
+        '<div class="explain">'+
 
-          <button
-            class="btn step"
-            data-id="${id}">
-            ▶ Step
-          </button>
+          '<strong>'+
+            'CURRENT MODEL STATE'+
+          '</strong>'+
 
-          <button
-            class="btn reset"
-            data-id="${id}">
-            ↻ Reset
-          </button>
+          '<div '+
+            'class="phase" '+
+            'id="phase-'+id+'">'+
+          '</div>'+
 
-          <button
-            class="btn fullscreen-button"
-            data-id="${id}">
-            ⛶ Fullscreen
-          </button>
+          '<p '+
+            'id="desc-'+id+'">'+
+          '</p>'+
 
-          <label class="speed">
+        '</div>'+
 
-            SPEED
 
-            <input
-              aria-label="${model.name} simulation speed"
-              data-speed="${id}"
-              type="range"
-              min=".25"
-              max="2"
-              step=".25"
-              value="1">
+        '<div '+
+          'class="metrics" '+
+          'id="metrics-'+id+'">'+
+        '</div>'+
 
-            <span
-              data-speed-label="${id}">
-              1×
-            </span>
 
-          </label>
+        '<div class="controls">'+
 
-        </div>
+          '<button '+
+            'class="btn primary play" '+
+            'data-id="'+id+'">'+
+            'Ⅱ Pause'+
+          '</button>'+
 
-        <div
-          class="progress"
-          aria-hidden="true">
+          '<button '+
+            'class="btn step" '+
+            'data-id="'+id+'">'+
+            '▶ Step'+
+          '</button>'+
 
-          <div
-            id="progress-${id}">
-          </div>
+          '<button '+
+            'class="btn reset" '+
+            'data-id="'+id+'">'+
+            '↻ Reset'+
+          '</button>'+
 
-        </div>
-      `;
+          '<button '+
+            'class="btn full" '+
+            'data-id="'+id+'">'+
+            '⛶ Fullscreen'+
+          '</button>'+
 
-      grid.appendChild(article);
+          '<label class="speed">'+
+
+            'SPEED '+
+
+            '<input '+
+              'data-speed="'+id+'" '+
+              'type="range" '+
+              'min=".25" '+
+              'max="2" '+
+              'step=".25" '+
+              'value="1">'+
+
+            '<span '+
+              'data-speed-label="'+id+'">'+
+              '1×'+
+            '</span>'+
+
+          '</label>'+
+
+        '</div>'+
+
+
+        '<div class="progress">'+
+
+          '<div '+
+            'id="prog-'+id+'">'+
+          '</div>'+
+
+        '</div>';
+
+
+      grid.appendChild(
+        article
+      );
+
     }
   );
 
-  document.querySelectorAll(
-    ".play"
-  ).forEach(button=>{
 
-    button.addEventListener(
-      "click",
-      ()=>{
+  document
+    .querySelectorAll('.play')
+    .forEach(button=>{
 
-        const id=button.dataset.id;
+      button.onclick=()=>{
 
-        paused[id]=!paused[id];
+        const id=
+          button.dataset.id;
+
+
+        P[id]=!P[id];
+
 
         button.textContent=
-          paused[id]
-            ?"▶ Resume"
-            :"Ⅱ Pause";
-      }
-    );
-  });
+          P[id]
+          ? '▶ Resume'
+          : 'Ⅱ Pause';
 
-  document.querySelectorAll(
-    ".step"
-  ).forEach(button=>{
+      };
 
-    button.addEventListener(
-      "click",
-      ()=>stepSimulation(
-        button.dataset.id
-      )
-    );
-  });
+    });
 
-  document.querySelectorAll(
-    ".reset"
-  ).forEach(button=>{
 
-    button.addEventListener(
-      "click",
-      ()=>resetSimulation(
-        button.dataset.id
-      )
-    );
-  });
+  document
+    .querySelectorAll('.step')
+    .forEach(button=>{
 
-  document.querySelectorAll(
-    ".fullscreen-button"
-  ).forEach(button=>{
+      button.onclick=()=>{
+        step(
+          button.dataset.id
+        );
+      };
 
-    button.addEventListener(
-      "click",
-      ()=>toggleFullscreen(
-        button.dataset.id
-      )
-    );
-  });
+    });
 
-  document.querySelectorAll(
-    "[data-speed]"
-  ).forEach(range=>{
 
-    range.addEventListener(
-      "input",
-      ()=>{
+  document
+    .querySelectorAll('.reset')
+    .forEach(button=>{
+
+      button.onclick=()=>{
+        reset(
+          button.dataset.id
+        );
+      };
+
+    });
+
+
+  document
+    .querySelectorAll('.full')
+    .forEach(button=>{
+
+      button.onclick=()=>{
+        full(
+          button.dataset.id
+        );
+      };
+
+    });
+
+
+  document
+    .querySelectorAll('[data-speed]')
+    .forEach(range=>{
+
+      range.oninput=()=>{
 
         const id=
           range.dataset.speed;
 
-        speeds[id]=
-          Number(range.value);
+
+        speed[id]=
+          +range.value;
+
 
         document.querySelector(
-          `[data-speed-label="${id}"]`
+          '[data-speed-label="'+
+          id+
+          '"]'
         ).textContent=
-          `${range.value}×`;
-      }
-    );
-  });
+          range.value+
+          '×';
+
+      };
+
+    });
+
 }
 
-function prepareCanvas(canvas,context){
+
+function prep(canvas,ctx){
 
   const rect=
     canvas.getBoundingClientRect();
 
-  const density=
+
+  const d=
     Math.min(
       window.devicePixelRatio||1,
       2
     );
+
 
   const width=
     Math.max(
@@ -1484,145 +2190,234 @@ function prepareCanvas(canvas,context){
       Math.floor(rect.width)
     );
 
+
   const height=
     Math.max(
       1,
       Math.floor(rect.height)
     );
 
-  const targetWidth=
-    Math.floor(width*density);
 
-  const targetHeight=
-    Math.floor(height*density);
+  const cw=
+    Math.floor(width*d);
+
+
+  const ch=
+    Math.floor(height*d);
+
 
   if(
-    canvas.width!==targetWidth ||
-    canvas.height!==targetHeight
+    canvas.width!==cw ||
+    canvas.height!==ch
   ){
 
-    canvas.width=
-      targetWidth;
+    canvas.width=cw;
 
-    canvas.height=
-      targetHeight;
+    canvas.height=ch;
+
   }
 
-  context.setTransform(
-    density,
+
+  ctx.setTransform(
+    d,
     0,
     0,
-    density,
+    d,
     0,
     0
   );
 
-  return[
+
+  return [
     width,
-    height,
-    density
+    height
   ];
+
 }
 
-function clearCanvas(canvas,context){
 
-  const[
+function clear(canvas,ctx){
+
+  const [
     width,
     height
-  ]=prepareCanvas(
-    canvas,
-    context
-  );
+  ]=
+    prep(
+      canvas,
+      ctx
+    );
 
-  context.fillStyle="#010409";
 
-  context.fillRect(
+  ctx.fillStyle='#010409';
+
+  ctx.fillRect(
     0,
     0,
     width,
     height
   );
 
-  context.strokeStyle=
-    "rgba(255,255,255,.035)";
 
-  context.lineWidth=1;
+  ctx.strokeStyle='#ffffff09';
+
 
   for(
-    let x=0;
-    x<width;
-    x+=42
+    let i=0;
+    i<width;
+    i+=42
   ){
 
-    context.beginPath();
+    ctx.beginPath();
 
-    context.moveTo(
-      x,
+    ctx.moveTo(
+      i,
       0
     );
 
-    context.lineTo(
-      x,
+    ctx.lineTo(
+      i,
       height
     );
 
-    context.stroke();
+    ctx.stroke();
+
   }
+
 
   for(
-    let y=0;
-    y<height;
-    y+=42
+    let i=0;
+    i<height;
+    i+=42
   ){
 
-    context.beginPath();
+    ctx.beginPath();
 
-    context.moveTo(
+    ctx.moveTo(
       0,
-      y
+      i
     );
 
-    context.lineTo(
+    ctx.lineTo(
       width,
-      y
+      i
     );
 
-    context.stroke();
+    ctx.stroke();
+
   }
 
-  return[
+
+  return [
     width,
     height
   ];
+
 }
 
-function text(
-  context,
-  string,
+
+/*
+  Central canvas typography function.
+
+  This is intentionally larger than the original build.
+  Long annotation strings are scaled down slightly so
+  they remain readable without overflowing the canvas.
+*/
+function T(
+  ctx,
+  text,
   x,
   y,
-  size,
-  color="#fff",
-  weight=800
+  baseSize,
+  color='#fff'
 ){
 
-  context.fillStyle=color;
+  ctx.fillStyle=color;
 
-  context.font=
-    `${weight} ${size}px ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace`;
 
-  context.textAlign="center";
-  context.textBaseline="middle";
+  const value=
+    String(text);
 
-  context.fillText(
-    string,
+
+  let scale=1.48;
+
+
+  if(
+    value.length>42
+  ){
+
+    scale=1.08;
+
+  }else if(
+    value.length>30
+  ){
+
+    scale=1.18;
+
+  }else if(
+    value.length>20
+  ){
+
+    scale=1.32;
+
+  }
+
+
+  if(
+    value==='SAME OBJECT' ||
+    value==='ATTRACTOR'
+  ){
+
+    scale=1.65;
+
+  }
+
+
+  const size=
+    Math.max(
+      11,
+      Math.round(
+        baseSize*scale
+      )
+    );
+
+
+  ctx.font=
+    '850 '+
+    size+
+    'px '+
+    'ui-monospace,'+
+    'SFMono-Regular,'+
+    'Menlo,'+
+    'monospace';
+
+
+  ctx.textAlign='center';
+
+  ctx.textBaseline='middle';
+
+
+  ctx.shadowColor=color;
+
+  ctx.shadowBlur=
+    size>=14
+    ? 7
+    : 3;
+
+
+  ctx.fillText(
+    value,
     x,
     y
   );
+
+
+  ctx.shadowBlur=0;
+
 }
 
-function circle(
-  context,
+
+function C(
+  ctx,
   x,
   y,
   radius,
@@ -1631,12 +2426,15 @@ function circle(
   lineWidth=2
 ){
 
-  context.shadowColor=stroke;
-  context.shadowBlur=18;
+  ctx.shadowColor=stroke;
 
-  context.beginPath();
+  ctx.shadowBlur=18;
 
-  context.arc(
+
+  ctx.beginPath();
+
+
+  ctx.arc(
     x,
     y,
     radius,
@@ -1644,19 +2442,26 @@ function circle(
     Math.PI*2
   );
 
-  context.fillStyle=fill;
-  context.fill();
 
-  context.shadowBlur=0;
+  ctx.fillStyle=fill;
 
-  context.strokeStyle=stroke;
-  context.lineWidth=lineWidth;
+  ctx.fill();
 
-  context.stroke();
+
+  ctx.shadowBlur=0;
+
+
+  ctx.strokeStyle=stroke;
+
+  ctx.lineWidth=lineWidth;
+
+  ctx.stroke();
+
 }
 
-function line(
-  context,
+
+function L(
+  ctx,
   x1,
   y1,
   x2,
@@ -1665,26 +2470,29 @@ function line(
   width=2
 ){
 
-  context.strokeStyle=color;
-  context.lineWidth=width;
+  ctx.strokeStyle=color;
 
-  context.beginPath();
+  ctx.lineWidth=width;
 
-  context.moveTo(
+  ctx.beginPath();
+
+  ctx.moveTo(
     x1,
     y1
   );
 
-  context.lineTo(
+  ctx.lineTo(
     x2,
     y2
   );
 
-  context.stroke();
+  ctx.stroke();
+
 }
 
-function arrow(
-  context,
+
+function A(
+  ctx,
   x1,
   y1,
   x2,
@@ -1692,8 +2500,8 @@ function arrow(
   color
 ){
 
-  line(
-    context,
+  L(
+    ctx,
     x1,
     y1,
     x2,
@@ -1702,7 +2510,6 @@ function arrow(
     2.5
   );
 
-  const length=10;
 
   const angle=
     Math.atan2(
@@ -1710,1082 +2517,1194 @@ function arrow(
       x2-x1
     );
 
-  context.fillStyle=color;
 
-  context.beginPath();
+  const size=11;
 
-  context.moveTo(
+
+  ctx.fillStyle=color;
+
+  ctx.beginPath();
+
+  ctx.moveTo(
     x2,
     y2
   );
 
-  context.lineTo(
-    x2-
-      length*
-      Math.cos(angle-.5),
-    y2-
-      length*
-      Math.sin(angle-.5)
+  ctx.lineTo(
+    x2-size*Math.cos(
+      angle-.5
+    ),
+    y2-size*Math.sin(
+      angle-.5
+    )
   );
 
-  context.lineTo(
-    x2-
-      length*
-      Math.cos(angle+.5),
-    y2-
-      length*
-      Math.sin(angle+.5)
+  ctx.lineTo(
+    x2-size*Math.cos(
+      angle+.5
+    ),
+    y2-size*Math.sin(
+      angle+.5
+    )
   );
 
-  context.closePath();
+  ctx.fill();
 
-  context.fill();
 }
 
-function drawCausal(
-  canvas,
-  context
-){
 
-  const[
-    width,
-    height
-  ]=clearCanvas(
-    canvas,
-    context
-  );
+function draw(id){
 
-  const model=MODELS.cd;
-  const current=state.cd.i;
-
-  const gap=Math.min(
-    150,
-    (width-110)/
-      (model.stages.length-1)
-  );
-
-  const start=
-    (
-      width-
-      gap*
-      (model.stages.length-1)
-    )/2;
-
-  const y=height*.5;
-
-  for(
-    let i=0;
-    i<model.stages.length-1;
-    i++
-  ){
-
-    arrow(
-      context,
-      start+i*gap+32,
-      y,
-      start+(i+1)*gap-32,
-      y,
-      i<current
-        ?"rgba(37,184,255,.95)"
-        :"#304354"
+  const canvas=
+    document.getElementById(
+      'c-'+id
     );
-  }
 
-  model.stages.forEach(
-    (stage,index)=>{
 
-      const active=
-        index===current;
-
-      circle(
-        context,
-        start+index*gap,
-        y,
-        active?31:28,
-        active
-          ?"rgba(15,54,80,1)"
-          :"#07111b",
-        active
-          ?"#7bd7ff"
-          :"#476072",
-        active?3:1
-      );
-
-      text(
-        context,
-        String(index+1)
-          .padStart(2,"0"),
-        start+index*gap,
-        y,
-        11,
-        active
-          ?"#
-fff"
-          :"#8da0af"
-      );
-
-      text(
-        context,
-        stage,
-        start+index*gap,
-        y+50,
-        8,
-        active
-          ?"#
-eaf9ff"
-          :"#738493"
-      );
-    }
-  );
-
-  text(
-    context,
-    "OBSERVE → EXPLAIN → DEDUCE → RESULT",
-    width/2,
-    34,
-    11,
-    "#52c5ff"
-  );
-}
-
-function drawDialectical(
-  canvas,
-  context
-){
-
-  const[
-    width,
-    height
-  ]=clearCanvas(
-    canvas,
-    context
-  );
-
-  const current=state.da.i;
-
-  const cx=width/2;
-  const cy=height/2;
-
-  const positions=[
-    [-.34,-.2],
-    [-.34,.2],
-    [-.10,0],
-    [.13,0],
-    [.35,0],
-    [.47,0]
-  ];
-
-  const labels=MODELS.da.stages;
-
-  line(
-    context,
-    cx-.34*width,
-    cy-.2*height,
-    cx-.10*width,
-    cy,
-    "#42ed72",
-    4
-  );
-
-  line(
-    context,
-    cx-.34*width,
-    cy+.2*height,
-    cx-.10*width,
-    cy,
-    "#c765ff",
-    4
-  );
-
-  for(
-    let i=2;
-    i<5;
-    i++
-  ){
-
-    arrow(
-      context,
-      cx+positions[i][0]*width,
-      cy,
-      cx+positions[i+1][0]*width,
-      cy,
-      i<=current
-        ?"rgba(66,237,114,.95)"
-        :"#31493a"
+  const ctx=
+    canvas.getContext(
+      '2d',
+      {
+        alpha:false
+      }
     );
-  }
 
-  positions.forEach(
-    (position,index)=>{
 
-      const colors=[
-        "#42ed72",
-        "#c765ff",
-        "#ff4e55",
-        "#25b8ff",
-        "#ffe04b",
-        "#ff9e27"
-      ];
-
-      const active=
-        index===current;
-
-      const color=
-        colors[index];
-
-      const x=
-        cx+
-        position[0]*width;
-
-      const y=
-        cy+
-        position[1]*height;
-
-      circle(
-        context,
-        x,
-        y,
-        active?31:28,
-        active
-          ?"rgba(24,60,36,1)"
-          :"#07111b",
-        color,
-        active?3:1
-      );
-
-      text(
-        context,
-        labels[index],
-        x,
-        y+46,
-        8,
-        active
-          ?"#
-fff"
-          :color
-      );
-    }
-  );
-
-  text(
-    context,
-    "OPPOSITION → CONTRADICTION → SYNTHESIS",
-    width/2,
-    34,
-    11,
-    "#62ef82"
-  );
-}
-
-function drawPanoramic(
-  canvas,
-  context
-){
-
-  const[
+  const [
     width,
     height
-  ]=clearCanvas(
-    canvas,
-    context
-  );
+  ]=
+    clear(
+      canvas,
+      ctx
+    );
 
-  const current=state.hp.i;
-  const angle=state.hp.angle;
 
-  const cx=width/2;
-  const cy=height/2;
+  if(id==='cd'){
 
-  const colors=[
-    "#25b8ff",
-    "#42ed72",
-    "#ffe04b",
-    "#ff9e27",
-    "#c765ff",
-    "#8e72ff"
-  ];
+    const stage=
+      S.cd.i;
 
-  circle(
-    context,
-    cx,
-    cy,
-    69,
-    "#180b22",
-    "#e1baff",
-    3
-  );
 
-  text(
-    context,
-    "SAME OBJECT",
-    cx,
-    cy,
-    11,
-    "#fff"
-  );
-
-  MODELS.hp.stages.forEach(
-    (stage,index)=>{
-
-      const a=
-        angle+
-        index*Math.PI/3;
-
-      const radius=
-        Math.min(
-          width*.36,
-          270
-        );
-
-      const x=
-        cx+
-        Math.cos(a)*radius;
-
-      const y=
-        cy+
-        Math.sin(a)*
-        Math.min(
-          height*.31,
-          175
-        );
-
-      const active=
-        index===current;
-
-      arrow(
-        context,
-        cx,
-        cy,
-        x,
-        y,
-        active
-          ?colors[index]
-          :"#344657"
+    const gap=
+      Math.min(
+        150,
+        (width-110)/6
       );
 
-      circle(
-        context,
-        x,
-        y,
-        active?31:28,
-        active
-          ?"rgba(50,21,74,1)"
-          :"#07111b",
-        colors[index],
-        active?3:1
-      );
 
-      text(
-        context,
-        stage,
-        x,
-        y+45,
-        8,
-        active
-          ?"#
-fff"
-          :colors[index]
-      );
-    }
-  );
+    const start=
+      (width-gap*6)/2;
 
-  text(
-    context,
-    "ONE OBJECT · MANY PROJECTIONS",
-    width/2,
-    34,
-    11,
-    "#dc92ff"
-  );
-}
 
-function drawVortical(
-  canvas,
-  context
-){
+    const y=
+      height*.5;
 
-  const[
-    width,
-    height
-  ]=clearCanvas(
-    canvas,
-    context
-  );
-
-  const s=state.vs;
-
-  const cx=width/2;
-  const cy=height/2;
-
-  const colors=[
-    "#ff9e27",
-    "#ff4fbd",
-    "#c765ff",
-    "#25b8ff",
-    "#42ed72",
-    "#ffe04b"
-  ];
-
-  for(
-    let q=0;
-    q<6;
-    q++
-  ){
-
-    context.beginPath();
 
     for(
       let i=0;
-      i<330;
+      i<6;
+      i++
+    ){
+
+      A(
+        ctx,
+
+        start+
+        i*gap+
+        34,
+
+        y,
+
+        start+
+        (i+1)*gap-
+        34,
+
+        y,
+
+        i<stage
+        ? '#38c9ff'
+        : '#304657'
+      );
+
+    }
+
+
+    M.cd.stages.forEach(
+      (label,index)=>{
+
+        const active=
+          index===stage;
+
+
+        const x=
+          start+
+          index*gap;
+
+
+        C(
+          ctx,
+          x,
+          y,
+
+          active
+          ? 40
+          : 31,
+
+          active
+          ? '#10344b'
+          : '#07111b',
+
+          active
+          ? '#b9eeff'
+          : '#496275',
+
+          active
+          ? 3
+          : 1
+        );
+
+
+        T(
+          ctx,
+          String(
+            index+1
+          ).padStart(
+            2,
+            '0'
+          ),
+
+          x,
+          y,
+
+          11,
+
+          active
+          ? '#ffffff'
+          : '#8799a8'
+        );
+
+
+        T(
+          ctx,
+          label,
+
+          x,
+          y+61,
+
+          9,
+
+          active
+          ? '#e9f8ff'
+          : '#8b9daa'
+        );
+
+      }
+    );
+
+
+    T(
+      ctx,
+
+      'OBSERVE → PREMISE → MECHANISM → DEDUCTION → RESULT',
+
+      width/2,
+      38,
+
+      11,
+
+      '#55cfff'
+    );
+
+  }
+
+
+  if(id==='da'){
+
+    const stage=
+      S.da.i;
+
+
+    const centerX=
+      width/2;
+
+
+    const centerY=
+      height/2;
+
+
+    const positions=[
+
+      [-.34,-.22],
+      [-.34,.22],
+      [-.10,0],
+      [.14,0],
+      [.37,0],
+      [.49,0]
+
+    ];
+
+
+    const colors=[
+
+      '#51ef7d',
+      '#c878ff',
+      '#ff6475',
+      '#38c9ff',
+      '#ffe16a',
+      '#ffad3d'
+
+    ];
+
+
+    L(
+      ctx,
+
+      centerX-.34*width,
+      centerY-.22*height,
+
+      centerX-.10*width,
+      centerY,
+
+      '#51ef7d',
+
+      4
+    );
+
+
+    L(
+      ctx,
+
+      centerX-.34*width,
+      centerY+.22*height,
+
+      centerX-.10*width,
+      centerY,
+
+      '#c878ff',
+
+      4
+    );
+
+
+    for(
+      let i=2;
+      i<5;
+      i++
+    ){
+
+      A(
+        ctx,
+
+        centerX+
+        positions[i][0]*width,
+
+        centerY,
+
+        centerX+
+        positions[i+1][0]*width,
+
+        centerY,
+
+        i<stage
+        ? '#51ef7d'
+        : '#304a39'
+      );
+
+    }
+
+
+    positions.forEach(
+      (position,index)=>{
+
+        const x=
+          centerX+
+          position[0]*width;
+
+
+        const y=
+          centerY+
+          position[1]*height;
+
+
+        const active=
+          index===stage;
+
+
+        C(
+          ctx,
+
+          x,
+          y,
+
+          active
+          ? 40
+          : 31,
+
+          active
+          ? '#123a23'
+          : '#07111b',
+
+          colors[index],
+
+          active
+          ? 3
+          : 1
+        );
+
+
+        T(
+          ctx,
+
+          M.da.stages[index],
+
+          x,
+          y+61,
+
+          9,
+
+          active
+          ? '#ffffff'
+          : colors[index]
+        );
+
+      }
+    );
+
+
+    T(
+      ctx,
+
+      'OPPOSITION → CONTRADICTION → SYNTHESIS → RULE',
+
+      width/2,
+      38,
+
+      11,
+
+      '#63f58a'
+    );
+
+  }
+
+
+  if(id==='hp'){
+
+    const stage=
+      S.hp.i;
+
+
+    const angleOffset=
+      S.hp.a;
+
+
+    const centerX=
+      width/2;
+
+
+    const centerY=
+      height/2;
+
+
+    const colors=[
+
+      '#38c9ff',
+      '#51ef7d',
+      '#ffe16a',
+      '#ffad3d',
+      '#c878ff',
+      '#8e72ff'
+
+    ];
+
+
+    C(
+      ctx,
+
+      centerX,
+      centerY,
+
+      80,
+
+      '#1c0d27',
+
+      '#e4b9ff',
+
+      3
+    );
+
+
+    T(
+      ctx,
+
+      'SAME OBJECT',
+
+      centerX,
+      centerY,
+
+      12,
+
+      '#ffffff'
+    );
+
+
+    M.hp.stages.forEach(
+      (label,index)=>{
+
+        const angle=
+          angleOffset+
+          index*Math.PI/3;
+
+
+        const radius=
+          Math.min(
+            width*.36,
+            270
+          );
+
+
+        const x=
+          centerX+
+          Math.cos(angle)*
+          radius;
+
+
+        const y=
+          centerY+
+          Math.sin(angle)*
+          Math.min(
+            height*.31,
+            180
+          );
+
+
+        const active=
+          index===stage;
+
+
+        A(
+          ctx,
+
+          centerX,
+          centerY,
+
+          x,
+          y,
+
+          active
+          ? colors[index]
+          : '#344657'
+        );
+
+
+        C(
+          ctx,
+
+          x,
+          y,
+
+          active
+          ? 40
+          : 31,
+
+          active
+          ? '#32164b'
+          : '#07111b',
+
+          colors[index],
+
+          active
+          ? 3
+          : 1
+        );
+
+
+        T(
+          ctx,
+
+          label,
+
+          x,
+          y+61,
+
+          9,
+
+          active
+          ? '#ffffff'
+          : colors[index]
+        );
+
+      }
+    );
+
+
+    T(
+      ctx,
+
+      'ONE OBJECT · MANY PROJECTIONS',
+
+      width/2,
+      38,
+
+      11,
+
+      '#db94ff'
+    );
+
+  }
+
+
+  if(id==='vs'){
+
+    const state=
+      S.vs;
+
+
+    const centerX=
+      width/2;
+
+
+    const centerY=
+      height/2;
+
+
+    const colors=[
+
+      '#ffad3d',
+      '#ff5bb9',
+      '#c878ff',
+      '#38c9ff',
+      '#51ef7d',
+      '#ffe16a'
+
+    ];
+
+
+    for(
+      let q=0;
+      q<6;
+      q++
+    ){
+
+      ctx.beginPath();
+
+
+      for(
+        let i=0;
+        i<350;
+        i++
+      ){
+
+        const angle=
+          i*.052+
+          q*1.03+
+          state.t*.4;
+
+
+        const radius=
+          45+
+          i*(q+1)*.47;
+
+
+        const x=
+          centerX+
+          Math.cos(angle)*
+          radius;
+
+
+        const y=
+          centerY+
+          Math.sin(angle)*
+          radius*.48;
+
+
+        if(i){
+
+          ctx.lineTo(
+            x,
+            y
+          );
+
+        }else{
+
+          ctx.moveTo(
+            x,
+            y
+          );
+
+        }
+
+      }
+
+
+      ctx.strokeStyle=
+        colors[q]+'66';
+
+      ctx.lineWidth=
+        q===0
+        ? 2
+        : 1.2;
+
+      ctx.stroke();
+
+    }
+
+
+    for(
+      let i=0;
+      i<130;
       i++
     ){
 
       const angle=
-        i*.052+
-        q*1.03+
-        s.t*.4;
+        rng()*Math.PI*2+
+        state.t*.4;
+
 
       const radius=
-        40+
-        i*(q+1)*.48;
+        75+
+        rng()*
+        Math.min(
+          350,
+          width*.38
+        );
+
 
       const x=
-        cx+
-        Math.cos(angle)*radius;
+        centerX+
+        Math.cos(angle)*
+        radius;
+
 
       const y=
-        cy+
+        centerY+
         Math.sin(angle)*
-        radius*.49;
+        radius*.5;
 
-      if(i===0){
-        context.moveTo(
-          x,
-          y
-        );
-      }else{
-        context.lineTo(
-          x,
-          y
-        );
-      }
-    }
 
-    context.strokeStyle=
-      colors[q]+"66";
+      const color=
+        colors[
+          i%colors.length
+        ];
 
-    context.lineWidth=1.5;
 
-    context.stroke();
-  }
+      ctx.fillStyle=color;
 
-  for(
-    let i=0;
-    i<110;
-    i++
-  ){
+      ctx.shadowColor=color;
 
-    const angle=
-      random()*
-      Math.PI*
-      2+
-      s.t*.4;
+      ctx.shadowBlur=9;
 
-    const radius=
-      70+
-      random()*
-      Math.min(
-        340,
-        width*.38
+
+      ctx.beginPath();
+
+      ctx.arc(
+        x,
+        y,
+        1.5+
+        rng()*3.2,
+        0,
+        Math.PI*2
       );
 
-    const x=
-      cx+
-      Math.cos(angle)*radius;
+      ctx.fill();
 
-    const y=
-      cy+
-      Math.sin(angle)*
-      radius*.5;
+      ctx.shadowBlur=0;
 
-    const color=
-      colors[
-        i%colors.length
-      ];
+    }
 
-    context.fillStyle=color;
-    context.shadowColor=color;
-    context.shadowBlur=10;
 
-    context.beginPath();
+    C(
+      ctx,
 
-    context.arc(
-      x,
-      y,
-      1.4+
-      random()*2.7,
-      0,
-      Math.PI*2
+      centerX,
+      centerY,
+
+      72,
+
+      '#2e1905',
+
+      '#ffd08a',
+
+      3
     );
 
-    context.fill();
 
-    context.shadowBlur=0;
+    T(
+      ctx,
+
+      'ATTRACTOR',
+
+      centerX,
+      centerY,
+
+      12,
+
+      '#ffffff'
+    );
+
+
+    T(
+      ctx,
+
+      'ALTERNATIVES → FEEDBACK → SELF-ORGANIZATION',
+
+      width/2,
+      38,
+
+      11,
+
+      '#ffba60'
+    );
+
   }
 
-  circle(
-    context,
-    cx,
-    cy,
-    62,
-    "#2c1703",
-    "#ffc56c",
-    3
-  );
 
-  text(
-    context,
-    "ATTRACTOR",
-    cx,
-    cy,
-    11,
-    "#fff"
-  );
+  update(id);
 
-  text(
-    context,
-    "ALTERNATIVES → FEEDBACK → SELF-ORGANIZATION",
-    width/2,
-    34,
-    11,
-    "#ffb34c"
-  );
 }
 
-function updateInterface(id){
 
-  const model=MODELS[id];
-  const s=state[id];
+function update(id){
 
-  const current=
-    typeof s.i==="number"
-      ?s.i
-      :0;
+  const model=
+    M[id];
+
+
+  const state=
+    S[id];
+
+
+  const index=
+    typeof state.i==='number'
+    ? state.i
+    : 0;
+
 
   const phase=
-    typeof s.i==="number"
-      ?model.stages[current]
-      :"Dynamic attractor field";
+    typeof state.i==='number'
+    ? model.stages[index]
+    : 'Dynamic attractor field';
+
 
   document.getElementById(
-    `stage-${id}`
+    'stage-'+id
   ).textContent=
-    typeof s.i==="number"
-      ?`STAGE ${String(current+1).padStart(2,"0")} / ${model.stages.length}`
-      :"LIVE FIELD";
+
+    typeof state.i==='number'
+
+    ? 'STAGE '+
+      String(index+1).padStart(
+        2,
+        '0'
+      )+
+      ' / '+
+      model.stages.length
+
+    : 'LIVE FIELD';
+
 
   document.getElementById(
-    `phase-${id}`
-  ).textContent=phase;
+    'phase-'+id
+  ).textContent=
+    phase;
 
-  let explanation="";
-
-  if(id==="cd"){
-    explanation=
-      `The model is emphasizing ${phase.toLowerCase()} and its relationship to the next state.`;
-  }
-
-  if(id==="da"){
-    explanation=
-      `The current transition is ${phase.toLowerCase()}; opposing information remains visible so synthesis can be inspected.`;
-  }
-
-  if(id==="hp"){
-    explanation=
-      `The object is unchanged; the active projection is ${phase.toLowerCase()}.`;
-  }
-
-  if(id==="vs"){
-    explanation=
-      `The field is fluctuating; attraction is ${(s.attractor*100).toFixed(0)}% and feedback is ${(s.feedback*100).toFixed(0)}%.`;
-  }
 
   document.getElementById(
-    `explain-${id}`
-  ).textContent=explanation;
+    'desc-'+id
+  ).textContent=
 
-  let metrics=[];
+    id==='cd'
 
-  if(id==="cd"){
-    metrics=[
-      ["STAGE",current+1],
-      ["CAUSALITY","1.00"],
-      ["NOISE",".02"],
-      ["OUTPUT",phase.toUpperCase()]
-    ];
-  }
+    ? 'The model emphasizes '+
+      phase.toLowerCase()+
+      ' and its next directional transition.'
 
-  if(id==="da"){
-    metrics=[
-      ["STAGE",current+1],
-      ["OPPOSITION",".81"],
-      ["SYNTHESIS",current>=3?".76":".31"],
-      ["ALGORITHM",current>=4?"READY":"FORMING"]
-    ];
-  }
+    : id==='da'
 
-  if(id==="hp"){
-    metrics=[
-      ["VIEW",current+1],
-      ["OBJECT","STABLE"],
-      ["PROJECTIONS","6"],
-      ["CRITERION","CHANGING"]
-    ];
-  }
+    ? 'The model is emphasizing '+
+      phase.toLowerCase()+
+      ' within the opposition-to-synthesis sequence.'
 
-  if(id==="vs"){
-    metrics=[
-      ["FIELD","DYNAMIC"],
-      ["ATTRACTOR",(s.attractor*100).toFixed(0)+"%"],
-      ["FEEDBACK",(s.feedback*100).toFixed(0)+"%"],
-      ["DENSITY",(s.field*100).toFixed(0)+"%"]
-    ];
-  }
+    : id==='hp'
+
+    ? 'The central object remains stable while the active projection is '+
+      phase.toLowerCase()+
+      '.'
+
+    : 'Alternatives are fluctuating around the attractor as feedback changes the field.';
+
+
+  const metrics=
+
+    id==='cd'
+
+    ? [
+
+        ['STEP',index+1],
+
+        ['CAUSALITY','1.00'],
+
+        ['NOISE','.02'],
+
+        ['OUTPUT',phase.toUpperCase()]
+
+      ]
+
+
+    : id==='da'
+
+    ? [
+
+        ['STEP',index+1],
+
+        ['OPPOSITION','.81'],
+
+        [
+          'SYNTHESIS',
+          index>=3
+          ? '.76'
+          : '.31'
+        ],
+
+        [
+          'RULE',
+          index>=4
+          ? 'ACTIVE'
+          : 'FORMING'
+        ]
+
+      ]
+
+
+    : id==='hp'
+
+    ? [
+
+        ['VIEW',index+1],
+
+        ['OBJECT','STABLE'],
+
+        ['PROJECTIONS','6'],
+
+        ['CRITERION','CHANGING']
+
+      ]
+
+
+    : [
+
+        [
+          'FIELD',
+          (state.field*100).toFixed(0)+'%'
+        ],
+
+        [
+          'ATTRACTOR',
+          (state.attractor*100).toFixed(0)+'%'
+        ],
+
+        [
+          'FEEDBACK',
+          (state.feedback*100).toFixed(0)+'%'
+        ],
+
+        [
+          'DENSITY',
+          (state.field*100).toFixed(0)+'%'
+        ]
+
+      ];
+
 
   document.getElementById(
-    `metrics-${id}`
+    'metrics-'+id
   ).innerHTML=
+
     metrics.map(
-      metric=>`
-        <div class="metric">
-          <b>${metric[0]}</b>
-          <span>${metric[1]}</span>
-        </div>
-      `
-    ).join("");
+      metric=>
+
+        '<div class="metric">'+
+
+          '<b>'+
+            metric[0]+
+          '</b>'+
+
+          '<span>'+
+            metric[1]+
+          '</span>'+
+
+        '</div>'
+
+    ).join('');
+
 
   document.getElementById(
-    `progress-${id}`
+    'prog-'+id
   ).style.width=
-    typeof s.i==="number"
-      ?`${((current+1)/model.stages.length)*100}%`
-      :"100%";
+
+    typeof state.i==='number'
+
+    ? (
+        (
+          (index+1)/
+          model.stages.length
+        )*
+        100
+      )+
+      '%'
+
+    : '100%';
+
 }
+
 
 function render(){
 
-  Object.keys(
-    MODELS
-  ).forEach(id=>{
+  Object.keys(M)
+    .forEach(draw);
 
-    const canvas=
-      document.getElementById(
-        `canvas-${id}`
+
+  document
+    .querySelectorAll(
+      '#overview button'
+    )
+    .forEach(button=>{
+
+      button.classList.toggle(
+        'active',
+        button.dataset.id===
+        selected
       );
 
-    const context=
-      canvas.getContext(
-        "2d",
-        {
-          alpha:false
-        }
-      );
+    });
 
-    if(id==="cd"){
-      drawCausal(
-        canvas,
-        context
-      );
-    }
-
-    if(id==="da"){
-      drawDialectical(
-        canvas,
-        context
-      );
-    }
-
-    if(id==="hp"){
-      drawPanoramic(
-        canvas,
-        context
-      );
-    }
-
-    if(id==="vs"){
-      drawVortical(
-        canvas,
-        context
-      );
-    }
-
-    updateInterface(id);
-  });
-
-  document.querySelectorAll(
-    "#overview button"
-  ).forEach(button=>{
-
-    button.classList.toggle(
-      "active",
-      button.dataset.id===selected
-    );
-  });
 }
 
-function stepSimulation(id){
 
-  if(id==="cd"){
+function step(id){
 
-    state.cd.i=
-      (state.cd.i+1)%
-      MODELS.cd.stages.length;
+  if(id==='cd'){
+
+    S.cd.i=
+      (
+        S.cd.i+1
+      )%
+      M.cd.stages.length;
+
   }
 
-  if(id==="da"){
 
-    state.da.i=
-      (state.da.i+1)%
-      MODELS.da.stages.length;
+  if(id==='da'){
+
+    S.da.i=
+      (
+        S.da.i+1
+      )%
+      M.da.stages.length;
+
   }
 
-  if(id==="hp"){
 
-    state.hp.i=
-      (state.hp.i+1)%
-      MODELS.hp.stages.length;
+  if(id==='hp'){
 
-    state.hp.angle+=
+    S.hp.i=
+      (
+        S.hp.i+1
+      )%
+      M.hp.stages.length;
+
+
+    S.hp.a+=
       Math.PI/8;
+
   }
 
-  if(id==="vs"){
 
-    state.vs.t+=.35;
+  if(id==='vs'){
 
-    state.vs.field=
+    S.vs.t+=.35;
+
+
+    S.vs.field=
       .35+
-      .25*Math.abs(
+      .25*
+      Math.abs(
         Math.sin(
-          state.vs.t
+          S.vs.t
         )
       );
 
-    state.vs.attractor=
+
+    S.vs.attractor=
       .55+
-      .4*Math.abs(
+      .4*
+      Math.abs(
         Math.cos(
-          state.vs.t*.7
+          S.vs.t*.7
         )
       );
 
-    state.vs.feedback=
+
+    S.vs.feedback=
       .4+
-      .45*Math.abs(
+      .45*
+      Math.abs(
         Math.sin(
-          state.vs.t*.9
+          S.vs.t*.9
         )
       );
+
   }
+
 
   render();
+
 }
 
-function resetSimulation(id){
 
-  if(id==="cd"){
-    state.cd={i:0};
-  }
+function reset(id){
 
-  if(id==="da"){
-    state.da={i:0};
-  }
+  if(id==='cd'){
 
-  if(id==="hp"){
-    state.hp={
-      i:0,
-      angle:0
+    S.cd={
+      i:0
     };
+
   }
 
-  if(id==="vs"){
-    state.vs={
+
+  if(id==='da'){
+
+    S.da={
+      i:0
+    };
+
+  }
+
+
+  if(id==='hp'){
+
+    S.hp={
+      i:0,
+      a:0
+    };
+
+  }
+
+
+  if(id==='vs'){
+
+    S.vs={
       t:0,
       field:.45,
       attractor:.72,
       feedback:.62
     };
+
   }
 
+
   render();
+
 }
 
-function focusSimulation(id){
+
+function focus(id){
 
   selected=id;
 
-  document.querySelectorAll(
-    ".sim"
-  ).forEach(sim=>{
 
-    sim.classList.toggle(
-      "focused",
-      sim.id===`sim-${id}`
+  document
+    .querySelectorAll('.sim')
+    .forEach(sim=>{
+
+      sim.classList.toggle(
+        'focused',
+        sim.id==='sim-'+id
+      );
+
+    });
+
+
+  const target=
+    document.getElementById(
+      'sim-'+id
     );
-  });
 
-  document.getElementById(
-    `sim-${id}`
-  ).scrollIntoView({
-    behavior:
-      reducedMotion
-        ?"auto"
-        :"smooth",
-    block:"center"
-  });
+
+  if(target){
+
+    target.scrollIntoView({
+      behavior:
+        reduced
+        ? 'auto'
+        : 'smooth',
+
+      block:'center'
+    });
+
+  }
+
 }
 
-async function toggleFullscreen(id){
+
+async function full(id){
 
   const element=
     document.getElementById(
-      `sim-${id}`
+      'sim-'+id
     );
+
 
   try{
 
-    if(!document.fullscreenElement){
+    if(
+      document.fullscreenElement
+    ){
 
-      await element.requestFullscreen();
+      await document.exitFullscreen();
 
     }else{
 
-      await document.exitFullscreen();
+      await element.requestFullscreen();
 
     }
 
   }catch(error){
 
     console.warn(
-      "Fullscreen was unavailable:",
+      'Fullscreen unavailable:',
       error
     );
+
   }
+
 }
 
-buildSimulations();
 
-focusSimulation("cd");
-
-let resizeQueued=false;
-
-function requestRender(){
-
-  if(resizeQueued){
-    return;
-  }
-
-  resizeQueued=true;
-
-  requestAnimationFrame(
-    ()=>{
-      resizeQueued=false;
-      render();
-    }
-  );
-}
-
-window.addEventListener(
-  "resize",
-  requestRender,
-  {
-    passive:true
-  }
-);
-
-document.addEventListener(
-  "fullscreenchange",
-  ()=>{
-
-    document.querySelectorAll(
-      ".sim"
-    ).forEach(sim=>{
-      sim.classList.remove(
-        "fullscreen"
-      );
-    });
-
-    if(document.fullscreenElement){
-
-      document.fullscreenElement
-        .classList.add(
-          "fullscreen"
-        );
-    }
-
-    requestRender();
-  }
-);
-
-let lastFrame=
-  performance.now();
-
-let accumulator={
-  cd:0,
-  da:0
-};
-
-let renderTimer=0;
-
-function animationLoop(now){
-
-  const delta=
-    Math.min(
-      .05,
-      (now-lastFrame)/1000
-    );
-
-  lastFrame=now;
-
-  if(!reducedMotion){
-
-    if(!paused.hp){
-
-      state.hp.angle+=
-        delta*.18*speeds.hp;
-    }
-
-    if(!paused.vs){
-
-      state.vs.t+=
-        delta*speeds.vs;
-
-      state.vs.field=
-        .35+
-        .25*Math.abs(
-          Math.sin(
-            state.vs.t
-          )
-        );
-
-      state.vs.attractor=
-        .55+
-        .4*Math.abs(
-          Math.cos(
-            state.vs.t*.7
-          )
-        );
-
-      state.vs.feedback=
-        .4+
-        .45*Math.abs(
-          Math.sin(
-            state.vs.t*.9
-          )
-        );
-    }
-
-    ["cd","da"].forEach(
-      id=>{
-
-        if(paused[id]){
-          return;
-        }
-
-        accumulator[id]+=
-          delta*speeds[id];
-
-        if(
-          accumulator[id]>=.9
-        ){
-
-          accumulator[id]-=.9;
-
-          stepSimulation(id);
-        }
-      }
-    );
-  }
-
-  /*
-    The simulation animation is intentionally rendered continuously,
-    but canvas dimensions are only changed when the actual CSS size
-    changes. This avoids repeatedly reallocating the backing canvas.
-  */
-  renderTimer+=delta;
-
-  if(
-    renderTimer>=1/60
-  ){
-
-    renderTimer=0;
-
-    render();
-  }
-
-  requestAnimationFrame(
-    animationLoop
-  );
-}
-
-requestAnimationFrame(
-  animationLoop
-);
-
-document.getElementById(
-  "model"
-).addEventListener(
-  "change",
-  event=>{
-
-    focusSimulation(
-      event.target.value
-    );
-  }
-);
-
-document.getElementById(
-  "seed"
-).addEventListener(
-  "change",
-  event=>{
-
-    random=
-      makeRandom(
-        event.target.value
-      );
-
-    Object.keys(
-      MODELS
-    ).forEach(
-      resetSimulation
-    );
-  }
-);
-
-function snapshot(){
+function snap(){
 
   const id=
     document.getElementById(
-      "model"
+      'model'
     ).value;
 
-  return{
+
+  return {
+
     project:
-      "Cognitive Dynamics Studio",
+      'Cognitive Dynamics Studio',
 
     model:
-      MODELS[id].name,
+      M[id].name,
 
     modelVersion:
-      "final",
+      '1.0',
 
     seed:
-      Number(
-        document.getElementById(
-          "seed"
-        ).value
-      )||1,
+      +document.getElementById(
+        'seed'
+      ).value||1,
 
     timestamp:
       new Date().toISOString(),
@@ -2793,244 +3712,460 @@ function snapshot(){
     state:
       JSON.parse(
         JSON.stringify(
-          state[id]
+          S[id]
         )
       ),
 
     interpretationBoundary:
-      "Computational state only; not a human measurement."
+      'Computational state only; not a human measurement.'
+
   };
+
 }
 
-function showExperimentOutput(){
+
+function show(data){
 
   const output=
     document.getElementById(
-      "out"
+      'output'
     );
+
+
+  output.hidden=false;
+
 
   output.textContent=
     JSON.stringify(
-      {
-        baseline,
-        intervention
-      },
+      data,
       null,
       2
     );
 
-  output.classList.remove(
-    "hidden"
-  );
 }
 
-document.getElementById(
-  "baseline"
-).addEventListener(
-  "click",
-  ()=>{
 
-    baseline=
-      snapshot();
+build();
 
-    showExperimentOutput();
+focus('cd');
+
+render();
+
+
+window.addEventListener(
+  'resize',
+  render,
+  {
+    passive:true
   }
 );
 
-document.getElementById(
-  "intervention"
-).addEventListener(
-  "click",
+
+document.addEventListener(
+  'fullscreenchange',
   ()=>{
 
-    intervention=
-      snapshot();
+    document
+      .querySelectorAll('.sim')
+      .forEach(sim=>{
 
-    showExperimentOutput();
-  }
-);
+        sim.classList.remove(
+          'fullscreen'
+        );
 
-document.getElementById(
-  "run"
-).addEventListener(
-  "click",
-  ()=>{
+      });
 
-    const id=
-      document.getElementById(
-        "model"
-      ).value;
 
-    resetSimulation(id);
-
-    const steps=
-      Math.max(
-        1,
-        Math.min(
-          1000,
-          Number(
-            document.getElementById(
-              "steps"
-            ).value
-          )||20
-        )
-      );
-
-    for(
-      let i=0;
-      i<steps;
-      i++
+    if(
+      document.fullscreenElement
     ){
 
-      stepSimulation(id);
+      document.fullscreenElement
+        .classList.add(
+          'fullscreen'
+        );
+
     }
 
-    const output=
-      document.getElementById(
-        "out"
-      );
-
-    output.textContent=
-      JSON.stringify(
-        {
-          run:snapshot(),
-          steps,
-          fixedTimestep:.05,
-          baseline,
-          intervention
-        },
-        null,
-        2
-      );
-
-    output.classList.remove(
-      "hidden"
-    );
-  }
-);
-
-document.getElementById(
-  "download"
-).addEventListener(
-  "click",
-  ()=>{
-
-    const content=
-      document.getElementById(
-        "out"
-      ).textContent||
-      JSON.stringify(
-        snapshot(),
-        null,
-        2
-      );
-
-    const blob=
-      new Blob(
-        [content],
-        {
-          type:"application/json"
-        }
-      );
-
-    const url=
-      URL.createObjectURL(
-        blob
-      );
-
-    const link=
-      document.createElement(
-        "a"
-      );
-
-    link.href=url;
-
-    link.download=
-      "cognitive-dynamics-studio-experiment.json";
-
-    document.body.appendChild(
-      link
-    );
-
-    link.click();
-
-    link.remove();
 
     setTimeout(
-      ()=>{
-        URL.revokeObjectURL(
-          url
-        );
-      },
-      500
+      render,
+      30
     );
+
   }
 );
 
+
 document.getElementById(
-  "textsize"
-).addEventListener(
-  "change",
+  'model'
+).onchange=
+  event=>{
+
+    focus(
+      event.target.value
+    );
+
+  };
+
+
+document.getElementById(
+  'seed'
+).onchange=
+  event=>{
+
+    rng=
+      seeded(
+        event.target.value
+      );
+
+
+    Object.keys(M)
+      .forEach(reset);
+
+  };
+
+
+document.getElementById(
+  'baseline'
+).onclick=()=>{
+
+  base=snap();
+
+
+  show({
+
+    baseline:base,
+
+    intervention:intv
+
+  });
+
+};
+
+
+document.getElementById(
+  'intervention'
+).onclick=()=>{
+
+  intv=snap();
+
+
+  show({
+
+    baseline:base,
+
+    intervention:intv
+
+  });
+
+};
+
+
+document.getElementById(
+  'run'
+).onclick=()=>{
+
+  const id=
+    document.getElementById(
+      'model'
+    ).value;
+
+
+  const steps=
+    Math.max(
+      1,
+
+      Math.min(
+        1000,
+
+        +document.getElementById(
+          'steps'
+        ).value||20
+      )
+    );
+
+
+  reset(id);
+
+
+  for(
+    let i=0;
+    i<steps;
+    i++
+  ){
+
+    step(id);
+
+  }
+
+
+  show({
+
+    run:snap(),
+
+    steps,
+
+    baseline:base,
+
+    intervention:intv
+
+  });
+
+};
+
+
+document.getElementById(
+  'download'
+).onclick=()=>{
+
+  const data=
+    document.getElementById(
+      'output'
+    ).textContent||
+    JSON.stringify(
+      snap(),
+      null,
+      2
+    );
+
+
+  const url=
+    URL.createObjectURL(
+      new Blob(
+        [data],
+        {
+          type:'application/json'
+        }
+      )
+    );
+
+
+  const link=
+    document.createElement(
+      'a'
+    );
+
+
+  link.href=url;
+
+  link.download=
+    'cognitive-dynamics-studio-experiment.json';
+
+
+  document.body.appendChild(
+    link
+  );
+
+
+  link.click();
+
+
+  link.remove();
+
+
+  setTimeout(
+    ()=>{
+      URL.revokeObjectURL(
+        url
+      );
+    },
+    500
+  );
+
+};
+
+
+document.getElementById(
+  'textSize'
+).onchange=
   event=>{
 
     document.documentElement
       .classList.remove(
-        "large",
-        "xl"
+        'large',
+        'xl'
       );
 
+
     if(
-      event.target.value!=="normal"
+      event.target.value!=='normal'
     ){
 
       document.documentElement
         .classList.add(
           event.target.value
         );
+
     }
 
-    requestRender();
-  }
-);
+
+    render();
+
+  };
+
 
 document.getElementById(
-  "contrast"
-).addEventListener(
-  "change",
+  'contrast'
+).onchange=
   event=>{
 
-    document.body.classList.toggle(
-      "high-contrast",
-      event.target.checked
-    );
-  }
-);
+    document.body
+      .classList.toggle(
+        'high-contrast',
+        event.target.checked
+      );
+
+  };
+
 
 document.getElementById(
-  "reduced"
-).addEventListener(
-  "change",
+  'motion'
+).onchange=
   event=>{
 
-    reducedMotion=
+    reduced=
       event.target.checked;
 
-    document.querySelectorAll(
-      ".play"
-    ).forEach(button=>{
 
-      if(reducedMotion){
+    Object.keys(P)
+      .forEach(id=>{
 
-        paused[
-          button.dataset.id
-        ]=true;
+        if(reduced){
 
-        button.textContent=
-          "▶ Resume";
+          P[id]=true;
+
+
+          const button=
+            document.querySelector(
+              '.play[data-id="'+
+              id+
+              '"]'
+            );
+
+
+          if(button){
+
+            button.textContent=
+              '▶ Resume';
+
+          }
+
+        }
+
+      });
+
+  };
+
+
+function loop(now){
+
+  const delta=
+    Math.min(
+      .05,
+      (now-last)/1000
+    );
+
+
+  last=now;
+
+
+  if(!reduced){
+
+    if(!P.hp){
+
+      S.hp.a+=
+        delta*
+        .18*
+        speed.hp;
+
+    }
+
+
+    if(!P.vs){
+
+      S.vs.t+=
+        delta*
+        speed.vs;
+
+
+      S.vs.field=
+        .35+
+        .25*
+        Math.abs(
+          Math.sin(
+            S.vs.t
+          )
+        );
+
+
+      S.vs.attractor=
+        .55+
+        .4*
+        Math.abs(
+          Math.cos(
+            S.vs.t*.7
+          )
+        );
+
+
+      S.vs.feedback=
+        .4+
+        .45*
+        Math.abs(
+          Math.sin(
+            S.vs.t*.9
+          )
+        );
+
+    }
+
+
+    for(
+      const id of [
+        'cd',
+        'da'
+      ]
+    ){
+
+      if(!P[id]){
+
+        acc[id]+=
+          delta*
+          speed[id];
+
+
+        if(
+          acc[id]>=.9
+        ){
+
+          acc[id]-=.9;
+
+          step(id);
+
+        }
+
       }
-    });
+
+    }
+
   }
+
+
+  render();
+
+
+  requestAnimationFrame(
+    loop
+  );
+
+}
+
+
+requestAnimationFrame(
+  loop
 );
+
 </script>
 
 </body>
