@@ -305,18 +305,30 @@ select:focus-visible{
   transition:
     background .18s ease,
     border-color .18s ease,
-    transform .18s ease;
+    transform .18s ease,
+    box-shadow .18s ease;
 }
 
 .overview button:hover{
   background:#101e2b;
+
   border-color:#708797;
-  transform:translateY(-1px);
+
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.24);
 }
 
 .overview button.active{
-  border-color:#9cafbd;
-  background:#101e2b;
+  border-color:#d8e6ef;
+  background:#111f2d;
+
+  box-shadow:
+    0 0 0 1px #d8e6ef55 inset,
+    0 12px 35px rgba(0,0,0,.25);
+
+  transform:translateY(-1px);
 }
 
 .overview strong{
