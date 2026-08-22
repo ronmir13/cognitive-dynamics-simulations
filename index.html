@@ -679,7 +679,7 @@ select:focus-visible{
 }
 
 .btn{
-  min-height:48px;
+  min-height:46px;
 
   padding:10px 15px;
 
@@ -698,17 +698,20 @@ select:focus-visible{
   cursor:pointer;
 
   transition:
-    background .15s ease,
-    border-color .15s ease,
-    transform .15s ease;
+    transform .16s ease,
+    background .16s ease,
+    border-color .16s ease,
+    box-shadow .16s ease;
 }
 
 .btn:hover{
   background:#152535;
-
   border-color:#91a3b1;
 
   transform:translateY(-1px);
+
+  box-shadow:
+    0 8px 22px rgba(0,0,0,.22);
 }
 
 .btn.primary{
@@ -717,6 +720,16 @@ select:focus-visible{
   color:#05080c;
 
   border-color:#f3f8fb;
+
+  font-weight:900;
+
+  box-shadow:
+    0 5px 18px rgba(0,0,0,.18);
+}
+
+.btn.primary:hover{
+  box-shadow:
+    0 9px 26px rgba(255,255,255,.12);
 }
 
 .speed{
