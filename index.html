@@ -375,19 +375,18 @@ select:focus-visible{
 }
 
 .sim.focused{
-  border-color:var(--accent);
+  transform:translateY(-2px);
 
   box-shadow:
     0 0 0 1px var(--accent),
-    var(--shadow),
-    0 0 50px
-      color-mix(
-        in srgb,
-        var(--accent) 12%,
-        transparent
-      );
+    0 18px 60px rgba(0,0,0,.48),
+    0 0 45px color-mix(
+      in srgb,
+      var(--accent) 18%,
+      transparent
+    );
 }
-
+  
 .simhead{
   min-height:118px;
 
@@ -576,12 +575,19 @@ select:focus-visible{
 
 .phase{
   margin-top:4px;
-
-  font-size:1.55rem;
-
-  line-height:1.12;
-
+  font-size:1.65rem;
+  line-height:1.15;
   font-weight:950;
+  letter-spacing:-.025em;
+}
+
+.sim.focused .phase{
+  text-shadow:
+    0 0 18px color-mix(
+      in srgb,
+      var(--accent) 38%,
+      transparent
+    );
 }
 
 .explain p{
