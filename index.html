@@ -2700,11 +2700,15 @@ function draw(id){
       S.cd.i;
 
 
-    const gap=
-      Math.min(
-        150,
-        (width-110)/6
-      );
+const side=92;
+
+const gap=
+  Math.min(
+    150,
+    (width-side*2)/6
+  );
+
+const start=side;
 
 
     const start=
@@ -2847,17 +2851,16 @@ function draw(id){
       height/2;
 
 
-    const positions=[
+  const positions=[
 
-      [-.34,-.22],
-      [-.34,.22],
-      [-.10,0],
-      [.14,0],
-      [.37,0],
-      [.49,0]
+  [-.32,-.22],
+  [-.32,.22],
+  [-.09,0],
+  [.12,0],
+  [.31,0],
+  [.42,0]
 
-    ];
-
+];
 
     const colors=[
 
@@ -2874,10 +2877,10 @@ function draw(id){
     L(
       ctx,
 
-      centerX-.34*width,
+      centerX-.32*width,
       centerY-.22*height,
 
-      centerX-.10*width,
+      centerX-.09*width,
       centerY,
 
       '#51ef7d',
@@ -2889,10 +2892,10 @@ function draw(id){
     L(
       ctx,
 
-      centerX-.34*width,
+      centerX-.32*width,
       centerY+.22*height,
 
-      centerX-.10*width,
+      centerX-.09*width,
       centerY,
 
       '#c878ff',
@@ -3072,7 +3075,7 @@ function draw(id){
 
         const radius=
           Math.min(
-            width*.36,
+            width*.31,
             270
           );
 
