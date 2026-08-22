@@ -1048,9 +1048,36 @@ body.high-contrast .metric{
   }
 
   .visual{
-    height:600px;
-  }
+  height:600px;
+  position:relative;
+  overflow:hidden;
+  background:#010409;
+}
 
+.visual::after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  pointer-events:none;
+
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      color-mix(
+        in srgb,
+        var(--accent) 7%,
+        transparent
+      ),
+      transparent 58%
+    );
+
+  opacity:.75;
+
+  transition:
+    opacity .3s ease;
+}
+  
   .badge{
     font-size:9px;
 
@@ -2381,19 +2408,19 @@ function T(
     value.length>42
   ){
 
-    scale=1.08;
+    scale=1.30;
 
   }else if(
     value.length>30
   ){
 
-    scale=1.18;
+    scale=1.45;
 
   }else if(
     value.length>20
   ){
 
-    scale=1.32;
+    scale=1.60;
 
   }
 
@@ -2403,7 +2430,7 @@ function T(
     value==='ATTRACTOR'
   ){
 
-    scale=1.65;
+    scale=2.05;
 
   }
 
