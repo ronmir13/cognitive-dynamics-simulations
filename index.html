@@ -119,10 +119,15 @@ a{
 }
 
 button:focus-visible,
-a:focus-visible,
 input:focus-visible,
-select:focus-visible{
-  outline:3px solid #e8f7ff;
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible{
+  outline:3px solid #f3f8fb;
+  outline-offset:3px;
+
+  box-shadow:
+    0 0 0 5px rgba(243,248,251,.14);
 }
 
 .wrap{
@@ -686,9 +691,9 @@ select:focus-visible{
 
   flex-wrap:wrap;
 
-  gap:9px;
+  gap:7px;
 
-  padding:13px;
+  padding:10px;
 
   border-top:1px solid #263746;
 }
@@ -697,6 +702,8 @@ select:focus-visible{
   min-height:46px;
 
   padding:10px 15px;
+
+  cursor:pointer;
 
   border:1px solid #3c5264;
 
@@ -709,8 +716,6 @@ select:focus-visible{
   font-size:1rem;
 
   font-weight:800;
-
-  cursor:pointer;
 
   transition:
     transform .16s ease,
@@ -771,17 +776,17 @@ select:focus-visible{
 .speed input{
   width:135px;
 
-  height:22px;
-
-  accent-color:var(--accent);
+  accent-color:#dceaf2;
 
   cursor:pointer;
 }
 
 .speed span{
-  color:#dbe7ee;
+  min-width:32px;
 
-  font-size:1rem;
+  text-align:right;
+
+  color:#dce7ef;
 
   font-weight:900;
 }
@@ -1001,7 +1006,7 @@ body.high-contrast .metric{
   }
 
   .visual{
-    height:620px;
+    height:520px;
   }
 
 }
@@ -1108,11 +1113,9 @@ body.high-contrast .metric{
   }
 
   .phase{
-    font-size:1.65rem;
-    line-height:1.15;
-    font-weight:950;
-    letter-spacing:-.025em;
-  }
+  font-size:1.45rem;
+  line-height:1.15;
+}
 
   .explain p{
     font-size:.96rem;
@@ -1162,12 +1165,16 @@ body.high-contrast .metric{
 
 }
 
-@media(prefers-reduced-motion:reduce){
+@media (prefers-reduced-motion:reduce){
 
-  html{
-    scroll-behavior:auto;
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+    scroll-behavior:auto !important;
   }
-
 }
 
 </style>
@@ -4273,6 +4280,71 @@ requestAnimationFrame(
   loop
 );
 
+
+/* Keyboard controls for the selected simulation. */
+document.addEventListener('keydown',event=>{
+
+  const target=event.target;
+
+  /*
+    Don't hijack keyboard input while the user is typing
+    or changing a form control.
+  */
+  if(
+    target &&
+    (
+      target.matches('input') ||
+      target.matches('select') ||
+      target.matches('textarea')
+    )
+  ){
+    return;
+  }
+
+  /*
+    Space = pause / resume
+  */
+  if(event.key===' '){
+
+    event.preventDefault();
+
+    const button=
+      document.querySelector(
+        '.play[data-id="'+selected+'"]'
+      );
+
+    if(button){
+      button.click();
+    }
+
+    return;
+  }
+
+  /*
+    Right Arrow = advance one simulation step
+  */
+  if(event.key==='ArrowRight'){
+
+    event.preventDefault();
+
+    step(selected);
+
+    return;
+  }
+
+  /*
+    R = reset selected simulation
+  */
+  if(
+    event.key.toLowerCase()==='r'
+  ){
+
+    event.preventDefault();
+
+    reset(selected);
+  }
+
+});
 </script>
 
 </body>
